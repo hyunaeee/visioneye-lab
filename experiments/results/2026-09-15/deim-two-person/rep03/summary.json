@@ -1,0 +1,269 @@
+{
+  "mode": "deim-bytetrack",
+  "status": "completed",
+  "comparison_kind": "detector-pipeline",
+  "clip": "two-person",
+  "repeat": 3,
+  "processed_frames": 241,
+  "source_fps": 24.0,
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "source_sha256": "eef8e536f937f0d018f677c4c16a5f0fa9fb2585666e9957fc7329fd84902bd1",
+  "recording_start_seconds": 0,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "solid"
+  },
+  "privacy": "transparent_overlay",
+  "occupancy_ground_truth_available": false,
+  "total_in": 1,
+  "total_out": 1,
+  "occupancy": 0,
+  "raw_occupancy": 0,
+  "underflow": false,
+  "active_tracks": 3,
+  "confirmed_tracks": 3,
+  "confirmed_track_ids": [
+    2,
+    9,
+    13
+  ],
+  "detector_count": 438,
+  "detection_counts": {
+    "min": 0,
+    "median": 2.0,
+    "max": 5
+  },
+  "processing_seconds": 11.171064900350757,
+  "processing_fps": 21.57,
+  "wall_seconds": 11.188923400011845,
+  "model_initialization_seconds": null,
+  "tracker_initialization_seconds": 0.0014229000080376863,
+  "warmup_seconds": 0.18548649997683242,
+  "warmup_calls": 5,
+  "stage_elapsed": {
+    "source_read": {
+      "calls": 241,
+      "total_seconds": 0.437518,
+      "p50_ms": 1.68,
+      "p95_ms": 2.044,
+      "mean_ms": 1.815
+    },
+    "detector": {
+      "calls": 241,
+      "total_seconds": 10.546014,
+      "p50_ms": 44.967,
+      "p95_ms": 53.53,
+      "mean_ms": 43.759
+    },
+    "tracker": {
+      "calls": 241,
+      "total_seconds": 0.152839,
+      "p50_ms": 0.634,
+      "p95_ms": 0.883,
+      "mean_ms": 0.634
+    },
+    "counter": {
+      "calls": 241,
+      "total_seconds": 0.008003,
+      "p50_ms": 0.032,
+      "p95_ms": 0.047,
+      "mean_ms": 0.033
+    },
+    "telemetry": {
+      "calls": 241,
+      "total_seconds": 0.011363,
+      "p50_ms": 0.044,
+      "p95_ms": 0.082,
+      "mean_ms": 0.047
+    },
+    "processing": {
+      "calls": 241,
+      "total_seconds": 11.171065,
+      "p50_ms": 47.552,
+      "p95_ms": 56.338,
+      "mean_ms": 46.353
+    }
+  },
+  "gpu_memory": {
+    "device_used_peak_mib": 13321.0,
+    "sample_count": 104,
+    "scope": "Whole GPU used memory sampled every 100 ms, includes display and other processes; not model-only VRAM.",
+    "torch_peak_allocated_mib": 98.5,
+    "torch_peak_reserved_mib": 116.0
+  },
+  "engine_metadata": {
+    "model": "DEIMv2-S",
+    "adapter": "deim_adapter.DetectorAdapter",
+    "model_repo": "Intellindust/DEIMv2_DINOv3_S_COCO",
+    "model_revision": "cf0540f3f319bb8ecbe132624358a35a7beb86d5",
+    "code_repo": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+    "code_revision": "1d2ca42171570c713e78fc6a766ec5104b7f4724",
+    "model_sha256": "fe545b150766b8761a696f7b1d92ea138fafe8e02a7398823e0c62d2a5867956",
+    "config_sha256": "c815791122b6be862d5c5902b3557771bda640acd0ca21ca9999c540eb6e6853",
+    "model_path": "model.safetensors",
+    "config_source": "Official HF config paired with checkpoint",
+    "experiment_scope": "Official published checkpoint comparison; not a reproduction of the paper benchmark",
+    "config_difference": "HF paired interaction_indexes=[5,8,11]; current repo S training YAML uses [3,7,11]. Paired HF value is retained.",
+    "backbone": {
+      "embed_dim": 192,
+      "interaction_indexes": [
+        5,
+        8,
+        11
+      ],
+      "name": "vit_tiny",
+      "num_heads": 3
+    },
+    "device": "cuda:0",
+    "input_size": [
+      640,
+      640
+    ],
+    "preprocessing": "BGR->RGB PIL, torchvision bilinear Resize 640x640 (warp), ToTensor, ImageNet normalize",
+    "preprocessing_source": "Official tools/inference/torch_inf.py and S validation YAML; the illustrative hf_models.ipynb omits Normalize",
+    "dtype": "float32",
+    "threshold": 0.1,
+    "person_label": 0,
+    "person_coco_category_id": 1,
+    "label_mapping": "PostProcessor.deploy returns contiguous COCO labels; person category 1 maps to label 0",
+    "postprocessing": "Official top-300 focal scores; person filter; score>=0.1; clip xyxy to original frame; no additional NMS",
+    "deploy_conversion": true,
+    "strict_checkpoint_load": true,
+    "torch_version": "2.11.0+cu128",
+    "torchvision_version": "0.26.0+cu128",
+    "safetensors_version": "0.8.0"
+  },
+  "tracker_metadata": {
+    "kind": "bytetrack",
+    "fps": 24.0,
+    "requested_device": "0",
+    "reid_device": null,
+    "tracker_compute": "CPU NumPy association; ReID device recorded separately",
+    "max_lost_frames": 24,
+    "config": {
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 24,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "ultralytics_version": "8.4.150",
+    "numpy_version": "2.5.2",
+    "torch_version": "2.11.0+cu128",
+    "adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+    "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c",
+    "tracktrack_yaml_sha256": null,
+    "reid_enabled": false,
+    "reid_model": null,
+    "reid_model_sha256": null,
+    "reid_runtime_version": null,
+    "reid_providers": [],
+    "reid_provider_options": {},
+    "reid_inputs": [],
+    "reid_outputs": [],
+    "reid_fp16": false,
+    "reid_crop_size": null,
+    "reid_preprocess": null,
+    "association_precision": "upstream float32 detection arrays and native NumPy Kalman/association arithmetic",
+    "raw_detections_preserved": true,
+    "raw_detection_index_validation": "strict",
+    "loose_nms_recovery": false,
+    "comparison_scope": "Ultralytics TrackTrack implementation on fixed post-NMS detections; not full paper reproduction",
+    "distinct_track_ids_are_people_count": false,
+    "frames_processed_since_reset": 241
+  },
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "opencv": "4.14.0"
+  },
+  "python_version": "3.12.14",
+  "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+  "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+  "event_agreement": {
+    "strict": {
+      "matched": 2,
+      "reference_events": 2,
+      "predicted_events": 2,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0,
+      "pairs": [
+        {
+          "reference": "red shirt",
+          "track_id": 2,
+          "timestamp": 5.291666666666667,
+          "direction": "OUT",
+          "window_seconds": [
+            5.25,
+            5.5
+          ]
+        },
+        {
+          "reference": "blue shirt",
+          "track_id": 9,
+          "timestamp": 5.916666666666667,
+          "direction": "IN",
+          "window_seconds": [
+            5.75,
+            6.0
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    },
+    "plus_0_5s": {
+      "matched": 2,
+      "reference_events": 2,
+      "predicted_events": 2,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0.5,
+      "pairs": [
+        {
+          "reference": "red shirt",
+          "track_id": 2,
+          "timestamp": 5.291666666666667,
+          "direction": "OUT",
+          "window_seconds": [
+            5.25,
+            5.5
+          ]
+        },
+        {
+          "reference": "blue shirt",
+          "track_id": 9,
+          "timestamp": 5.916666666666667,
+          "direction": "IN",
+          "window_seconds": [
+            5.75,
+            6.0
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    }
+  },
+  "measurement_notes": [
+    "CUDA synchronized calls. Warm-up and initialization separate. Pipeline processing includes source read, detection, tracking, counting and telemetry; excludes rendering/video export. Cached tracker timing excludes detection and must not be compared as full pipeline FPS.",
+    "14 existing AI source-review events. No human-consensus annotations, full-frame boxes, persistent reference IDs or masks. Do not calculate HOTA/IDF1/person recall/segmentation accuracy from proxy counts."
+  ]
+}

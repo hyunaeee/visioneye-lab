@@ -2,12 +2,21 @@
 
 [뷰어](https://visioneye-lab.vercel.app) · [포트폴리오](https://aengdo.vercel.app/work/visioneye/) · [다음 실험](docs/NEXT_EXPERIMENTS.md)
 
+## 추가 비교 · 실행 완료
+
+YOLO26n / RF-DETR Small / DEIMv2-S와 ByteTrack / TrackTrack / TrackTrack+ReID를 같은 영상 2개·602프레임에서 조건별 3회 비교했습니다. 모두 다인 영상 4 IN / 8 OUT, 2인 영상 1 IN / 1 OUT을 유지했습니다. TrackTrack의 다인 추적 ID는 22→18개였으며, ReID ON/OFF는 프레임별 ID까지 같았습니다. ID 개수는 고유 인원·정확도가 아닙니다.
+
+[비교 결과](docs/COMPARISON_RESULTS.md) · [실행 원자료](experiments/results/2026-09-15/) · [재현 방법](docs/EXPERIMENT_REPRODUCTION.md)
+
+웹의 **모델 비교**에서 처리 범위·3회 변동·원본/결과 영상을 확인할 수 있습니다. SAM 3.1은 공식 가중치 접근 승인 필요로 실행 보류입니다. 기본 로컬 앱 설정은 ByteTrack을 유지합니다.
+
 YOLO26n + ByteTrack로 사람을 추적하고 유한한 출입선의 IN/OUT을 집계하는 로컬 Python 앱과 정적 결과 뷰어입니다. 웹에서는 저장된 영상·CSV·JSON을 재생하며 모델을 실행하지 않습니다.
 
-- `web/`: 배포할 정적 루트. HTML/CSS/JavaScript와 약 10MB의 예제 자산.
+- `web/`: 배포할 정적 루트. HTML/CSS/JavaScript와 원본·분석 영상.
 - `visioneye/`: 로컬 분석·보정·마스킹 앱과 41개 자동 테스트.
 - `scripts/`: 모델 다운로드, 실제 검출 평가, 반투명 비교 영상 생성.
-- [다음 비교 실험 후보](docs/NEXT_EXPERIMENTS.md): 추적·검출·마스크 비교 설계. 제안이며 미실행.
+- [실험 설계](docs/NEXT_EXPERIMENTS.md): 추적·검출 비교 완료, SAM 접근 보류 및 현장 평가 계획.
+- `experiments/results/`: 3회별 요약·이벤트와 첫 번째 반복의 프레임별 좌표, 검수 기록.
 - `PUBLISH_FILES.json`: 게시 대상 파일 크기·SHA256 목록.
 
 ## 웹 실행

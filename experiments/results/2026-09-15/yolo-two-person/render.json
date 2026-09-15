@@ -1,0 +1,67 @@
+{
+  "status": "completed",
+  "source_path": "web/assets/higgsfield-source.mp4",
+  "source_sha256": "eef8e536f937f0d018f677c4c16a5f0fa9fb2585666e9957fc7329fd84902bd1",
+  "tracks_sha256": "2c80a5162404d68e35436b740a946abd45baa0e541825171397d83e2a78705d7",
+  "evaluation_summary_sha256": "cb0a5dfc2eb28cfadd6321888ad07bd7beb33ecdbef502ecf109a31cb86155f7",
+  "renderer_sha256": "800479335ed04921b1728d1286bc8cc24f2a15262881f93c6f4cbe9ec812b0c1",
+  "overlay_sha256": "7057503e3ad4a3c178662cf985ad73f208580f29c4d2f99d6d867a6413d96e76",
+  "overlay": "overlay.mp4",
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "output_size_px": [
+    1280,
+    720
+  ],
+  "source_fps": 24.0,
+  "output_fps": 24.0,
+  "fps_rational": "24",
+  "source_decoded_frames": 241,
+  "telemetry_frames": 241,
+  "output_decoded_frames": 241,
+  "duration_seconds": 10.041666666666666,
+  "frame_alignment_verified": true,
+  "telemetry_frame_indices": "contiguous from zero",
+  "maximum_telemetry_timestamp_error_seconds": 0.0,
+  "codec": "H.264",
+  "pixel_format": "yuv420p",
+  "faststart": true,
+  "fill_opacity": 0.12,
+  "trail_frames": 18,
+  "privacy_protection": false,
+  "people_remain_visible": true,
+  "detector_rerun": false,
+  "counting_config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "solid"
+  },
+  "total_in": 1,
+  "total_out": 1,
+  "preview_frame": 142,
+  "render_wall_seconds": 1.5103,
+  "total_wall_seconds_including_verification": 1.990711,
+  "notes": [
+    "Transparent boxes are an analysis overlay, not a privacy mask; faces and bodies remain visible.",
+    "Every output frame uses the corresponding source frame and existing measured detections; no detector was rerun.",
+    "Source SHA256, each telemetry index and timestamp, complete source/output decoding, dimensions and FPS were checked.",
+    "No frames were intentionally skipped, duplicated or interpolated. Input and output use the evaluator's nominal frame-index/FPS timeline.",
+    "The original solid-masked evaluation and app defaults were not modified.",
+    "Audio is omitted so a comparison UI can play the original source audio once."
+  ]
+}

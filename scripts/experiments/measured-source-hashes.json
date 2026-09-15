@@ -1,0 +1,230 @@
+{
+  "scope": "Retained local source snapshots after measurements plus exact hashes recorded per run. Not every run used a single identical source revision; public copies adjust paths and output sanitization.",
+  "retained_local_sources_sha256": {
+    "compare.py": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+    "yolo_adapter.py": "d1cb55ecdfa66aa9bf0ec69d6711bf3c0230eb84f0d582f63093465667874e61",
+    "rfdetr_adapter.py": "2e6ec7f2dc97f72814d0ea09d8fdd245e8c22f77d719a9c77002c8074ecbb122",
+    "deim_adapter.py": "40efa69aed7e241f748d0a4cb1c9e3e2223d348fcc164b5acd2c082f7b878833",
+    "tracker_adapter.py": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+    "protocol.json": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+    "prepare_reid_model.py": "e6761e98439c08814bdb99bee9d20904ca2a85eca18be93e3d5a4c1471779542"
+  },
+  "recorded_run_hashes": {
+    "cached-byte-crowd/rep01": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "cached-byte-crowd/rep02": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "cached-byte-crowd/rep03": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "cached-byte-two-person/rep01": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "cached-byte-two-person/rep02": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "cached-byte-two-person/rep03": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "cached-reid-crowd/rep01": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-reid-crowd/rep02": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-reid-crowd/rep03": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-reid-two-person/rep01": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-reid-two-person/rep02": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-reid-two-person/rep03": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-track-crowd/rep01": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-track-crowd/rep02": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-track-crowd/rep03": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-track-two-person/rep01": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-track-two-person/rep02": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "cached-track-two-person/rep03": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d"
+    },
+    "deim-crowd/rep01": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "deim-crowd/rep02": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "deim-crowd/rep03": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "deim-two-person/rep01": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "deim-two-person/rep02": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "deim-two-person/rep03": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "rfdetr-crowd/rep01": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "rfdetr-crowd/rep02": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "rfdetr-crowd/rep03": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "rfdetr-two-person/rep01": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "rfdetr-two-person/rep02": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "rfdetr-two-person/rep03": {
+      "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "yolo-crowd/rep01": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "yolo-crowd/rep02": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "yolo-crowd/rep03": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "yolo-two-person/rep01": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "yolo-two-person/rep02": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    },
+    "yolo-two-person/rep03": {
+      "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+      "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+      "tracker_adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+      "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c"
+    }
+  }
+}

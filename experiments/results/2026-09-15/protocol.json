@@ -1,0 +1,42 @@
+{
+  "locked_date": "2026-09-15",
+  "sources": {
+    "crowd": {
+      "file": "web/assets/crowd-source.mp4",
+      "frames": 361,
+      "fps": 24,
+      "sha256": "9f79a902723ac40ae1e74db9a649a04e33651c5599b5f04c32dc5f7d3441afc5"
+    },
+    "two-person": {
+      "file": "web/assets/higgsfield-source.mp4",
+      "frames": 241,
+      "fps": 24,
+      "sha256": "eef8e536f937f0d018f677c4c16a5f0fa9fb2585666e9957fc7329fd84902bd1"
+    }
+  },
+  "repeats": 3,
+  "warmup_calls": 5,
+  "detector_confidence": 0.1,
+  "batch_size": 1,
+  "device": "RTX 4090 / cuda:0",
+  "line_px": [
+    [
+      128,
+      396
+    ],
+    [
+      1152,
+      396
+    ]
+  ],
+  "in_side": 1,
+  "hysteresis_px": 8,
+  "max_gap_frames": 15,
+  "initial_occupancy": "unknown; zero arithmetic baseline only",
+  "tracker_comparison": "Same YOLO26n repeat-1 raw boxes and scores for ByteTrack / TrackTrack ReID OFF / ON. No re-detection or threshold tuning.",
+  "detector_comparison": "YOLO26n 640 FP16, RF-DETR Small native 512, DEIMv2-S native 640, same ByteTrack and counting rule; practical model presets, not compute-matched or architecture-only comparison.",
+  "event_agreement": "One-to-one clip/direction/time matching against existing source-only AI review windows. Identity is not verified by this automatic match. Primary original intervals, secondary intervals expanded by 0.5 seconds. Both retained.",
+  "timing": "CUDA synchronized calls. Warm-up and initialization separate. Pipeline processing includes source read, detection, tracking, counting and telemetry; excludes rendering/video export. Cached tracker timing excludes detection and must not be compared as full pipeline FPS.",
+  "ground_truth": "14 existing AI source-review events. No human-consensus annotations, full-frame boxes, persistent reference IDs or masks. Do not calculate HOTA/IDF1/person recall/segmentation accuracy from proxy counts.",
+  "selection": "Report counts, event temporal agreement, duplicate/fragmented-ID observations, full-frame videos and cost. Do not select a winner from fewer unique predicted IDs alone. No tuning using these evaluation clips."
+}

@@ -9,6 +9,7 @@
 visioneye
 scripts
 docs
+experiments
 *.md
 PUBLISH_FILES.json
 .env*

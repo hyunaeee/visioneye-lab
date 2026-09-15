@@ -1,0 +1,234 @@
+{
+  "mode": "yolo-bytetrack",
+  "status": "completed",
+  "comparison_kind": "detector-pipeline",
+  "clip": "two-person",
+  "repeat": 3,
+  "processed_frames": 241,
+  "source_fps": 24.0,
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "source_sha256": "eef8e536f937f0d018f677c4c16a5f0fa9fb2585666e9957fc7329fd84902bd1",
+  "recording_start_seconds": 0,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "solid"
+  },
+  "privacy": "transparent_overlay",
+  "occupancy_ground_truth_available": false,
+  "total_in": 1,
+  "total_out": 1,
+  "occupancy": 0,
+  "raw_occupancy": 0,
+  "underflow": false,
+  "active_tracks": 2,
+  "confirmed_tracks": 2,
+  "confirmed_track_ids": [
+    1,
+    2
+  ],
+  "detector_count": 378,
+  "detection_counts": {
+    "min": 0,
+    "median": 2.0,
+    "max": 3
+  },
+  "processing_seconds": 4.064593299932312,
+  "processing_fps": 59.29,
+  "wall_seconds": 4.076027199975215,
+  "model_initialization_seconds": null,
+  "tracker_initialization_seconds": 0.0009649000130593777,
+  "warmup_seconds": 0.05363370000850409,
+  "warmup_calls": 5,
+  "stage_elapsed": {
+    "source_read": {
+      "calls": 241,
+      "total_seconds": 0.431015,
+      "p50_ms": 1.655,
+      "p95_ms": 2.296,
+      "mean_ms": 1.788
+    },
+    "detector": {
+      "calls": 241,
+      "total_seconds": 3.466791,
+      "p50_ms": 11.831,
+      "p95_ms": 27.052,
+      "mean_ms": 14.385
+    },
+    "tracker": {
+      "calls": 241,
+      "total_seconds": 0.130561,
+      "p50_ms": 0.478,
+      "p95_ms": 1.066,
+      "mean_ms": 0.542
+    },
+    "counter": {
+      "calls": 241,
+      "total_seconds": 0.007045,
+      "p50_ms": 0.025,
+      "p95_ms": 0.058,
+      "mean_ms": 0.029
+    },
+    "telemetry": {
+      "calls": 241,
+      "total_seconds": 0.008548,
+      "p50_ms": 0.028,
+      "p95_ms": 0.078,
+      "mean_ms": 0.035
+    },
+    "processing": {
+      "calls": 241,
+      "total_seconds": 4.064593,
+      "p50_ms": 13.897,
+      "p95_ms": 30.469,
+      "mean_ms": 16.866
+    }
+  },
+  "gpu_memory": {
+    "device_used_peak_mib": 13227.1,
+    "sample_count": 38,
+    "scope": "Whole GPU used memory sampled every 100 ms, includes display and other processes; not model-only VRAM.",
+    "torch_peak_allocated_mib": 60.5,
+    "torch_peak_reserved_mib": 86.0
+  },
+  "engine_metadata": {
+    "model": "YOLO26n",
+    "imgsz": 640,
+    "precision": "FP16",
+    "confidence": 0.1,
+    "person_class": 0,
+    "weights_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "preprocess": "Ultralytics BGR letterbox",
+    "device": "cuda:0"
+  },
+  "tracker_metadata": {
+    "kind": "bytetrack",
+    "fps": 24.0,
+    "requested_device": "0",
+    "reid_device": null,
+    "tracker_compute": "CPU NumPy association; ReID device recorded separately",
+    "config": {
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 24,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "ultralytics_version": "8.4.150",
+    "numpy_version": "2.5.2",
+    "torch_version": "2.11.0+cu128",
+    "adapter_sha256": "9137c2461e6a7b8997b22371f4f44fb07210f98fd3663b08436559de589bb561",
+    "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c",
+    "tracktrack_yaml_sha256": null,
+    "reid_enabled": false,
+    "reid_model": null,
+    "reid_model_sha256": null,
+    "reid_runtime_version": null,
+    "reid_providers": [],
+    "reid_provider_options": {},
+    "reid_inputs": [],
+    "reid_outputs": [],
+    "reid_fp16": false,
+    "reid_preprocess": null,
+    "association_precision": "upstream float32 detection arrays and native NumPy Kalman/association arithmetic",
+    "raw_detections_preserved": true,
+    "raw_detection_index_validation": "strict",
+    "loose_nms_recovery": false,
+    "comparison_scope": "Ultralytics TrackTrack implementation on fixed post-NMS detections; not full paper reproduction",
+    "distinct_track_ids_are_people_count": false,
+    "frames_processed_since_reset": 241
+  },
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "opencv": "4.14.0"
+  },
+  "python_version": "3.12.14",
+  "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+  "runner_sha256": "f88468914eb76dccdada95bfafdc05b606f2c78db19a5cc19b5b7275063ceed2",
+  "event_agreement": {
+    "strict": {
+      "matched": 2,
+      "reference_events": 2,
+      "predicted_events": 2,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0,
+      "pairs": [
+        {
+          "reference": "red shirt",
+          "track_id": 1,
+          "timestamp": 5.291666666666667,
+          "direction": "OUT",
+          "window_seconds": [
+            5.25,
+            5.5
+          ]
+        },
+        {
+          "reference": "blue shirt",
+          "track_id": 2,
+          "timestamp": 5.916666666666667,
+          "direction": "IN",
+          "window_seconds": [
+            5.75,
+            6.0
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    },
+    "plus_0_5s": {
+      "matched": 2,
+      "reference_events": 2,
+      "predicted_events": 2,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0.5,
+      "pairs": [
+        {
+          "reference": "red shirt",
+          "track_id": 1,
+          "timestamp": 5.291666666666667,
+          "direction": "OUT",
+          "window_seconds": [
+            5.25,
+            5.5
+          ]
+        },
+        {
+          "reference": "blue shirt",
+          "track_id": 2,
+          "timestamp": 5.916666666666667,
+          "direction": "IN",
+          "window_seconds": [
+            5.75,
+            6.0
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    }
+  },
+  "measurement_notes": [
+    "CUDA synchronized calls. Warm-up and initialization separate. Pipeline processing includes source read, detection, tracking, counting and telemetry; excludes rendering/video export. Cached tracker timing excludes detection and must not be compared as full pipeline FPS.",
+    "14 existing AI source-review events. No human-consensus annotations, full-frame boxes, persistent reference IDs or masks. Do not calculate HOTA/IDF1/person recall/segmentation accuracy from proxy counts."
+  ]
+}

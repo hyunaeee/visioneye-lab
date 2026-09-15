@@ -1,0 +1,7 @@
+onnxruntime-gpu==1.23.2
+onnx==1.22.0
+protobuf==7.36.1
+ml-dtypes==0.6.0
+flatbuffers==25.12.19
+coloredlogs==15.0.1
+humanfriendly==10.0

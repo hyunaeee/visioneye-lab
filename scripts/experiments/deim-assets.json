@@ -1,0 +1,16 @@
+{
+  "official_model_repo": "Intellindust/DEIMv2_DINOv3_S_COCO",
+  "hf_revision": "cf0540f3f319bb8ecbe132624358a35a7beb86d5",
+  "files": {
+    "config.json": {
+      "sha256": "c815791122b6be862d5c5902b3557771bda640acd0ca21ca9999c540eb6e6853",
+      "bytes": 1321,
+      "url": "https://huggingface.co/Intellindust/DEIMv2_DINOv3_S_COCO/resolve/cf0540f3f319bb8ecbe132624358a35a7beb86d5/config.json"
+    },
+    "model.safetensors": {
+      "sha256": "fe545b150766b8761a696f7b1d92ea138fafe8e02a7398823e0c62d2a5867956",
+      "bytes": 39386484,
+      "url": "https://huggingface.co/Intellindust/DEIMv2_DINOv3_S_COCO/resolve/cf0540f3f319bb8ecbe132624358a35a7beb86d5/model.safetensors"
+    }
+  }
+}

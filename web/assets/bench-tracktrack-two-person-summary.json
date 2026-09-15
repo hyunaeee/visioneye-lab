@@ -1,0 +1,326 @@
+{
+  "mode": "yolo-tracktrack",
+  "status": "completed",
+  "comparison_kind": "cached-tracker",
+  "clip": "two-person",
+  "repeat": 1,
+  "processed_frames": 241,
+  "source_fps": 24.0,
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "source_sha256": "eef8e536f937f0d018f677c4c16a5f0fa9fb2585666e9957fc7329fd84902bd1",
+  "recording_start_seconds": 0,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "solid"
+  },
+  "privacy": "transparent_overlay",
+  "occupancy_ground_truth_available": false,
+  "total_in": 1,
+  "total_out": 1,
+  "occupancy": 0,
+  "raw_occupancy": 0,
+  "underflow": false,
+  "active_tracks": 2,
+  "confirmed_tracks": 2,
+  "confirmed_track_ids": [
+    1,
+    2
+  ],
+  "detector_count": 378,
+  "detection_counts": {
+    "min": 0,
+    "median": 2.0,
+    "max": 3
+  },
+  "processing_seconds": 0.45533659972716123,
+  "processing_fps": 529.28,
+  "wall_seconds": 0.4663247999851592,
+  "model_initialization_seconds": null,
+  "tracker_initialization_seconds": 0.13780189998215064,
+  "warmup_seconds": 0.0004246000316925347,
+  "warmup_calls": 5,
+  "stage_elapsed": {
+    "source_read": {
+      "calls": 241,
+      "total_seconds": 0.318528,
+      "p50_ms": 1.219,
+      "p95_ms": 1.46,
+      "mean_ms": 1.322
+    },
+    "detector": null,
+    "tracker": {
+      "calls": 241,
+      "total_seconds": 0.112646,
+      "p50_ms": 0.503,
+      "p95_ms": 0.681,
+      "mean_ms": 0.467
+    },
+    "counter": {
+      "calls": 241,
+      "total_seconds": 0.004443,
+      "p50_ms": 0.019,
+      "p95_ms": 0.025,
+      "mean_ms": 0.018
+    },
+    "telemetry": {
+      "calls": 241,
+      "total_seconds": 0.006111,
+      "p50_ms": 0.022,
+      "p95_ms": 0.055,
+      "mean_ms": 0.025
+    },
+    "processing": {
+      "calls": 241,
+      "total_seconds": 0.455337,
+      "p50_ms": 1.812,
+      "p95_ms": 2.226,
+      "mean_ms": 1.889
+    }
+  },
+  "gpu_memory": {
+    "device_used_peak_mib": 13252.7,
+    "sample_count": 5,
+    "scope": "Whole GPU used memory sampled every 100 ms, includes display and other processes; not model-only VRAM.",
+    "torch_peak_allocated_mib": 0.0,
+    "torch_peak_reserved_mib": 0.0
+  },
+  "engine_metadata": {
+    "model": "Cached YOLO26n boxes",
+    "cache_sha256": "2c80a5162404d68e35436b740a946abd45baa0e541825171397d83e2a78705d7",
+    "origin": {
+      "model": "YOLO26n",
+      "imgsz": 640,
+      "precision": "FP16",
+      "confidence": 0.1,
+      "person_class": 0,
+      "weights_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+      "preprocess": "Ultralytics BGR letterbox",
+      "device": "cuda:0"
+    }
+  },
+  "tracker_metadata": {
+    "kind": "tracktrack",
+    "fps": 24.0,
+    "requested_device": "0",
+    "reid_device": null,
+    "tracker_compute": "CPU NumPy association; ReID device recorded separately",
+    "max_lost_frames": 30,
+    "config": {
+      "tracker_type": "tracktrack",
+      "track_high_thresh": 0.6,
+      "track_low_thresh": 0.25,
+      "new_track_thresh": 0.7,
+      "track_buffer": 30,
+      "match_thresh": 0.7,
+      "lost_match_thr": 0.0,
+      "iou_weight": 0.5,
+      "reid_weight": 0.5,
+      "conf_weight": 0.1,
+      "angle_weight": 0.05,
+      "penalty_p": 0.2,
+      "penalty_q": 0.4,
+      "reduce_step": 0.05,
+      "tai_thr": 0.55,
+      "min_track_len": 3,
+      "gmc_method": "none",
+      "with_reid": false,
+      "model": "yolo26n-reid.onnx",
+      "device": "cuda:0"
+    },
+    "ultralytics_version": "8.4.150",
+    "numpy_version": "2.5.2",
+    "torch_version": "2.11.0+cu128",
+    "adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+    "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d",
+    "tracktrack_yaml_sha256": "33fcd0cf42023fabc1cff93e8769f949e3f92a39219a8b7de157fc612a1de37a",
+    "reid_enabled": false,
+    "reid_model": null,
+    "reid_model_sha256": null,
+    "reid_runtime_version": null,
+    "reid_providers": [],
+    "reid_provider_options": {},
+    "reid_inputs": [],
+    "reid_outputs": [],
+    "reid_fp16": false,
+    "reid_crop_size": null,
+    "reid_preprocess": null,
+    "association_precision": "upstream float32 detection arrays and native NumPy Kalman/association arithmetic",
+    "raw_detections_preserved": true,
+    "raw_detection_index_validation": "strict",
+    "loose_nms_recovery": false,
+    "comparison_scope": "Ultralytics TrackTrack implementation on fixed post-NMS detections; not full paper reproduction",
+    "distinct_track_ids_are_people_count": false,
+    "frames_processed_since_reset": 241
+  },
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "opencv": "4.14.0"
+  },
+  "python_version": "3.12.14",
+  "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+  "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+  "event_agreement": {
+    "strict": {
+      "matched": 2,
+      "reference_events": 2,
+      "predicted_events": 2,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0,
+      "pairs": [
+        {
+          "reference": "red shirt",
+          "track_id": 1,
+          "timestamp": 5.291666666666667,
+          "direction": "OUT",
+          "window_seconds": [
+            5.25,
+            5.5
+          ]
+        },
+        {
+          "reference": "blue shirt",
+          "track_id": 2,
+          "timestamp": 5.916666666666667,
+          "direction": "IN",
+          "window_seconds": [
+            5.75,
+            6.0
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    },
+    "plus_0_5s": {
+      "matched": 2,
+      "reference_events": 2,
+      "predicted_events": 2,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0.5,
+      "pairs": [
+        {
+          "reference": "red shirt",
+          "track_id": 1,
+          "timestamp": 5.291666666666667,
+          "direction": "OUT",
+          "window_seconds": [
+            5.25,
+            5.5
+          ]
+        },
+        {
+          "reference": "blue shirt",
+          "track_id": 2,
+          "timestamp": 5.916666666666667,
+          "direction": "IN",
+          "window_seconds": [
+            5.75,
+            6.0
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    }
+  },
+  "measurement_notes": [
+    "CUDA synchronized calls. Warm-up and initialization separate. Pipeline processing includes source read, detection, tracking, counting and telemetry; excludes rendering/video export. Cached tracker timing excludes detection and must not be compared as full pipeline FPS.",
+    "14 existing AI source-review events. No human-consensus annotations, full-frame boxes, persistent reference IDs or masks. Do not calculate HOTA/IDF1/person recall/segmentation accuracy from proxy counts."
+  ],
+  "reproducibility": {
+    "source_sha256": "eef8e536f937f0d018f677c4c16a5f0fa9fb2585666e9957fc7329fd84902bd1",
+    "source_path": "web/assets/higgsfield-source.mp4",
+    "engine": {
+      "model": "Cached YOLO26n boxes",
+      "cache_sha256": "2c80a5162404d68e35436b740a946abd45baa0e541825171397d83e2a78705d7",
+      "origin": {
+        "model": "YOLO26n",
+        "imgsz": 640,
+        "precision": "FP16",
+        "confidence": 0.1,
+        "person_class": 0,
+        "weights_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+        "preprocess": "Ultralytics BGR letterbox",
+        "device": "cuda:0"
+      }
+    },
+    "tracker": {
+      "kind": "tracktrack",
+      "fps": 24.0,
+      "requested_device": "0",
+      "reid_device": null,
+      "tracker_compute": "CPU NumPy association; ReID device recorded separately",
+      "max_lost_frames": 30,
+      "config": {
+        "tracker_type": "tracktrack",
+        "track_high_thresh": 0.6,
+        "track_low_thresh": 0.25,
+        "new_track_thresh": 0.7,
+        "track_buffer": 30,
+        "match_thresh": 0.7,
+        "lost_match_thr": 0.0,
+        "iou_weight": 0.5,
+        "reid_weight": 0.5,
+        "conf_weight": 0.1,
+        "angle_weight": 0.05,
+        "penalty_p": 0.2,
+        "penalty_q": 0.4,
+        "reduce_step": 0.05,
+        "tai_thr": 0.55,
+        "min_track_len": 3,
+        "gmc_method": "none",
+        "with_reid": false,
+        "model": "yolo26n-reid.onnx",
+        "device": "cuda:0"
+      },
+      "ultralytics_version": "8.4.150",
+      "numpy_version": "2.5.2",
+      "torch_version": "2.11.0+cu128",
+      "adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+      "tracker_implementation_sha256": "8681e084d2d6b80a99c0cbfcb35cb3e4b60f61a75c61325e7592ec4289b57a0d",
+      "tracktrack_yaml_sha256": "33fcd0cf42023fabc1cff93e8769f949e3f92a39219a8b7de157fc612a1de37a",
+      "reid_enabled": false,
+      "reid_model": null,
+      "reid_model_sha256": null,
+      "reid_runtime_version": null,
+      "reid_providers": [],
+      "reid_provider_options": {},
+      "reid_inputs": [],
+      "reid_outputs": [],
+      "reid_fp16": false,
+      "reid_crop_size": null,
+      "reid_preprocess": null,
+      "association_precision": "upstream float32 detection arrays and native NumPy Kalman/association arithmetic",
+      "raw_detections_preserved": true,
+      "raw_detection_index_validation": "strict",
+      "loose_nms_recovery": false,
+      "comparison_scope": "Ultralytics TrackTrack implementation on fixed post-NMS detections; not full paper reproduction",
+      "distinct_track_ids_are_people_count": false,
+      "frames_processed_since_reset": 241
+    }
+  },
+  "comparison": {
+    "mode": "transparent_overlay",
+    "fill_opacity": 0.12,
+    "privacy_protection": false,
+    "reference_repeat": 1
+  }
+}

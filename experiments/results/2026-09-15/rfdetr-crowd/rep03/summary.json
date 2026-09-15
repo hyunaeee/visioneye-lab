@@ -1,0 +1,473 @@
+{
+  "mode": "rfdetr-bytetrack",
+  "status": "completed",
+  "comparison_kind": "detector-pipeline",
+  "clip": "crowd",
+  "repeat": 3,
+  "processed_frames": 361,
+  "source_fps": 24.0,
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "source_sha256": "9f79a902723ac40ae1e74db9a649a04e33651c5599b5f04c32dc5f7d3441afc5",
+  "recording_start_seconds": 0,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "solid"
+  },
+  "privacy": "transparent_overlay",
+  "occupancy_ground_truth_available": false,
+  "total_in": 4,
+  "total_out": 8,
+  "occupancy": 0,
+  "raw_occupancy": -4,
+  "underflow": true,
+  "active_tracks": 17,
+  "confirmed_tracks": 21,
+  "confirmed_track_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    12,
+    14,
+    19,
+    30,
+    31,
+    35,
+    37,
+    39,
+    45,
+    46,
+    51,
+    53,
+    54
+  ],
+  "detector_count": 3590,
+  "detection_counts": {
+    "min": 6,
+    "median": 10.0,
+    "max": 19
+  },
+  "processing_seconds": 10.807984299550299,
+  "processing_fps": 33.4,
+  "wall_seconds": 10.827810399990994,
+  "model_initialization_seconds": null,
+  "tracker_initialization_seconds": 0.0014501999830827117,
+  "warmup_seconds": 0.1446091000107117,
+  "warmup_calls": 5,
+  "stage_elapsed": {
+    "source_read": {
+      "calls": 361,
+      "total_seconds": 0.654996,
+      "p50_ms": 1.715,
+      "p95_ms": 2.084,
+      "mean_ms": 1.814
+    },
+    "detector": {
+      "calls": 361,
+      "total_seconds": 9.611087,
+      "p50_ms": 25.517,
+      "p95_ms": 35.295,
+      "mean_ms": 26.624
+    },
+    "tracker": {
+      "calls": 361,
+      "total_seconds": 0.454502,
+      "p50_ms": 1.171,
+      "p95_ms": 1.888,
+      "mean_ms": 1.259
+    },
+    "counter": {
+      "calls": 361,
+      "total_seconds": 0.028742,
+      "p50_ms": 0.076,
+      "p95_ms": 0.115,
+      "mean_ms": 0.08
+    },
+    "telemetry": {
+      "calls": 361,
+      "total_seconds": 0.035643,
+      "p50_ms": 0.091,
+      "p95_ms": 0.154,
+      "mean_ms": 0.099
+    },
+    "processing": {
+      "calls": 361,
+      "total_seconds": 10.807984,
+      "p50_ms": 28.898,
+      "p95_ms": 39.21,
+      "mean_ms": 29.939
+    }
+  },
+  "gpu_memory": {
+    "device_used_peak_mib": 13602.5,
+    "sample_count": 100,
+    "scope": "Whole GPU used memory sampled every 100 ms, includes display and other processes; not model-only VRAM.",
+    "torch_peak_allocated_mib": 184.5,
+    "torch_peak_reserved_mib": 204.0
+  },
+  "engine_metadata": {
+    "name": "RF-DETR Small",
+    "adapter": "DetectorAdapter",
+    "package": "rfdetr==1.10.1",
+    "torch": "2.11.0+cu128",
+    "device": "cuda:0",
+    "model_path": "rf-detr-small.pth",
+    "model_sha256": "d81979a9213a2109345158ce9232668df4c1ae52e9b8db3f2ec0a8cbad959b33",
+    "model_source": "https://storage.googleapis.com/rfdetr/small_coco/checkpoint_best_regular.pth",
+    "license": "Apache-2.0",
+    "confidence_threshold": 0.1,
+    "threshold_tuned": false,
+    "input_size": [
+      512,
+      512
+    ],
+    "input_color": "BGR uint8 HWC converted to contiguous RGB uint8 HWC",
+    "preprocessing": "Official predict: square bilinear resize, antialias=False, ImageNet normalization; no letterbox",
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "box_format": "xyxy in original input pixels; official postprocess restores original height and width",
+    "person_class_id": 1,
+    "class_id_scheme": "Sparse native COCO category IDs; class_names[0] is not detector class_id 0",
+    "classifier_slots": 91,
+    "configured_num_classes": 90,
+    "precision": "float32 default pretrained PyTorch model",
+    "backend": "PyTorch eager, official predict, no compile/export/optimize_for_inference",
+    "gradients": false,
+    "tracking": "None; root runner supplies the shared ByteTrack/counter"
+  },
+  "tracker_metadata": {
+    "kind": "bytetrack",
+    "fps": 24.0,
+    "requested_device": "0",
+    "reid_device": null,
+    "tracker_compute": "CPU NumPy association; ReID device recorded separately",
+    "max_lost_frames": 24,
+    "config": {
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 24,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "ultralytics_version": "8.4.150",
+    "numpy_version": "2.5.2",
+    "torch_version": "2.11.0+cu128",
+    "adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+    "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c",
+    "tracktrack_yaml_sha256": null,
+    "reid_enabled": false,
+    "reid_model": null,
+    "reid_model_sha256": null,
+    "reid_runtime_version": null,
+    "reid_providers": [],
+    "reid_provider_options": {},
+    "reid_inputs": [],
+    "reid_outputs": [],
+    "reid_fp16": false,
+    "reid_crop_size": null,
+    "reid_preprocess": null,
+    "association_precision": "upstream float32 detection arrays and native NumPy Kalman/association arithmetic",
+    "raw_detections_preserved": true,
+    "raw_detection_index_validation": "strict",
+    "loose_nms_recovery": false,
+    "comparison_scope": "Ultralytics TrackTrack implementation on fixed post-NMS detections; not full paper reproduction",
+    "distinct_track_ids_are_people_count": false,
+    "frames_processed_since_reset": 361
+  },
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "opencv": "4.14.0"
+  },
+  "python_version": "3.12.14",
+  "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+  "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+  "event_agreement": {
+    "strict": {
+      "matched": 11,
+      "reference_events": 12,
+      "predicted_events": 12,
+      "unmatched_predictions": 1,
+      "unmatched_references": 1,
+      "tolerance_seconds": 0,
+      "pairs": [
+        {
+          "reference": "S01",
+          "track_id": 1,
+          "timestamp": 1.75,
+          "direction": "IN",
+          "window_seconds": [
+            1.6666666666666667,
+            1.8333333333333333
+          ]
+        },
+        {
+          "reference": "S02",
+          "track_id": 3,
+          "timestamp": 1.9583333333333333,
+          "direction": "IN",
+          "window_seconds": [
+            1.9166666666666667,
+            2.0833333333333335
+          ]
+        },
+        {
+          "reference": "S03",
+          "track_id": 2,
+          "timestamp": 2.0416666666666665,
+          "direction": "IN",
+          "window_seconds": [
+            2.0,
+            2.1666666666666665
+          ]
+        },
+        {
+          "reference": "S05",
+          "track_id": 6,
+          "timestamp": 3.5833333333333335,
+          "direction": "OUT",
+          "window_seconds": [
+            3.5833333333333335,
+            3.75
+          ]
+        },
+        {
+          "reference": "S06",
+          "track_id": 9,
+          "timestamp": 4.125,
+          "direction": "OUT",
+          "window_seconds": [
+            4.0,
+            4.166666666666667
+          ]
+        },
+        {
+          "reference": "S07",
+          "track_id": 5,
+          "timestamp": 4.25,
+          "direction": "OUT",
+          "window_seconds": [
+            4.166666666666667,
+            4.333333333333333
+          ]
+        },
+        {
+          "reference": "S08",
+          "track_id": 19,
+          "timestamp": 6.208333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            6.166666666666667,
+            6.333333333333333
+          ]
+        },
+        {
+          "reference": "S09",
+          "track_id": 14,
+          "timestamp": 6.458333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            6.416666666666667,
+            6.583333333333333
+          ]
+        },
+        {
+          "reference": "S10",
+          "track_id": 12,
+          "timestamp": 10.375,
+          "direction": "IN",
+          "window_seconds": [
+            10.333333333333334,
+            10.5
+          ]
+        },
+        {
+          "reference": "S11",
+          "track_id": 30,
+          "timestamp": 11.666666666666666,
+          "direction": "OUT",
+          "window_seconds": [
+            11.583333333333334,
+            11.75
+          ]
+        },
+        {
+          "reference": "S12",
+          "track_id": 31,
+          "timestamp": 12.875,
+          "direction": "OUT",
+          "window_seconds": [
+            12.75,
+            12.916666666666666
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    },
+    "plus_0_5s": {
+      "matched": 12,
+      "reference_events": 12,
+      "predicted_events": 12,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0.5,
+      "pairs": [
+        {
+          "reference": "S01",
+          "track_id": 1,
+          "timestamp": 1.75,
+          "direction": "IN",
+          "window_seconds": [
+            1.6666666666666667,
+            1.8333333333333333
+          ]
+        },
+        {
+          "reference": "S02",
+          "track_id": 2,
+          "timestamp": 2.0416666666666665,
+          "direction": "IN",
+          "window_seconds": [
+            1.9166666666666667,
+            2.0833333333333335
+          ]
+        },
+        {
+          "reference": "S03",
+          "track_id": 3,
+          "timestamp": 1.9583333333333333,
+          "direction": "IN",
+          "window_seconds": [
+            2.0,
+            2.1666666666666665
+          ]
+        },
+        {
+          "reference": "S04",
+          "track_id": 6,
+          "timestamp": 3.5833333333333335,
+          "direction": "OUT",
+          "window_seconds": [
+            3.3333333333333335,
+            3.5
+          ]
+        },
+        {
+          "reference": "S05",
+          "track_id": 7,
+          "timestamp": 3.6666666666666665,
+          "direction": "OUT",
+          "window_seconds": [
+            3.5833333333333335,
+            3.75
+          ]
+        },
+        {
+          "reference": "S06",
+          "track_id": 9,
+          "timestamp": 4.125,
+          "direction": "OUT",
+          "window_seconds": [
+            4.0,
+            4.166666666666667
+          ]
+        },
+        {
+          "reference": "S07",
+          "track_id": 5,
+          "timestamp": 4.25,
+          "direction": "OUT",
+          "window_seconds": [
+            4.166666666666667,
+            4.333333333333333
+          ]
+        },
+        {
+          "reference": "S08",
+          "track_id": 19,
+          "timestamp": 6.208333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            6.166666666666667,
+            6.333333333333333
+          ]
+        },
+        {
+          "reference": "S09",
+          "track_id": 14,
+          "timestamp": 6.458333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            6.416666666666667,
+            6.583333333333333
+          ]
+        },
+        {
+          "reference": "S10",
+          "track_id": 12,
+          "timestamp": 10.375,
+          "direction": "IN",
+          "window_seconds": [
+            10.333333333333334,
+            10.5
+          ]
+        },
+        {
+          "reference": "S11",
+          "track_id": 30,
+          "timestamp": 11.666666666666666,
+          "direction": "OUT",
+          "window_seconds": [
+            11.583333333333334,
+            11.75
+          ]
+        },
+        {
+          "reference": "S12",
+          "track_id": 31,
+          "timestamp": 12.875,
+          "direction": "OUT",
+          "window_seconds": [
+            12.75,
+            12.916666666666666
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    }
+  },
+  "measurement_notes": [
+    "CUDA synchronized calls. Warm-up and initialization separate. Pipeline processing includes source read, detection, tracking, counting and telemetry; excludes rendering/video export. Cached tracker timing excludes detection and must not be compared as full pipeline FPS.",
+    "14 existing AI source-review events. No human-consensus annotations, full-frame boxes, persistent reference IDs or masks. Do not calculate HOTA/IDF1/person recall/segmentation accuracy from proxy counts."
+  ]
+}

@@ -1,0 +1,487 @@
+{
+  "mode": "deim-bytetrack",
+  "status": "completed",
+  "comparison_kind": "detector-pipeline",
+  "clip": "crowd",
+  "repeat": 3,
+  "processed_frames": 361,
+  "source_fps": 24.0,
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "source_sha256": "9f79a902723ac40ae1e74db9a649a04e33651c5599b5f04c32dc5f7d3441afc5",
+  "recording_start_seconds": 0,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "solid"
+  },
+  "privacy": "transparent_overlay",
+  "occupancy_ground_truth_available": false,
+  "total_in": 4,
+  "total_out": 8,
+  "occupancy": 0,
+  "raw_occupancy": -4,
+  "underflow": true,
+  "active_tracks": 19,
+  "confirmed_tracks": 24,
+  "confirmed_track_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    9,
+    11,
+    17,
+    24,
+    28,
+    29,
+    34,
+    46,
+    47,
+    49,
+    53,
+    57,
+    64,
+    66,
+    67,
+    73,
+    84,
+    91,
+    92
+  ],
+  "detector_count": 3821,
+  "detection_counts": {
+    "min": 7,
+    "median": 10.0,
+    "max": 18
+  },
+  "processing_seconds": 22.95094800030347,
+  "processing_fps": 15.73,
+  "wall_seconds": 22.968485400022473,
+  "model_initialization_seconds": null,
+  "tracker_initialization_seconds": 0.0013151999446563423,
+  "warmup_seconds": 0.2660524000530131,
+  "warmup_calls": 5,
+  "stage_elapsed": {
+    "source_read": {
+      "calls": 361,
+      "total_seconds": 0.992691,
+      "p50_ms": 2.305,
+      "p95_ms": 4.888,
+      "mean_ms": 2.75
+    },
+    "detector": {
+      "calls": 361,
+      "total_seconds": 21.205997,
+      "p50_ms": 56.509,
+      "p95_ms": 89.101,
+      "mean_ms": 58.742
+    },
+    "tracker": {
+      "calls": 361,
+      "total_seconds": 0.639678,
+      "p50_ms": 1.786,
+      "p95_ms": 2.615,
+      "mean_ms": 1.772
+    },
+    "counter": {
+      "calls": 361,
+      "total_seconds": 0.04008,
+      "p50_ms": 0.109,
+      "p95_ms": 0.164,
+      "mean_ms": 0.111
+    },
+    "telemetry": {
+      "calls": 361,
+      "total_seconds": 0.043752,
+      "p50_ms": 0.108,
+      "p95_ms": 0.193,
+      "mean_ms": 0.121
+    },
+    "processing": {
+      "calls": 361,
+      "total_seconds": 22.950948,
+      "p50_ms": 61.062,
+      "p95_ms": 100.269,
+      "mean_ms": 63.576
+    }
+  },
+  "gpu_memory": {
+    "device_used_peak_mib": 13330.8,
+    "sample_count": 211,
+    "scope": "Whole GPU used memory sampled every 100 ms, includes display and other processes; not model-only VRAM.",
+    "torch_peak_allocated_mib": 98.5,
+    "torch_peak_reserved_mib": 116.0
+  },
+  "engine_metadata": {
+    "model": "DEIMv2-S",
+    "adapter": "deim_adapter.DetectorAdapter",
+    "model_repo": "Intellindust/DEIMv2_DINOv3_S_COCO",
+    "model_revision": "cf0540f3f319bb8ecbe132624358a35a7beb86d5",
+    "code_repo": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+    "code_revision": "1d2ca42171570c713e78fc6a766ec5104b7f4724",
+    "model_sha256": "fe545b150766b8761a696f7b1d92ea138fafe8e02a7398823e0c62d2a5867956",
+    "config_sha256": "c815791122b6be862d5c5902b3557771bda640acd0ca21ca9999c540eb6e6853",
+    "model_path": "model.safetensors",
+    "config_source": "Official HF config paired with checkpoint",
+    "backbone": {
+      "embed_dim": 192,
+      "interaction_indexes": [
+        5,
+        8,
+        11
+      ],
+      "name": "vit_tiny",
+      "num_heads": 3
+    },
+    "device": "cuda:0",
+    "input_size": [
+      640,
+      640
+    ],
+    "preprocessing": "BGR->RGB PIL, torchvision bilinear Resize 640x640 (warp), ToTensor, ImageNet normalize",
+    "dtype": "float32",
+    "threshold": 0.1,
+    "person_label": 0,
+    "person_coco_category_id": 1,
+    "label_mapping": "PostProcessor.deploy returns contiguous COCO labels; person category 1 maps to label 0",
+    "postprocessing": "Official top-300 focal scores; person filter; score>=0.1; clip xyxy to original frame; no additional NMS",
+    "deploy_conversion": true,
+    "strict_checkpoint_load": true,
+    "torch_version": "2.11.0+cu128",
+    "torchvision_version": "0.26.0+cu128",
+    "safetensors_version": "0.8.0"
+  },
+  "tracker_metadata": {
+    "kind": "bytetrack",
+    "fps": 24.0,
+    "requested_device": "0",
+    "reid_device": null,
+    "tracker_compute": "CPU NumPy association; ReID device recorded separately",
+    "max_lost_frames": 24,
+    "config": {
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 24,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "ultralytics_version": "8.4.150",
+    "numpy_version": "2.5.2",
+    "torch_version": "2.11.0+cu128",
+    "adapter_sha256": "cef922e87f1b6177442b896cb07c581db753c2d5bb4e9ebd01bdf64d5f09c9c4",
+    "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c",
+    "tracktrack_yaml_sha256": null,
+    "reid_enabled": false,
+    "reid_model": null,
+    "reid_model_sha256": null,
+    "reid_runtime_version": null,
+    "reid_providers": [],
+    "reid_provider_options": {},
+    "reid_inputs": [],
+    "reid_outputs": [],
+    "reid_fp16": false,
+    "reid_crop_size": null,
+    "reid_preprocess": null,
+    "association_precision": "upstream float32 detection arrays and native NumPy Kalman/association arithmetic",
+    "raw_detections_preserved": true,
+    "raw_detection_index_validation": "strict",
+    "loose_nms_recovery": false,
+    "comparison_scope": "Ultralytics TrackTrack implementation on fixed post-NMS detections; not full paper reproduction",
+    "distinct_track_ids_are_people_count": false,
+    "frames_processed_since_reset": 361
+  },
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "opencv": "4.14.0"
+  },
+  "python_version": "3.12.14",
+  "protocol_sha256": "c64420779e923789c46639c092132b65a0c073a903cc4cb81ef9243dfe9a3e48",
+  "runner_sha256": "3b691768748fb5d3e45af9861681c59343ff3ce5ebcd7d6aab94b18ef4db9e30",
+  "event_agreement": {
+    "strict": {
+      "matched": 12,
+      "reference_events": 12,
+      "predicted_events": 12,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0,
+      "pairs": [
+        {
+          "reference": "S01",
+          "track_id": 2,
+          "timestamp": 1.75,
+          "direction": "IN",
+          "window_seconds": [
+            1.6666666666666667,
+            1.8333333333333333
+          ]
+        },
+        {
+          "reference": "S02",
+          "track_id": 4,
+          "timestamp": 1.9583333333333333,
+          "direction": "IN",
+          "window_seconds": [
+            1.9166666666666667,
+            2.0833333333333335
+          ]
+        },
+        {
+          "reference": "S03",
+          "track_id": 3,
+          "timestamp": 2.0416666666666665,
+          "direction": "IN",
+          "window_seconds": [
+            2.0,
+            2.1666666666666665
+          ]
+        },
+        {
+          "reference": "S04",
+          "track_id": 9,
+          "timestamp": 3.4166666666666665,
+          "direction": "OUT",
+          "window_seconds": [
+            3.3333333333333335,
+            3.5
+          ]
+        },
+        {
+          "reference": "S05",
+          "track_id": 11,
+          "timestamp": 3.6666666666666665,
+          "direction": "OUT",
+          "window_seconds": [
+            3.5833333333333335,
+            3.75
+          ]
+        },
+        {
+          "reference": "S06",
+          "track_id": 17,
+          "timestamp": 4.083333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            4.0,
+            4.166666666666667
+          ]
+        },
+        {
+          "reference": "S07",
+          "track_id": 5,
+          "timestamp": 4.208333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            4.166666666666667,
+            4.333333333333333
+          ]
+        },
+        {
+          "reference": "S08",
+          "track_id": 34,
+          "timestamp": 6.208333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            6.166666666666667,
+            6.333333333333333
+          ]
+        },
+        {
+          "reference": "S09",
+          "track_id": 29,
+          "timestamp": 6.458333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            6.416666666666667,
+            6.583333333333333
+          ]
+        },
+        {
+          "reference": "S10",
+          "track_id": 24,
+          "timestamp": 10.375,
+          "direction": "IN",
+          "window_seconds": [
+            10.333333333333334,
+            10.5
+          ]
+        },
+        {
+          "reference": "S11",
+          "track_id": 46,
+          "timestamp": 11.666666666666666,
+          "direction": "OUT",
+          "window_seconds": [
+            11.583333333333334,
+            11.75
+          ]
+        },
+        {
+          "reference": "S12",
+          "track_id": 47,
+          "timestamp": 12.833333333333334,
+          "direction": "OUT",
+          "window_seconds": [
+            12.75,
+            12.916666666666666
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    },
+    "plus_0_5s": {
+      "matched": 12,
+      "reference_events": 12,
+      "predicted_events": 12,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0.5,
+      "pairs": [
+        {
+          "reference": "S01",
+          "track_id": 2,
+          "timestamp": 1.75,
+          "direction": "IN",
+          "window_seconds": [
+            1.6666666666666667,
+            1.8333333333333333
+          ]
+        },
+        {
+          "reference": "S02",
+          "track_id": 3,
+          "timestamp": 2.0416666666666665,
+          "direction": "IN",
+          "window_seconds": [
+            1.9166666666666667,
+            2.0833333333333335
+          ]
+        },
+        {
+          "reference": "S03",
+          "track_id": 4,
+          "timestamp": 1.9583333333333333,
+          "direction": "IN",
+          "window_seconds": [
+            2.0,
+            2.1666666666666665
+          ]
+        },
+        {
+          "reference": "S04",
+          "track_id": 9,
+          "timestamp": 3.4166666666666665,
+          "direction": "OUT",
+          "window_seconds": [
+            3.3333333333333335,
+            3.5
+          ]
+        },
+        {
+          "reference": "S05",
+          "track_id": 11,
+          "timestamp": 3.6666666666666665,
+          "direction": "OUT",
+          "window_seconds": [
+            3.5833333333333335,
+            3.75
+          ]
+        },
+        {
+          "reference": "S06",
+          "track_id": 17,
+          "timestamp": 4.083333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            4.0,
+            4.166666666666667
+          ]
+        },
+        {
+          "reference": "S07",
+          "track_id": 5,
+          "timestamp": 4.208333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            4.166666666666667,
+            4.333333333333333
+          ]
+        },
+        {
+          "reference": "S08",
+          "track_id": 34,
+          "timestamp": 6.208333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            6.166666666666667,
+            6.333333333333333
+          ]
+        },
+        {
+          "reference": "S09",
+          "track_id": 29,
+          "timestamp": 6.458333333333333,
+          "direction": "OUT",
+          "window_seconds": [
+            6.416666666666667,
+            6.583333333333333
+          ]
+        },
+        {
+          "reference": "S10",
+          "track_id": 24,
+          "timestamp": 10.375,
+          "direction": "IN",
+          "window_seconds": [
+            10.333333333333334,
+            10.5
+          ]
+        },
+        {
+          "reference": "S11",
+          "track_id": 46,
+          "timestamp": 11.666666666666666,
+          "direction": "OUT",
+          "window_seconds": [
+            11.583333333333334,
+            11.75
+          ]
+        },
+        {
+          "reference": "S12",
+          "track_id": 47,
+          "timestamp": 12.833333333333334,
+          "direction": "OUT",
+          "window_seconds": [
+            12.75,
+            12.916666666666666
+          ]
+        }
+      ],
+      "scope": "Direction/time-only one-to-one agreement with AI source review; not identity-verified accuracy."
+    }
+  },
+  "measurement_notes": [
+    "CUDA synchronized calls. Warm-up and initialization separate. Pipeline processing includes source read, detection, tracking, counting and telemetry; excludes rendering/video export. Cached tracker timing excludes detection and must not be compared as full pipeline FPS.",
+    "14 existing AI source-review events. No human-consensus annotations, full-frame boxes, persistent reference IDs or masks. Do not calculate HOTA/IDF1/person recall/segmentation accuracy from proxy counts."
+  ]
+}
