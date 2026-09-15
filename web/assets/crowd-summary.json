@@ -1,0 +1,226 @@
+{
+  "mode": "yolo26",
+  "status": "completed",
+  "processed_frames": 361,
+  "processing_fps": 24.08,
+  "processing_seconds": 14.991296,
+  "wall_seconds": 19.722245,
+  "source_fps": 24.0,
+  "device": "0",
+  "privacy": "solid",
+  "recording_start_seconds": 0.0,
+  "floor_calibrated": false,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "solid"
+  },
+  "total_in": 4,
+  "total_out": 8,
+  "occupancy": 0,
+  "raw_occupancy": -4,
+  "underflow": true,
+  "visible": 9,
+  "confirmed_tracks": 22,
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "occupancy_ground_truth_available": false,
+  "comparison": {
+    "mode": "transparent_overlay",
+    "fill_opacity": 0.12,
+    "privacy_protection": false,
+    "source_frames": 361,
+    "overlay_frames": 361,
+    "frame_alignment_verified": true,
+    "rendered_from": "YOLO26 detection telemetry, separate post-processing; excluded from processing FPS"
+  },
+  "validation": {
+    "source": "Higgsfield Seedance 2.5 AI generated video",
+    "source_sha256": "9f79a902723ac40ae1e74db9a649a04e33651c5599b5f04c32dc5f7d3441afc5",
+    "sample_scene_people": "approximately 7–10 in middle sampled scenes; not unique-person ground truth",
+    "settings": "Original fixed finite gate and thresholds, unchanged",
+    "absolute_occupancy_ground_truth": "unavailable",
+    "scope": "Generated-clip integration; field accuracy, IDF1, HOTA and full person-frame recall not measured",
+    "source_review": {
+      "method": "Source-only AI visual review, YOLO outputs unseen by reviewer; not human-consensus ground truth",
+      "same_clip_subject_direction_one_to_one": true,
+      "matched_events": 12,
+      "annotated_events": 12,
+      "unmatched_predictions": 0,
+      "unmatched_annotations": 0,
+      "all_within_source_review_windows": true,
+      "comparisons": [
+        {
+          "subject": "베이지 니트",
+          "manual_id": "S01",
+          "direction": "IN",
+          "window_seconds": [
+            1.6666666666666667,
+            1.8333333333333333
+          ],
+          "observed_seconds": 1.75,
+          "track_id": 2,
+          "within_review_window": true
+        },
+        {
+          "subject": "빨간 재킷",
+          "manual_id": "S02",
+          "direction": "IN",
+          "window_seconds": [
+            1.9166666666666667,
+            2.0833333333333335
+          ],
+          "observed_seconds": 1.9583333333333333,
+          "track_id": 3,
+          "within_review_window": true
+        },
+        {
+          "subject": "파란 셔츠",
+          "manual_id": "S03",
+          "direction": "IN",
+          "window_seconds": [
+            2.0,
+            2.1666666666666665
+          ],
+          "observed_seconds": 2.0416666666666665,
+          "track_id": 1,
+          "within_review_window": true
+        },
+        {
+          "subject": "초록 상의",
+          "manual_id": "S04",
+          "direction": "OUT",
+          "window_seconds": [
+            3.3333333333333335,
+            3.5
+          ],
+          "observed_seconds": 3.4583333333333335,
+          "track_id": 6,
+          "within_review_window": true
+        },
+        {
+          "subject": "회색 재킷",
+          "manual_id": "S05",
+          "direction": "OUT",
+          "window_seconds": [
+            3.5833333333333335,
+            3.75
+          ],
+          "observed_seconds": 3.6666666666666665,
+          "track_id": 9,
+          "within_review_window": true
+        },
+        {
+          "subject": "남색 상의",
+          "manual_id": "S06",
+          "direction": "OUT",
+          "window_seconds": [
+            4.0,
+            4.166666666666667
+          ],
+          "observed_seconds": 4.083333333333333,
+          "track_id": 11,
+          "within_review_window": true
+        },
+        {
+          "subject": "겨자색 상의",
+          "manual_id": "S07",
+          "direction": "OUT",
+          "window_seconds": [
+            4.166666666666667,
+            4.333333333333333
+          ],
+          "observed_seconds": 4.25,
+          "track_id": 5,
+          "within_review_window": true
+        },
+        {
+          "subject": "베이지 코트",
+          "manual_id": "S08",
+          "direction": "OUT",
+          "window_seconds": [
+            6.166666666666667,
+            6.333333333333333
+          ],
+          "observed_seconds": 6.208333333333333,
+          "track_id": 16,
+          "within_review_window": true
+        },
+        {
+          "subject": "흰 셔츠",
+          "manual_id": "S09",
+          "direction": "OUT",
+          "window_seconds": [
+            6.416666666666667,
+            6.583333333333333
+          ],
+          "observed_seconds": 6.416666666666667,
+          "track_id": 13,
+          "within_review_window": true
+        },
+        {
+          "subject": "검은 상의",
+          "manual_id": "S10",
+          "direction": "IN",
+          "window_seconds": [
+            10.333333333333334,
+            10.5
+          ],
+          "observed_seconds": 10.375,
+          "track_id": 15,
+          "within_review_window": true
+        },
+        {
+          "subject": "남색 재킷",
+          "manual_id": "S11",
+          "direction": "OUT",
+          "window_seconds": [
+            11.583333333333334,
+            11.75
+          ],
+          "observed_seconds": 11.625,
+          "track_id": 22,
+          "within_review_window": true
+        },
+        {
+          "subject": "보라 상의",
+          "manual_id": "S12",
+          "direction": "OUT",
+          "window_seconds": [
+            12.75,
+            12.916666666666666
+          ],
+          "observed_seconds": 12.833333333333334,
+          "track_id": 23,
+          "within_review_window": true
+        }
+      ],
+      "scope": "One AI-generated clip only; no field accuracy claim"
+    },
+    "observed_limitations": [
+      "Partial person at lower-left edge not detected on frame 0",
+      "Tan-coat track duplicated as IDs 16/35 on frames 287–291, followed by ID35 from frame292",
+      "22 distinct track IDs do not represent 22 people"
+    ],
+    "detector_boxes_per_frame": {
+      "min": 4,
+      "median": 9,
+      "max": 11
+    }
+  }
+}

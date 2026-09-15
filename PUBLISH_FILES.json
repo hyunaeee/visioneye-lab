@@ -1,0 +1,295 @@
+{
+  "basis": "Git blob bytes; checkout line endings may differ. Manifest excludes itself.",
+  "files": [
+    {
+      "path": ".github/workflows/check.yml",
+      "bytes": 755,
+      "sha256": "de632a65f8adc59fd23a867bfb2291f6b2ddcb230738031dd8a9dbdff6803041"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 199,
+      "sha256": "c2444a2af9e60c06520e4ffe323550810332e8c23bf54834903fbc74347c08b3"
+    },
+    {
+      "path": ".vercelignore",
+      "bytes": 130,
+      "sha256": "2faad730af7b3935444debc427f0d96833f7ea3de17ec013bb9ec8d5a8c57ee0"
+    },
+    {
+      "path": "PUBLISH_REVIEW.md",
+      "bytes": 2014,
+      "sha256": "d4aa93769f5aff43b5653298db5ee964a890d31ba81ff525a910c4912b4fae76"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6703,
+      "sha256": "74a96669a6610ec39f98d98751e330b19eb5ad04367de6e40af344d0be88a7e2"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 2360,
+      "sha256": "e5a8f082b19ac847806c02b31ce15cc0a98491c8c9883cdc4adb498e67a2383a"
+    },
+    {
+      "path": "docs/NEXT_EXPERIMENTS.md",
+      "bytes": 13563,
+      "sha256": "494b0094d93f12a8a7dca3a09429a248d9fa42bf626e4e12a91a5be07721122f"
+    },
+    {
+      "path": "requirements-observed-cu128.txt",
+      "bytes": 947,
+      "sha256": "950d62e1d33d0d69959dd6d9f3d6757020d6c0b8c6c81bc8da0c21503cd08d26"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 127,
+      "sha256": "d63b8586bd9996343bc2937fcfcad74d360332424648df630b7510bb93d7918b"
+    },
+    {
+      "path": "scripts/download_model.py",
+      "bytes": 1009,
+      "sha256": "ac26b2e03d66f83a307af31b036b333e9bcc81cf0ec7d36465b13ab2d04816a0"
+    },
+    {
+      "path": "scripts/evaluate_generated.py",
+      "bytes": 14106,
+      "sha256": "c8f556292110b73e76614e64a662f5ae86ee32dfe7d4afa9c9d0fae415c98494"
+    },
+    {
+      "path": "scripts/render_comparison.py",
+      "bytes": 16359,
+      "sha256": "136f2860c603c28ae3eb7f105346e2ffa549b1c64d5cee1e9d3534a686be2014"
+    },
+    {
+      "path": "scripts/serve.py",
+      "bytes": 3528,
+      "sha256": "afca5807e24cb35ab089b9cc8426e0b54ebf15881874fadd0e0c41ba39ff5d61"
+    },
+    {
+      "path": "third-party-licenses/imageio-ffmpeg-LICENSE.txt",
+      "bytes": 1317,
+      "sha256": "eca73421d0c905a92e952a553d4d58919c5a507c2c2c76e3c0cf9ba408c299e4"
+    },
+    {
+      "path": "third-party-licenses/ultralytics-LICENSE.txt",
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 152,
+      "sha256": "9b01219616b68a4b94cd315d559eb44e129b5782426b026b3eda5c65255624be"
+    },
+    {
+      "path": "visioneye/Calibrate Video.cmd",
+      "bytes": 131,
+      "sha256": "c77629c79a920715c5c754552e8fd2bb9d656fddb4b247de1edfceb553c683a1"
+    },
+    {
+      "path": "visioneye/README.md",
+      "bytes": 767,
+      "sha256": "441123d76c97b0769fa5410b920d7aa43455ce286fc56f70dbb7b14946a840db"
+    },
+    {
+      "path": "visioneye/Select Video.cmd",
+      "bytes": 120,
+      "sha256": "a684ffbd1d943ca0943b769a845534fb785fef75d1fde83224334066da7e6b19"
+    },
+    {
+      "path": "visioneye/Start Demo.cmd",
+      "bytes": 110,
+      "sha256": "a5d0c14ed26b38569fc854fd1d2442ab615ed4acacfdcefe46968cb8db319eaf"
+    },
+    {
+      "path": "visioneye/analytics.py",
+      "bytes": 9390,
+      "sha256": "eb519a3351c37ec10193d5cbec1af1a6488040d4794234baaa29ef2bfc7a6b9c"
+    },
+    {
+      "path": "visioneye/app.py",
+      "bytes": 13646,
+      "sha256": "00f3af199b3206d4cb423f8ba3092dc69dda63b6fc82fa03b48df69ae11f9fba"
+    },
+    {
+      "path": "visioneye/config.json",
+      "bytes": 175,
+      "sha256": "203b24d2ab97bff6b3592e7b4a97a76a3826b0242aba1fd5e2a3ef67d815aaa4"
+    },
+    {
+      "path": "visioneye/demo-config.json",
+      "bytes": 227,
+      "sha256": "c0573dbcd4cd79aea95b621c290569298d570df4a2da2c868ae7454df2bd1889"
+    },
+    {
+      "path": "visioneye/detector.py",
+      "bytes": 2398,
+      "sha256": "b5164060dba4f2c7844c048032f79ddc75169ef3f773c3b83b3c4843d5ca2f63"
+    },
+    {
+      "path": "visioneye/recording.py",
+      "bytes": 4370,
+      "sha256": "9b5377704cc085b9008093b506d0b7a99f933880f03ee24c2e3a37333b974498"
+    },
+    {
+      "path": "visioneye/rendering.py",
+      "bytes": 15739,
+      "sha256": "8d9142b0ac1ad558168531b1e45b03a6a03222a8eba7b198e9a142482f8da2c5"
+    },
+    {
+      "path": "visioneye/requirements.txt",
+      "bytes": 71,
+      "sha256": "476875c2155f3f966f7046c026b2f4152364039a7283cb6f277af8df552e1ee2"
+    },
+    {
+      "path": "visioneye/run.ps1",
+      "bytes": 1306,
+      "sha256": "086376bf8b3c84fe6869b7e5f50b8c3b03d95ea0cf32100929f446c909626e8c"
+    },
+    {
+      "path": "visioneye/setup.ps1",
+      "bytes": 806,
+      "sha256": "d7e564fe0ad940ec3315e703997f0e5de82bea1f87d92b8bab387eb13944b0e8"
+    },
+    {
+      "path": "visioneye/sources.py",
+      "bytes": 15183,
+      "sha256": "8c212a33519fb1f68b47c36a6cdfbba53aeffed1b50344fd0307b1b6491a5f58"
+    },
+    {
+      "path": "visioneye/tests/test_analytics.py",
+      "bytes": 7018,
+      "sha256": "f3eb2a81fd7c165f9043eba9016cf3635954ac733467b9e69de860be872c427e"
+    },
+    {
+      "path": "visioneye/tests/test_recording.py",
+      "bytes": 6404,
+      "sha256": "eb0b5a81d091a6c64ecf10968f03ef6f72e14e1bc01ad971fabed5fc6bbb41ce"
+    },
+    {
+      "path": "visioneye/tests/test_rendering.py",
+      "bytes": 2003,
+      "sha256": "46f15802cf2b17ce115394ddb1e6894c57012bd6dcc3027268aec7240c407780"
+    },
+    {
+      "path": "visioneye/tests/test_sources.py",
+      "bytes": 6019,
+      "sha256": "5fe6320cf4795a454ecbd728b032e164d3d1cfcac20329ba58546b166749cfad"
+    },
+    {
+      "path": "web/app.js",
+      "bytes": 18937,
+      "sha256": "c061adf840c89889e37f0c836a5b290e44d58b52cfc147294322899c6c980c90"
+    },
+    {
+      "path": "web/assets/crowd-analysis-poster.jpg",
+      "bytes": 32476,
+      "sha256": "fe29fbc9b9a6240f840dea0b65cbad7f93044037c7434ebc7a5bd89b3dd7211a"
+    },
+    {
+      "path": "web/assets/crowd-analysis.mp4",
+      "bytes": 3826787,
+      "sha256": "17cb91d6e838a30f035ea7b3538a37d140b6ed220af5e7ed8e2cceb582b91dd5"
+    },
+    {
+      "path": "web/assets/crowd-events.csv",
+      "bytes": 324,
+      "sha256": "75b4ac6830d3d2a77f68f50e3beffcf2292b62fd35649fc336b784fd7be4c16d"
+    },
+    {
+      "path": "web/assets/crowd-review-comparison.json",
+      "bytes": 3745,
+      "sha256": "8c6f925a19dfe310d36cf95eb1f5bbc194f53feccdb8b8633e1f685f8088d57e"
+    },
+    {
+      "path": "web/assets/crowd-source-poster.jpg",
+      "bytes": 26286,
+      "sha256": "b6f63e6cc289d6d1804ff4dc78560b7bf246e848b4ce1de3fb2186d4ae4dd256"
+    },
+    {
+      "path": "web/assets/crowd-source-review.json",
+      "bytes": 8021,
+      "sha256": "a0a1ac50be4f0d69c5de6f084e76a5e623c59ec2c26e263e20f073db67094db4"
+    },
+    {
+      "path": "web/assets/crowd-source.mp4",
+      "bytes": 2786455,
+      "sha256": "9f79a902723ac40ae1e74db9a649a04e33651c5599b5f04c32dc5f7d3441afc5"
+    },
+    {
+      "path": "web/assets/crowd-summary.json",
+      "bytes": 6360,
+      "sha256": "1783586a6b3c45ee472dfb7a36ff50497342bee1ccb7dee386f1c32c7f8e05a9"
+    },
+    {
+      "path": "web/assets/demo.mp4",
+      "bytes": 273995,
+      "sha256": "de61632419a9325a5bf66ea29353fb0b7c266e77475e06166005c40f9232da46"
+    },
+    {
+      "path": "web/assets/events.csv",
+      "bytes": 116,
+      "sha256": "3c6e8224fccb20c19a2245027dcf439f3e6fdcfd42dd88d679593be07795bec9"
+    },
+    {
+      "path": "web/assets/gpu-summary.json",
+      "bytes": 654,
+      "sha256": "29a781a04b90fb65f103f8232e758d406d313cbb44f2058db0a2cb3870376c35"
+    },
+    {
+      "path": "web/assets/higgsfield-events.csv",
+      "bytes": 90,
+      "sha256": "ecd0f996089bd28e39830f85741101990ee962a006d2fad1ef691c895c11a259"
+    },
+    {
+      "path": "web/assets/higgsfield-overlay-poster.jpg",
+      "bytes": 32012,
+      "sha256": "aa51f77e990f333b6f7ba890f0906ace7d538938e53643fc196c596c3d845e70"
+    },
+    {
+      "path": "web/assets/higgsfield-overlay.mp4",
+      "bytes": 1444427,
+      "sha256": "7057503e3ad4a3c178662cf985ad73f208580f29c4d2f99d6d867a6413d96e76"
+    },
+    {
+      "path": "web/assets/higgsfield-source-poster.jpg",
+      "bytes": 31321,
+      "sha256": "bbf55b55a89eeef9831ed8149197e6f039f8eeaed6b1990fa5a6431e163a9a1f"
+    },
+    {
+      "path": "web/assets/higgsfield-source.mp4",
+      "bytes": 1293271,
+      "sha256": "eef8e536f937f0d018f677c4c16a5f0fa9fb2585666e9957fc7329fd84902bd1"
+    },
+    {
+      "path": "web/assets/higgsfield-summary.json",
+      "bytes": 2558,
+      "sha256": "ebf059ae38a72c7e5f13fdbed1959573874d60951f1a7620e2407f38fcac7208"
+    },
+    {
+      "path": "web/assets/poster.jpg",
+      "bytes": 60028,
+      "sha256": "d818dff6577a2ae40f735ecb3efd04413ff479bd1d7f20ff1b31011422ce2774"
+    },
+    {
+      "path": "web/assets/summary.json",
+      "bytes": 848,
+      "sha256": "2d485153ae21216b906ec0065ba4f9bf0591d6356a740b85986890a4d306efbc"
+    },
+    {
+      "path": "web/data.js",
+      "bytes": 3953,
+      "sha256": "1ec1264d47f9153638b2b35946670714f7a7b26eb7f88faabb436d4059f8d057"
+    },
+    {
+      "path": "web/index.html",
+      "bytes": 24972,
+      "sha256": "ac3a6c297b3046b8b88a321304ca805cba7661e0d6f4c16623ea9e5f0a7e057d"
+    },
+    {
+      "path": "web/styles.css",
+      "bytes": 23491,
+      "sha256": "ce867b1452c27f6ba84328e01a535977d0a387d68e848ad7e616d1b6ede7b074"
+    }
+  ]
+}

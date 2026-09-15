@@ -1,0 +1,169 @@
+{
+  "review_type": "source-only visual event annotation",
+  "reviewer": "Codex independent review agent; AI visual inspection, not a human annotation study",
+  "review_locked_at_utc": "2026-09-14T14:03:57Z",
+  "source": "source.mp4",
+  "source_sha256": "9f79a902723ac40ae1e74db9a649a04e33651c5599b5f04c32dc5f7d3441afc5",
+  "source_width": 1280,
+  "source_height": 720,
+  "source_frames": 361,
+  "source_fps": 24,
+  "source_duration_seconds": 15.041666666666666,
+  "model_outputs_seen": false,
+  "generation_prompt_used_as_ground_truth": false,
+  "fixed_parameters": {
+    "line_px": [[128, 396], [1152, 396]],
+    "line_normalized": [[0.1, 0.55], [0.9, 0.55]],
+    "in_side": 1,
+    "in_direction": "toward larger image y / downward",
+    "hysteresis_px": 8,
+    "upper_band_y": 388,
+    "lower_band_y": 404
+  },
+  "initial_room_occupancy": "unknown",
+  "absolute_occupancy_ground_truth_available": false,
+  "annotation_method": {
+    "coarse_review": "Original-only frames every 6 frames (0.25 seconds), including frame 360; all eight fixed-gate contact sheets reviewed",
+    "detail_review": "Original-only shoe-region crops every 2 frames around each candidate crossing; fixed gate reference ticks at y=388/396/404, no detector or tracker overlays",
+    "foot_proxy": "Lowest visible shoe/foot point, excluding cast shadow; visual approximation to the pipeline's bottom-of-person-box proxy",
+    "event_definition": "A person's foot proxy moves across the finite gate and beyond the opposite 8-pixel band: IN after y>404, OUT after y<388, with prior observation beyond the starting band",
+    "time_window_semantics": "Conservative interval of the band-exit confirmation, not an exact geometric line-crossing timestamp. Timing uncertainty is retained; intervals were chosen from source frames before viewing model output.",
+    "spatial_annotation": "No per-frame ground-truth boxes, masks or pixel-precise keypoints were produced",
+    "identity": "Manual clothing and path descriptions only. S identifiers do not refer to model tracking IDs."
+  },
+  "manual_events": [
+    {
+      "manual_id": "S01",
+      "subject": "초반 중앙 오른쪽: 베이지 니트, 검은 바지, 밝은 머리",
+      "direction": "IN",
+      "frame_window": [40, 44],
+      "window_seconds": [1.6666666666666667, 1.8333333333333333],
+      "detail_evidence": "source-review/detail-first-in.jpg",
+      "status": "confirmed",
+      "note": "세 명의 하향 이동 중 가장 먼저 밴드 반대편에 도달; 정확한 한 프레임 시각은 미지정"
+    },
+    {
+      "manual_id": "S02",
+      "subject": "초반 중앙 왼쪽: 빨간 지퍼 재킷, 어두운 바지, 분홍빛 신발",
+      "direction": "IN",
+      "frame_window": [46, 50],
+      "window_seconds": [1.9166666666666667, 2.0833333333333335],
+      "detail_evidence": "source-review/detail-first-in.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S03",
+      "subject": "초반 중앙: 파란 긴팔 셔츠, 짙은 올리브색 바지",
+      "direction": "IN",
+      "frame_window": [48, 52],
+      "window_seconds": [2.0, 2.1666666666666665],
+      "detail_evidence": "source-review/detail-first-in.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S04",
+      "subject": "오른쪽 첫 상향 쌍: 초록 긴팔, 검은 바지, 긴 묶은 머리",
+      "direction": "OUT",
+      "frame_window": [80, 84],
+      "window_seconds": [3.3333333333333335, 3.5],
+      "detail_evidence": "source-review/detail-right-out.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S05",
+      "subject": "오른쪽 첫 상향 쌍: 회색 재킷·회색 바지, 밝은 짧은 머리",
+      "direction": "OUT",
+      "frame_window": [86, 90],
+      "window_seconds": [3.5833333333333335, 3.75],
+      "detail_evidence": "source-review/detail-right-out.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S06",
+      "subject": "왼쪽 첫 상향 쌍: 짙은 남색 상의, 청바지, 옆으로 든 발",
+      "direction": "OUT",
+      "frame_window": [96, 100],
+      "window_seconds": [4.0, 4.166666666666667],
+      "detail_evidence": "source-review/detail-left-out.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S07",
+      "subject": "왼쪽 첫 상향 쌍: 겨자색 상의, 청바지",
+      "direction": "OUT",
+      "frame_window": [100, 104],
+      "window_seconds": [4.166666666666667, 4.333333333333333],
+      "detail_evidence": "source-review/detail-left-out.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S08",
+      "subject": "오른쪽 두 번째 상향 쌍: 베이지색 긴 코트, 청바지, 어두운 긴 머리",
+      "direction": "OUT",
+      "frame_window": [148, 152],
+      "window_seconds": [6.166666666666667, 6.333333333333333],
+      "detail_evidence": "source-review/detail-white-coat-out.jpg",
+      "status": "confirmed",
+      "note": "화면 오른쪽에서 들어오지만 출입선 통과 시 발은 유한 선분의 오른쪽 끝 x=1152 안쪽"
+    },
+    {
+      "manual_id": "S09",
+      "subject": "오른쪽 두 번째 상향 쌍: 흰 긴팔 셔츠, 어두운 바지",
+      "direction": "OUT",
+      "frame_window": [154, 158],
+      "window_seconds": [6.416666666666667, 6.583333333333333],
+      "detail_evidence": "source-review/detail-white-coat-out.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S10",
+      "subject": "중후반 중앙 하향 이동: 검은 상의·검은 바지",
+      "direction": "IN",
+      "frame_window": [248, 252],
+      "window_seconds": [10.333333333333334, 10.5],
+      "detail_evidence": "source-review/detail-black-in.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S11",
+      "subject": "후반 왼쪽 상향 이동: 남색 재킷, 베이지 바지, 밝은 짧은 머리",
+      "direction": "OUT",
+      "frame_window": [278, 282],
+      "window_seconds": [11.583333333333334, 11.75],
+      "detail_evidence": "source-review/detail-navy-out.jpg",
+      "status": "confirmed"
+    },
+    {
+      "manual_id": "S12",
+      "subject": "후반 오른쪽 상향 이동: 보라색 긴팔, 베이지 바지, 밝은 짧은 머리",
+      "direction": "OUT",
+      "frame_window": [306, 310],
+      "window_seconds": [12.75, 12.916666666666666],
+      "detail_evidence": "source-review/detail-purple-out.jpg",
+      "status": "confirmed"
+    }
+  ],
+  "manual_totals": {
+    "IN": 4,
+    "OUT": 8,
+    "confirmed_events": 12,
+    "unknown_events": 0,
+    "net_change": -4,
+    "absolute_final_occupancy": "unknown"
+  },
+  "unresolved_events": [],
+  "excluded_observations": [
+    "첫 프레임 상단의 자주색 상의 인물은 선 위쪽에서 더 위로 이동; 이 영상에서 선 통과 없음",
+    "마지막 구간 상단에서 하향 접근하는 인물들은 frame 360까지 선 위쪽에 남음",
+    "마지막 구간 하단에서 등장한 주황색 및 밝은 파란색 상의 인물들은 frame 360까지 선 아래쪽에 남음",
+    "원본 화면 내 인원이나 생성 프롬프트의 예정 인원은 출입 정답 또는 실내 재실 정답으로 사용하지 않음"
+  ],
+  "limitations": [
+    "단일 AI 생성 영상의 시각적 출입 주석이며 실제 CCTV의 정확도 벤치마크가 아님",
+    "독립성은 이 검수자가 YOLO 결과를 보지 않았다는 의미; 두 명의 사람 검수자 합의 주석이 아님",
+    "방향과 12개 통과는 확인되었지만 정확한 한 프레임 이벤트 시각은 unknown; 명시된 구간으로만 비교",
+    "시각적 신발 위치와 검출 박스 바닥점은 몇 픽셀 다를 수 있어 좁은 구간 불일치를 곧바로 집계 실패로 해석하면 안 됨",
+    "0.25초 간격 전체 검토 및 후보 부근 2프레임 간격 확대 검토; 전 프레임 박스·추적 ID·가림 정답 주석은 없음",
+    "순증감 -4는 IN-OUT의 산술 결과이며 음수 재실을 뜻하지 않음. 초기 및 최종 실내 인원은 unknown."
+  ]
+}

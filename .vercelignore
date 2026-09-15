@@ -1,0 +1,15 @@
+.git
+.github
+.openai
+.venv
+**/.venv
+**/__pycache__
+**/.runtime
+**/runs
+visioneye
+scripts
+docs
+*.md
+PUBLISH_FILES.json
+.env*
+*.log

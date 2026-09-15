@@ -1,0 +1,109 @@
+{
+  "mode": "yolo26",
+  "status": "completed",
+  "processed_frames": 241,
+  "processing_fps": 26.45,
+  "wall_seconds": 10.825588,
+  "source_fps": 24.0,
+  "device": "0",
+  "privacy": "solid",
+  "recording_start_seconds": 0.0,
+  "floor_calibrated": false,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "solid"
+  },
+  "total_in": 1,
+  "total_out": 1,
+  "occupancy": 0,
+  "raw_occupancy": 0,
+  "underflow": false,
+  "active_tracks": 2,
+  "visible": 0,
+  "occupancy_ground_truth_available": false,
+  "validation": {
+    "input": "AI-generated video, Higgsfield Seedance 2.5",
+    "input_width": 1280,
+    "input_height": 720,
+    "input_frames": 241,
+    "input_fps": 24,
+    "ground_truth_method": "Independent source-only AI visual review against the pre-fixed gate; event windows, not human-consensus or per-frame box annotation",
+    "manual_events": [
+      {
+        "subject": "red shirt",
+        "direction": "OUT",
+        "window_seconds": [
+          5.25,
+          5.5
+        ]
+      },
+      {
+        "subject": "blue shirt",
+        "direction": "IN",
+        "window_seconds": [
+          5.75,
+          6.0
+        ]
+      }
+    ],
+    "observed_events": [
+      {
+        "direction": "OUT",
+        "timestamp": 5.291666666666667
+      },
+      {
+        "direction": "IN",
+        "timestamp": 5.916666666666667
+      }
+    ],
+    "event_counts_match": true,
+    "matched_events": 2,
+    "annotated_events": 2,
+    "fixed_parameters": {
+      "line": [
+        [
+          0.1,
+          0.55
+        ],
+        [
+          0.9,
+          0.55
+        ]
+      ],
+      "in_side": 1,
+      "hysteresis_px": 8,
+      "initial_occupancy": 0
+    },
+    "initial_occupancy": "unknown; zero used as arithmetic baseline only",
+    "temporary_negative_raw_occupancy": {
+      "value": -1,
+      "first_frame": 127,
+      "last_frame": 141,
+      "frames": 15
+    },
+    "scope": "Single generated clip integration test. Field accuracy, absolute occupancy and full detection/masking recall not evaluated."
+  },
+  "comparison": {
+    "mode": "transparent_overlay",
+    "fill_opacity": 0.12,
+    "privacy_protection": false,
+    "source_frames": 241,
+    "overlay_frames": 241,
+    "frame_alignment_verified": true,
+    "rendered_from": "existing YOLO26 detection telemetry; separate post-processing, excluded from inference timing"
+  }
+}

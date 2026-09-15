@@ -1,0 +1,9 @@
+{
+  "line": [[0.1, 0.55], [0.9, 0.55]],
+  "in_side": 1,
+  "floor_quad": null,
+  "initial_occupancy": 0,
+  "hysteresis_px": 8.0,
+  "max_gap_frames": 15,
+  "privacy": "solid"
+}

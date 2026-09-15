@@ -1,0 +1,5 @@
+track_id,direction,frame,timestamp
+1,IN,102,3.4
+2,IN,153,5.1
+3,IN,203,6.766666666666667
+1,OUT,290,9.666666666666666
