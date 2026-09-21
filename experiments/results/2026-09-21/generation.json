@@ -1,0 +1,67 @@
+{
+  "created_date": "2026-09-21",
+  "model": "seedance_2_5",
+  "parameters": {
+    "model": "seedance_2_5",
+    "mode": "t2v",
+    "duration": 15,
+    "resolution": "720p",
+    "aspect_ratio": "16:9",
+    "generate_audio": false,
+    "count": 1
+  },
+  "scenes": [
+    {
+      "index": 1,
+      "key": "crossing",
+      "prompt": "Fixed security camera footage for a pedestrian tracking test. One uninterrupted 15-second wide shot, camera bolted high above a bright modern indoor concourse, tilted down about 50 degrees. Entire walking bodies and feet visible, medium wide realistic people, matte pale floor, 16:9. Eight ordinary adults, each with a stable distinctive clothing color: red jacket, blue shirt, mustard coat, green sweater, white shirt, black coat, purple sweater, gray jacket. Four start in the distant upper half and walk naturally toward the lower half; four start in the near lower half and walk toward the upper half. Their diagonal paths converge and cross in the central open area, several pairs briefly overlap in the camera view and then separate. Continuous natural walking throughout with a clear before and after for each person, most pass through the horizontal middle of the image between seconds 4 and 11. They keep their own clothes and appearances. Fixed architecture, stable exposure, realistic anatomy. No labels, captions, graphics, bounding boxes, cuts, zoom, camera movement, music or slow motion."
+    },
+    {
+      "index": 2,
+      "key": "occlusion",
+      "prompt": "Realistic fixed CCTV-style wide shot of pedestrian movement in a bright indoor public concourse. Fifteen seconds, one uninterrupted shot. Camera bolted high at a 50-degree downward angle, no movement. Six full-body adults with stable distinctive red, blue, mustard, green, white and purple clothes walk steadily in both directions through the concourse. A broad opaque square pillar occupies the upper central portion of the image, with its base above the image midpoint. The lower half is open pale floor and unobstructed. A person in a bright red jacket walks from the upper-left, is completely hidden behind the pillar for about 1 second, emerges on the upper-right wearing the same clothes, then walks diagonally down across the horizontal middle of the image into the open foreground. A blue-shirt person follows a different route behind the pillar and emerges, while four other pedestrians cross the open middle in both directions, sometimes overlapping briefly. People remain normal size, full body and feet visible when outside the pillar. Natural continuous pace. No text, labels, detection overlays, visual effects, camera pans, cuts, zooms or slow motion."
+    },
+    {
+      "index": 3,
+      "key": "reentry",
+      "prompt": "One continuous 15-second realistic fixed high-angle security camera view of a bright indoor concourse, 16:9. Camera is locked high and tilted down 50 degrees, no cuts, pans or zoom. Six full-body adult pedestrians with distinct red, blue, mustard, green, white and purple clothes. Main subject wears a vivid red jacket and carries a small white tote bag. During seconds 0-4 this red person walks through the open central floor from the upper half toward the lower left, passing the horizontal image midpoint. During seconds 4-7 they walk completely out through the left frame edge. After about 1 second completely outside the camera view, the same red-jacket person with the same white tote returns from the left edge into the lower half, turns and walks toward the upper center during seconds 9-15, crossing the midpoint again in the opposite direction. The five other pedestrians continue independent natural walks in both directions through the middle; two briefly cross in front of the red subject. Keep clothing and anatomy stable. Plain floor, unobstructed central crossing, moderately busy scene. No on-screen text, graphics, tracking boxes, camera movement or transitions."
+    }
+  ],
+  "sources": {
+    "crossing": {
+      "file": "web/assets/stress-crossing-source.mp4",
+      "width": 1280,
+      "height": 720,
+      "frames": 361,
+      "fps": 24.0,
+      "duration_seconds": 15.041666666666666,
+      "sha256": "f552426cf16878279406706de720ee16e10f142c3101c0c0d0c220a0063cf310",
+      "review_file": "experiments/results/2026-09-21/source-review/crossing/source-review.json",
+      "review_sha256": "1eb343d46f0bab943b211cbd957a9ac9e0c492768b18d7a2f2bd37f8ee76ca5d"
+    },
+    "occlusion": {
+      "file": "web/assets/stress-occlusion-source.mp4",
+      "width": 1280,
+      "height": 720,
+      "frames": 361,
+      "fps": 24.0,
+      "duration_seconds": 15.041666666666666,
+      "sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+      "review_file": "experiments/results/2026-09-21/source-review/occlusion/source-review.json",
+      "review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb"
+    },
+    "reentry": {
+      "file": "web/assets/stress-reentry-source.mp4",
+      "width": 1280,
+      "height": 720,
+      "frames": 361,
+      "fps": 24.0,
+      "duration_seconds": 15.041666666666666,
+      "sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "review_file": "experiments/results/2026-09-21/source-review/reentry/source-review.json",
+      "review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6"
+    }
+  },
+  "source_ground_truth": "Prompt intent is not ground truth. Finished source challenge results are recorded in source-review.",
+  "generation_cost_credits": 315
+}

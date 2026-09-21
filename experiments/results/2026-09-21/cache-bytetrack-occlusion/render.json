@@ -1,0 +1,67 @@
+{
+  "status": "completed",
+  "source_path": "web/assets/stress-occlusion-source.mp4",
+  "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+  "tracks_sha256": "315ad12a2033929f9011c2a2e22d863b883e997199a9d088692752832704a597",
+  "evaluation_summary_sha256": "2f4635ee273029fa6f9d48e19607681c19eca3b84a3b10187137e5d1c7e6eba8",
+  "renderer_sha256": "800479335ed04921b1728d1286bc8cc24f2a15262881f93c6f4cbe9ec812b0c1",
+  "overlay_sha256": "9eab05e3fec30b38a24b3062a56f57693634084e2d0d95b0445de9fa4a501e20",
+  "overlay": "overlay.mp4",
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "output_size_px": [
+    1280,
+    720
+  ],
+  "source_fps": 24.0,
+  "output_fps": 24.0,
+  "fps_rational": "24",
+  "source_decoded_frames": 361,
+  "telemetry_frames": 361,
+  "output_decoded_frames": 361,
+  "duration_seconds": 15.041666666666666,
+  "frame_alignment_verified": true,
+  "telemetry_frame_indices": "contiguous from zero",
+  "maximum_telemetry_timestamp_error_seconds": 0.0,
+  "codec": "H.264",
+  "pixel_format": "yuv420p",
+  "faststart": true,
+  "fill_opacity": 0.12,
+  "trail_frames": 18,
+  "privacy_protection": false,
+  "people_remain_visible": true,
+  "detector_rerun": false,
+  "counting_config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "none"
+  },
+  "total_in": 0,
+  "total_out": 0,
+  "preview_frame": 288,
+  "render_wall_seconds": 1.866936,
+  "total_wall_seconds_including_verification": 2.528659,
+  "notes": [
+    "Transparent boxes are an analysis overlay, not a privacy mask; faces and bodies remain visible.",
+    "Every output frame uses the corresponding source frame and existing measured detections; no detector was rerun.",
+    "Source SHA256, each telemetry index and timestamp, complete source/output decoding, dimensions and FPS were checked.",
+    "No frames were intentionally skipped, duplicated or interpolated. Input and output use the evaluator's nominal frame-index/FPS timeline.",
+    "The original solid-masked evaluation and app defaults were not modified.",
+    "Audio is omitted so a comparison UI can play the original source audio once."
+  ]
+}

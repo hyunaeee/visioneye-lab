@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-21",
+  "status": "passed",
+  "device": "cpu",
+  "strict_checkpoint_load": true,
+  "deploy_conversion": true,
+  "original_shape": [
+    720,
+    1280
+  ],
+  "output_boxes_xyxy": [
+    [
+      512.0,
+      216.00001525878906,
+      768.0,
+      504.0
+    ],
+    [
+      0.0,
+      0.0,
+      128.0,
+      72.0
+    ]
+  ],
+  "contracts": [
+    "RGB conversion",
+    "640 square resize",
+    "0-1 FP32 without ImageNet normalization",
+    "official postprocessor width/height order",
+    "person contiguous label 0",
+    "confidence threshold",
+    "frame clipping",
+    "degenerate box exclusion",
+    "input validation",
+    "stateless reset"
+  ],
+  "head_used": "synthetic test tensors through the official postprocessor",
+  "real_detector_forward_performed": false,
+  "gpu_inference_performed": false
+}

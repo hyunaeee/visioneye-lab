@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-21",
+  "scope": "Portable reproduction package validation, separate from experiment measurements",
+  "checks": {
+    "python_ast_files": 7,
+    "python_ast_status": "passed",
+    "run_cli_help_exit_code": 0,
+    "prepare_cli_help_exit_code": 0,
+    "executed_originals_byte_identical_at_snapshot": true,
+    "portable_diff_review": "Only documented path/protocol adaptations and usage text",
+    "private_absolute_user_paths_found": false
+  },
+  "gpu_inference_performed": false,
+  "model_forward_performed": false,
+  "network_downloads_performed": false,
+  "fresh_dependency_installation_tested": false,
+  "full_reproduction_tested": false,
+  "note": "The original measured run evidence is stored separately; these packaging checks must not be counted as model experiments."
+}

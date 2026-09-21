@@ -1,0 +1,58 @@
+{
+  "files": [
+    {
+      "path": "rep01/events.csv",
+      "sha256": "8ad3108b57a46ca915718cf0bfb19fc722790b8f7dfa4b4d8dcc03580cea71d4",
+      "bytes": 291,
+      "published": true
+    },
+    {
+      "path": "rep01/summary.json",
+      "sha256": "11fde6cae9037e8694f68a556befc36cb7ff1577a52c087f3e3d17b79a447e07",
+      "bytes": 12868,
+      "published": true
+    },
+    {
+      "path": "rep01/tracks.jsonl",
+      "sha256": "2b42b4356eba9d37ae00e26e7804fb94bea095dcc776d558186c452fa45c1108",
+      "bytes": 349885,
+      "published": true
+    },
+    {
+      "path": "rep02/events.csv",
+      "sha256": "8ad3108b57a46ca915718cf0bfb19fc722790b8f7dfa4b4d8dcc03580cea71d4",
+      "bytes": 291,
+      "published": true
+    },
+    {
+      "path": "rep02/summary.json",
+      "sha256": "cd99ae34f25aaf1a75df36244063170970f3140140f37b5ac8949f01eb2228c6",
+      "bytes": 12861,
+      "published": true
+    },
+    {
+      "path": "rep02/tracks.jsonl",
+      "sha256": "2b42b4356eba9d37ae00e26e7804fb94bea095dcc776d558186c452fa45c1108",
+      "bytes": 349885,
+      "published": false
+    },
+    {
+      "path": "rep03/events.csv",
+      "sha256": "8ad3108b57a46ca915718cf0bfb19fc722790b8f7dfa4b4d8dcc03580cea71d4",
+      "bytes": 291,
+      "published": true
+    },
+    {
+      "path": "rep03/summary.json",
+      "sha256": "b84cfdc31861eeae434d2a29c8834caa30303449b0b16f4506a1c7692b3e3250",
+      "bytes": 12855,
+      "published": true
+    },
+    {
+      "path": "rep03/tracks.jsonl",
+      "sha256": "2b42b4356eba9d37ae00e26e7804fb94bea095dcc776d558186c452fa45c1108",
+      "bytes": 349885,
+      "published": false
+    }
+  ]
+}

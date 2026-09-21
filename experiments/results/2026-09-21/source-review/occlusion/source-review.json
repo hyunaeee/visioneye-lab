@@ -1,0 +1,105 @@
+{
+  "review_type": "source-only visual event and challenge annotation",
+  "reviewer": "Codex independent AI visual review; not human consensus",
+  "review_locked_at_utc": "2026-09-21T05:53:29Z",
+  "clip_id": "occlusion",
+  "source": "web/assets/stress-occlusion-source.mp4",
+  "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+  "source_width": 1280,
+  "source_height": 720,
+  "source_frames": 361,
+  "source_fps": 24,
+  "source_duration_seconds": 15.0416666667,
+  "frame_numbering": "zero-based; time = frame / 24",
+  "model_outputs_seen": false,
+  "generation_prompt_used_as_ground_truth": false,
+  "initial_room_occupancy": "unknown",
+  "fixed_parameters": {
+    "line_normalized": [[0.1, 0.55], [0.9, 0.55]],
+    "line_px": [[128, 396], [1152, 396]],
+    "in_side": 1,
+    "hysteresis_px": 8,
+    "hysteresis_y_px": [388, 404],
+    "foot_proxy": "lowest visible shoe/foot, excluding shadow"
+  },
+  "manual_events": [],
+  "ambiguous_events": [],
+  "manual_totals": {"IN": 0, "OUT": 0, "confirmed_events": 0, "unknown_events": 0},
+  "counting_assessment": {
+    "status": "no_observable_gate_crossing",
+    "reason": "Visible walking stays in the upper-left and upper-right corridors, above y=388. No visible foot traverses both hysteresis bands within the finite gate. The large wall conceals much of the gate; unseen motion is not assigned a crossing from narrative intent.",
+    "unknown_events_interpretation": "Zero explicitly observable ambiguous crossing candidates, not proof that no unseen movement occurred.",
+    "evidence": ["contact-images/overview-01.jpg", "contact-images/overview-02.jpg", "contact-images/late-paths-01.jpg", "contact-images/right-overview-02.jpg"]
+  },
+  "observable_subjects": [
+    {"manual_id": "S01", "appearance": "red hooded jacket, blue trousers, dark shoes, short hair", "path": "visible left at start; walks behind wall; likely matching red subject emerges right and leaves right edge", "identity_scope": "cross-wall association is likely, not certain"},
+    {"manual_id": "S02", "appearance": "brown/olive top and blue trousers", "path": "emerges into left corridor around F198-222 and walks left", "identity_scope": "no observed pre-occlusion counterpart"},
+    {"manual_id": "S03", "appearance": "brown/olive top and blue trousers", "path": "emerges into right corridor around F216-240 and walks right", "identity_scope": "separate from S02: both visible simultaneously on opposite sides"},
+    {"manual_id": "S04", "appearance": "green sweater, pale/grey hair, blue trousers", "path": "emerges left around F246-270 and walks left", "identity_scope": "no observed pre-occlusion counterpart"},
+    {"manual_id": "S05", "appearance": "light blue shirt and dark trousers", "path": "emerges right around F258-276 and walks right", "identity_scope": "no observed pre-occlusion counterpart"},
+    {"manual_id": "S06", "appearance": "white/light top, dark trousers, shoulder-length dark hair", "path": "emerges left around F276-300 and walks left", "identity_scope": "no observed pre-occlusion counterpart"}
+  ],
+  "source_identity_episodes": [
+    {
+      "episode_id": "O01",
+      "manual_id": "S01",
+      "subject": "Red jacket / blue trousers subject: left corridor before static wall, right corridor after wall",
+      "challenge_type": "static_obstacle_full_occlusion",
+      "before_frame": 18,
+      "before_seconds": 0.75,
+      "before_bbox_xyxy": [119, 89, 165, 180],
+      "before_foot_xy": [158, 177],
+      "last_clear_frame": 22,
+      "partial_occlusion_start_frame_window": [23, 25],
+      "visibility_interval_frames": [24, 184],
+      "visibility_interval_meaning": "selected obstruction episode, including partial occlusion and emergence; boundary frames are approximate",
+      "full_occlusion_start_frame_window": [52, 54],
+      "confirmed_fully_hidden_interval_frames": [54, 163],
+      "first_partial_emergence_frame_window": [164, 165],
+      "first_clear_emergence_frame_window": [183, 186],
+      "after_frame": 192,
+      "after_seconds": 8.0,
+      "after_bbox_xyxy": [1091, 122, 1152, 224],
+      "after_foot_xy": [1114, 220],
+      "later_path_frame": 216,
+      "coordinate_annotation": "Manual approximate visible-person anchor boxes in original pixels, with a few pixels of margin; not per-frame detector or identity ground truth.",
+      "same_person_assessment": "likely",
+      "reasoning": "A distinct red-jacket subject follows a continuous visible path into the left wall edge; the head, torso, legs and last shoe are progressively concealed. After a fully hidden interval, a shoe, legs, red jacket and head progressively emerge at the opposite edge. The red jacket, blue trousers, shoes, build and route are consistent, and no competing red subject is visible. Identity through the opaque wall is inferred rather than observed.",
+      "identity_limitations": "A generated video can replace a hidden subject with a similar one. No face-based identity verification or continuous hidden trajectory is possible. The other subjects emerge without visible pre-occlusion counterparts and are not assigned closed before/after episodes.",
+      "evidence": [
+        "contact-images/identity-before-f018-01.jpg",
+        "contact-images/red-hide-onset-01.jpg",
+        "contact-images/red-left-detail-01.jpg",
+        "contact-images/red-fully-hidden-01.jpg",
+        "contact-images/red-first-emergence-01.jpg",
+        "contact-images/red-right-detail-01.jpg",
+        "contact-images/red-clear-emergence-01.jpg",
+        "contact-images/identity-after-f192-01.jpg",
+        "contact-images/right-overview-02.jpg"
+      ]
+    }
+  ],
+  "challenge_present": {"crossing": "absent", "occlusion": "confirmed", "reentry": "absent"},
+  "challenge_notes": {
+    "crossing": "No two visible walking paths intersect; later people emerge and move along separate upper corridors. No fixed-gate crossing is observed either.",
+    "occlusion": "Static-wall hiding and emergence are clearly visible; the across-wall same-person association is only likely.",
+    "reentry": "No confirmed image-edge exit followed by return; wall occlusion is recorded under occlusion, not double-counted as reentry.",
+    "generation_outcome": "Useful for a long-occlusion identity spot check; unsuitable as a positive gate-counting challenge under the locked line. The source prompt is not ground truth."
+  },
+  "review_evidence": {
+    "overview_stride_frames": 6,
+    "overview_includes_first_and_final": true,
+    "occlusion_boundary_stride_frames": 1,
+    "source_only": true,
+    "contact_sheets": ["contact-images/overview-01.jpg", "contact-images/overview-02.jpg"],
+    "source_sha_verified": true
+  },
+  "limitations": [
+    "AI visual annotations, not human consensus or public benchmark ground truth.",
+    "No full-frame boxes, masks, keypoints, or identity ground truth; the two manual boxes are qualitative identity spot-check anchors only.",
+    "Opaque wall prevents observation of the hidden path and exact identity continuity.",
+    "Zero observed crossings cannot establish counting recall, event sensitivity, or room occupancy.",
+    "No HOTA, IDF1, MOTA, detection recall or mask IoU can be computed from these annotations.",
+    "Initial room occupancy remains unknown; the six appearance/path descriptions are reviewer labels, not a validated unique-person total."
+  ]
+}

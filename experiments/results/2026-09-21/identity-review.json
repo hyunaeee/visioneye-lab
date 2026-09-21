@@ -1,0 +1,2842 @@
+{
+  "status": "completed",
+  "created_at_utc": "2026-09-21T06:01:21.692345+00:00",
+  "review_type": "source-locked qualitative identity anchor spot check",
+  "reviewer": "Codex AI visual review; not human-consensus identity ground truth",
+  "method": {
+    "candidate_rule": "IoU >= 0.20 OR (prediction center inside the source anchor AND IoU >= 0.10)",
+    "ranking": "descending IoU, then confidence; all qualified candidates retained",
+    "unique_assignment_rule": "exactly one qualified candidate and a non-null track ID at each anchor",
+    "multiple_candidate_rule": "flag ambiguous_multiple_candidates; do not infer which candidate is the person automatically",
+    "no_id_rule": "candidate with null track_id is detected_but_unassigned, not a tracked person",
+    "comparison": "compare IDs only within the same clip/run/repeat; matching numbers across runs have no meaning",
+    "frames": "only pre-locked before/after frame, no best-looking frame substitution",
+    "spatial_proxy_is_ground_truth": false,
+    "repeat": 1,
+    "other_repeats_reviewed": false
+  },
+  "expected_conditions": 7,
+  "reviewed_clips": [
+    "occlusion",
+    "reentry"
+  ],
+  "episodes_per_condition": 3,
+  "anchor_pairs": 21,
+  "scope": "Rep01 only; 14 clip/run files, 21 episode comparisons, 42 anchor observations. Three source episodes, not 21 independent videos.",
+  "source_lock_preserved": true,
+  "items": [
+    {
+      "check_id": "yolo26n:O01",
+      "condition": "yolo26n",
+      "condition_label": "YOLO26n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "occlusion",
+      "episode_id": "O01",
+      "subject": "Red jacket / blue trousers subject: left corridor before static wall, right corridor after wall",
+      "run_id": "yolo26n-occlusion",
+      "repeat": 1,
+      "tracks_sha256": "315ad12a2033929f9011c2a2e22d863b883e997199a9d088692752832704a597",
+      "source_review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+      "before": {
+        "frame": 18,
+        "source_anchor_xyxy": [
+          119,
+          89,
+          165,
+          180
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.85153198242188,
+              90.57537841796875,
+              163.56503295898438,
+              178.27435302734375
+            ],
+            "confidence": 0.5784965753555298,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.915822,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.85153198242188,
+              90.57537841796875,
+              163.56503295898438,
+              178.27435302734375
+            ],
+            "confidence": 0.5784965753555298,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.915822,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 1
+      },
+      "after": {
+        "frame": 192,
+        "source_anchor_xyxy": [
+          1091,
+          122,
+          1152,
+          224
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.271728515625,
+              123.41012573242188,
+              1152.208251953125,
+              222.34127807617188
+            ],
+            "confidence": 0.7338579297065735,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.93071,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.271728515625,
+              123.41012573242188,
+              1152.208251953125,
+              222.34127807617188
+            ],
+            "confidence": 0.7338579297065735,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.93071,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 5
+      },
+      "spatial_proxy_result": "id_changed_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-O01.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked."
+      },
+      "final_qualitative_result": "id_changed_at_anchors"
+    },
+    {
+      "check_id": "yolo26n:red-offscreen",
+      "condition": "yolo26n",
+      "condition_label": "YOLO26n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "reentry",
+      "episode_id": "red-offscreen",
+      "subject": "S05 red suit and light handbag",
+      "run_id": "yolo26n-reentry",
+      "repeat": 1,
+      "tracks_sha256": "9fa9606f8b081bf03e14fab13d2da4c317d92303dd344b5fec96929c8f536568",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 120,
+        "source_anchor_xyxy": [
+          110,
+          550,
+          270,
+          710
+        ],
+        "status": "detected_but_unassigned",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.40547943115234,
+              556.3519287109375,
+              260.3488464355469,
+              703.5955810546875
+            ],
+            "confidence": 0.2554469406604767,
+            "track_id": null,
+            "iou_with_source_anchor": 0.799161,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.40547943115234,
+              556.3519287109375,
+              260.3488464355469,
+              703.5955810546875
+            ],
+            "confidence": 0.2554469406604767,
+            "track_id": null,
+            "iou_with_source_anchor": 0.799161,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": null
+      },
+      "after": {
+        "frame": 240,
+        "source_anchor_xyxy": [
+          195,
+          490,
+          350,
+          635
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              207.13006591796875,
+              494.27569580078125,
+              345.78436279296875,
+              630.1893920898438
+            ],
+            "confidence": 0.43628132343292236,
+            "track_id": 18,
+            "iou_with_source_anchor": 0.838488,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              207.13006591796875,
+              494.27569580078125,
+              345.78436279296875,
+              630.1893920898438
+            ],
+            "confidence": 0.43628132343292236,
+            "track_id": 18,
+            "iou_with_source_anchor": 0.838488,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 18
+      },
+      "spatial_proxy_result": "unassigned_at_anchor",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-offscreen.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "The red person is visibly boxed in F120, but that box has no track ID. This is unassigned detection, not a missing source person. F240 has the displayed tracked box on the returning red person."
+      },
+      "final_qualitative_result": "unassigned_at_anchor"
+    },
+    {
+      "check_id": "yolo26n:red-passing",
+      "condition": "yolo26n",
+      "condition_label": "YOLO26n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "reentry",
+      "episode_id": "red-passing",
+      "subject": "S05 red suit passes mustard-shirt subject",
+      "run_id": "yolo26n-reentry",
+      "repeat": 1,
+      "tracks_sha256": "9fa9606f8b081bf03e14fab13d2da4c317d92303dd344b5fec96929c8f536568",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 48,
+        "source_anchor_xyxy": [
+          575,
+          100,
+          680,
+          290
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              582.3643188476562,
+              106.8720703125,
+              664.6390991210938,
+              269.0491943359375
+            ],
+            "confidence": 0.8119294047355652,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.668826,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 2,
+            "xyxy": [
+              565.586181640625,
+              257.607666015625,
+              649.544921875,
+              414.29296875
+            ],
+            "confidence": 0.8351414799690247,
+            "track_id": 4,
+            "iou_with_source_anchor": 0.078679,
+            "center_inside_source_anchor": false,
+            "qualifies": false
+          },
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              582.3643188476562,
+              106.8720703125,
+              664.6390991210938,
+              269.0491943359375
+            ],
+            "confidence": 0.8119294047355652,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.668826,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "after": {
+        "frame": 72,
+        "source_anchor_xyxy": [
+          453,
+          225,
+          542,
+          390
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.34893798828125,
+              225.42449951171875,
+              542.3424682617188,
+              387.93499755859375
+            ],
+            "confidence": 0.8223955631256104,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.922223,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.34893798828125,
+              225.42449951171875,
+              542.3424682617188,
+              387.93499755859375
+            ],
+            "confidence": 0.8223955631256104,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.922223,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "spatial_proxy_result": "same_id_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-passing.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked. The lower gray box belongs to the passing mustard-shirt person and does not qualify as the red-person anchor; it is not a duplicate red-person assignment."
+      },
+      "final_qualitative_result": "same_id_at_anchors"
+    },
+    {
+      "check_id": "yolov8n:O01",
+      "condition": "yolov8n",
+      "condition_label": "YOLOv8n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "occlusion",
+      "episode_id": "O01",
+      "subject": "Red jacket / blue trousers subject: left corridor before static wall, right corridor after wall",
+      "run_id": "yolov8n-occlusion",
+      "repeat": 1,
+      "tracks_sha256": "333517e75e3c2feea67041e15c2010c6b86919aabc543dd18728f1565bac20f2",
+      "source_review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+      "before": {
+        "frame": 18,
+        "source_anchor_xyxy": [
+          119,
+          89,
+          165,
+          180
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              118.50762939453125,
+              90.07904052734375,
+              164.377685546875,
+              181.61163330078125
+            ],
+            "confidence": 0.3227459788322449,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.948005,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              118.50762939453125,
+              90.07904052734375,
+              164.377685546875,
+              181.61163330078125
+            ],
+            "confidence": 0.3227459788322449,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.948005,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 1
+      },
+      "after": {
+        "frame": 192,
+        "source_anchor_xyxy": [
+          1091,
+          122,
+          1152,
+          224
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1094.0831298828125,
+              122.939453125,
+              1150.6839599609375,
+              221.496337890625
+            ],
+            "confidence": 0.3881164789199829,
+            "track_id": 2,
+            "iou_with_source_anchor": 0.896561,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1094.0831298828125,
+              122.939453125,
+              1150.6839599609375,
+              221.496337890625
+            ],
+            "confidence": 0.3881164789199829,
+            "track_id": 2,
+            "iou_with_source_anchor": 0.896561,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 2
+      },
+      "spatial_proxy_result": "id_changed_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-O01.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked."
+      },
+      "final_qualitative_result": "id_changed_at_anchors"
+    },
+    {
+      "check_id": "yolov8n:red-offscreen",
+      "condition": "yolov8n",
+      "condition_label": "YOLOv8n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "reentry",
+      "episode_id": "red-offscreen",
+      "subject": "S05 red suit and light handbag",
+      "run_id": "yolov8n-reentry",
+      "repeat": 1,
+      "tracks_sha256": "2b42b4356eba9d37ae00e26e7804fb94bea095dcc776d558186c452fa45c1108",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 120,
+        "source_anchor_xyxy": [
+          110,
+          550,
+          270,
+          710
+        ],
+        "status": "missing_spatial_candidate",
+        "qualified_candidates": [],
+        "all_overlapping_detections": [],
+        "selected_track_id": null
+      },
+      "after": {
+        "frame": 240,
+        "source_anchor_xyxy": [
+          195,
+          490,
+          350,
+          635
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              206.7176513671875,
+              494.8897705078125,
+              344.4403076171875,
+              632.0233154296875
+            ],
+            "confidence": 0.5677638649940491,
+            "track_id": 18,
+            "iou_with_source_anchor": 0.840329,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              206.7176513671875,
+              494.8897705078125,
+              344.4403076171875,
+              632.0233154296875
+            ],
+            "confidence": 0.5677638649940491,
+            "track_id": 18,
+            "iou_with_source_anchor": 0.840329,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 18
+      },
+      "spatial_proxy_result": "missing_assignment_at_anchor",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": false,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-offscreen.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Red person is visible in F120, with no overlapping model detection box. At F240 the target is boxed with ID 18."
+      },
+      "final_qualitative_result": "missing_assignment_at_anchor"
+    },
+    {
+      "check_id": "yolov8n:red-passing",
+      "condition": "yolov8n",
+      "condition_label": "YOLOv8n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "reentry",
+      "episode_id": "red-passing",
+      "subject": "S05 red suit passes mustard-shirt subject",
+      "run_id": "yolov8n-reentry",
+      "repeat": 1,
+      "tracks_sha256": "2b42b4356eba9d37ae00e26e7804fb94bea095dcc776d558186c452fa45c1108",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 48,
+        "source_anchor_xyxy": [
+          575,
+          100,
+          680,
+          290
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              584.555908203125,
+              106.528564453125,
+              664.75537109375,
+              279.411865234375
+            ],
+            "confidence": 0.7969260215759277,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.694995,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              569.4578857421875,
+              258.96240234375,
+              651.208251953125,
+              413.2984619140625
+            ],
+            "confidence": 0.8628412485122681,
+            "track_id": 4,
+            "iou_with_source_anchor": 0.078317,
+            "center_inside_source_anchor": false,
+            "qualifies": false
+          },
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              584.555908203125,
+              106.528564453125,
+              664.75537109375,
+              279.411865234375
+            ],
+            "confidence": 0.7969260215759277,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.694995,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 5
+      },
+      "after": {
+        "frame": 72,
+        "source_anchor_xyxy": [
+          453,
+          225,
+          542,
+          390
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              461.197021484375,
+              227.70245361328125,
+              541.9661865234375,
+              389.44940185546875
+            ],
+            "confidence": 0.8124207854270935,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.889627,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              461.197021484375,
+              227.70245361328125,
+              541.9661865234375,
+              389.44940185546875
+            ],
+            "confidence": 0.8124207854270935,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.889627,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 5
+      },
+      "spatial_proxy_result": "same_id_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-passing.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked. The lower gray box belongs to the passing mustard-shirt person and does not qualify as the red-person anchor; it is not a duplicate red-person assignment."
+      },
+      "final_qualitative_result": "same_id_at_anchors"
+    },
+    {
+      "check_id": "yolo11n:O01",
+      "condition": "yolo11n",
+      "condition_label": "YOLO11n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "occlusion",
+      "episode_id": "O01",
+      "subject": "Red jacket / blue trousers subject: left corridor before static wall, right corridor after wall",
+      "run_id": "yolo11n-occlusion",
+      "repeat": 1,
+      "tracks_sha256": "2fd23447b5a79c450a0dae3bc14b2ca4d81ae5b231856e6c182e3139649cb729",
+      "source_review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+      "before": {
+        "frame": 18,
+        "source_anchor_xyxy": [
+          119,
+          89,
+          165,
+          180
+        ],
+        "status": "missing_spatial_candidate",
+        "qualified_candidates": [],
+        "all_overlapping_detections": [],
+        "selected_track_id": null
+      },
+      "after": {
+        "frame": 192,
+        "source_anchor_xyxy": [
+          1091,
+          122,
+          1152,
+          224
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.930419921875,
+              122.9447021484375,
+              1151.016357421875,
+              221.1707763671875
+            ],
+            "confidence": 0.6358188986778259,
+            "track_id": 3,
+            "iou_with_source_anchor": 0.90121,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.930419921875,
+              122.9447021484375,
+              1151.016357421875,
+              221.1707763671875
+            ],
+            "confidence": 0.6358188986778259,
+            "track_id": 3,
+            "iou_with_source_anchor": 0.90121,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 3
+      },
+      "spatial_proxy_result": "missing_assignment_at_anchor",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": false,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-O01.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Red person is visible in the F18 source crop, with no overlapping model detection box. F192 has one box on that person, ID 3. No before-ID is invented."
+      },
+      "final_qualitative_result": "missing_assignment_at_anchor"
+    },
+    {
+      "check_id": "yolo11n:red-offscreen",
+      "condition": "yolo11n",
+      "condition_label": "YOLO11n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "reentry",
+      "episode_id": "red-offscreen",
+      "subject": "S05 red suit and light handbag",
+      "run_id": "yolo11n-reentry",
+      "repeat": 1,
+      "tracks_sha256": "dd1ba1263d5c6d1d3ac56900d3202a09f054fa8a7e84248250c1f53654fd7a46",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 120,
+        "source_anchor_xyxy": [
+          110,
+          550,
+          270,
+          710
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              122.79740142822266,
+              556.6714477539062,
+              261.7223205566406,
+              704.8253784179688
+            ],
+            "confidence": 0.4673411250114441,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.803995,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              122.79740142822266,
+              556.6714477539062,
+              261.7223205566406,
+              704.8253784179688
+            ],
+            "confidence": 0.4673411250114441,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.803995,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "after": {
+        "frame": 240,
+        "source_anchor_xyxy": [
+          195,
+          490,
+          350,
+          635
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              206.40789794921875,
+              494.97357177734375,
+              344.03643798828125,
+              630.4815063476562
+            ],
+            "confidence": 0.8214108347892761,
+            "track_id": 32,
+            "iou_with_source_anchor": 0.8298,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              206.40789794921875,
+              494.97357177734375,
+              344.03643798828125,
+              630.4815063476562
+            ],
+            "confidence": 0.8214108347892761,
+            "track_id": 32,
+            "iou_with_source_anchor": 0.8298,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 32
+      },
+      "spatial_proxy_result": "id_changed_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-offscreen.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked."
+      },
+      "final_qualitative_result": "id_changed_at_anchors"
+    },
+    {
+      "check_id": "yolo11n:red-passing",
+      "condition": "yolo11n",
+      "condition_label": "YOLO11n + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "reentry",
+      "episode_id": "red-passing",
+      "subject": "S05 red suit passes mustard-shirt subject",
+      "run_id": "yolo11n-reentry",
+      "repeat": 1,
+      "tracks_sha256": "dd1ba1263d5c6d1d3ac56900d3202a09f054fa8a7e84248250c1f53654fd7a46",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 48,
+        "source_anchor_xyxy": [
+          575,
+          100,
+          680,
+          290
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 2,
+            "xyxy": [
+              585.81494140625,
+              107.3271484375,
+              663.965576171875,
+              284.8511962890625
+            ],
+            "confidence": 0.8374113440513611,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.695419,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              567.1407470703125,
+              258.9190673828125,
+              647.6839599609375,
+              413.1783447265625
+            ],
+            "confidence": 0.8573755025863647,
+            "track_id": 3,
+            "iou_with_source_anchor": 0.075014,
+            "center_inside_source_anchor": false,
+            "qualifies": false
+          },
+          {
+            "raw_detection_index": 2,
+            "xyxy": [
+              585.81494140625,
+              107.3271484375,
+              663.965576171875,
+              284.8511962890625
+            ],
+            "confidence": 0.8374113440513611,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.695419,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "after": {
+        "frame": 72,
+        "source_anchor_xyxy": [
+          453,
+          225,
+          542,
+          390
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              459.58251953125,
+              226.60440063476562,
+              541.6373901367188,
+              388.7069091796875
+            ],
+            "confidence": 0.8548151850700378,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.905775,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              459.58251953125,
+              226.60440063476562,
+              541.6373901367188,
+              388.7069091796875
+            ],
+            "confidence": 0.8548151850700378,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.905775,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "spatial_proxy_result": "same_id_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-passing.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked. The lower gray box belongs to the passing mustard-shirt person and does not qualify as the red-person anchor; it is not a duplicate red-person assignment."
+      },
+      "final_qualitative_result": "same_id_at_anchors"
+    },
+    {
+      "check_id": "rtdetrv2_s:O01",
+      "condition": "rtdetrv2_s",
+      "condition_label": "RT-DETRv2-S + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "occlusion",
+      "episode_id": "O01",
+      "subject": "Red jacket / blue trousers subject: left corridor before static wall, right corridor after wall",
+      "run_id": "rtdetrv2_s-occlusion",
+      "repeat": 1,
+      "tracks_sha256": "fea2e0d865db517e8a4ef011d6f2df0d2be4f91d42cdac5817c08c7056e24d1e",
+      "source_review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+      "before": {
+        "frame": 18,
+        "source_anchor_xyxy": [
+          119,
+          89,
+          165,
+          180
+        ],
+        "status": "ambiguous_multiple_candidates",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.61328125,
+              89.83406829833984,
+              163.35206604003906,
+              176.9163818359375
+            ],
+            "confidence": 0.9143364429473877,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.909908,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          },
+          {
+            "raw_detection_index": 9,
+            "xyxy": [
+              120.99789428710938,
+              91.11339569091797,
+              161.81129455566406,
+              175.56216430664062
+            ],
+            "confidence": 0.11382559686899185,
+            "track_id": null,
+            "iou_with_source_anchor": 0.823373,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          },
+          {
+            "raw_detection_index": 6,
+            "xyxy": [
+              139.36241149902344,
+              129.6228790283203,
+              162.64959716796875,
+              173.32806396484375
+            ],
+            "confidence": 0.13028860092163086,
+            "track_id": null,
+            "iou_with_source_anchor": 0.243137,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.61328125,
+              89.83406829833984,
+              163.35206604003906,
+              176.9163818359375
+            ],
+            "confidence": 0.9143364429473877,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.909908,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          },
+          {
+            "raw_detection_index": 6,
+            "xyxy": [
+              139.36241149902344,
+              129.6228790283203,
+              162.64959716796875,
+              173.32806396484375
+            ],
+            "confidence": 0.13028860092163086,
+            "track_id": null,
+            "iou_with_source_anchor": 0.243137,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          },
+          {
+            "raw_detection_index": 9,
+            "xyxy": [
+              120.99789428710938,
+              91.11339569091797,
+              161.81129455566406,
+              175.56216430664062
+            ],
+            "confidence": 0.11382559686899185,
+            "track_id": null,
+            "iou_with_source_anchor": 0.823373,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": null
+      },
+      "after": {
+        "frame": 192,
+        "source_anchor_xyxy": [
+          1091,
+          122,
+          1152,
+          224
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.81640625,
+              122.53262329101562,
+              1152.3785400390625,
+              221.09207153320312
+            ],
+            "confidence": 0.9266573190689087,
+            "track_id": 19,
+            "iou_with_source_anchor": 0.916162,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.81640625,
+              122.53262329101562,
+              1152.3785400390625,
+              221.09207153320312
+            ],
+            "confidence": 0.9266573190689087,
+            "track_id": 19,
+            "iou_with_source_anchor": 0.916162,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 19
+      },
+      "spatial_proxy_result": "ambiguous_multiple_candidates",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-O01.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "F18 has three boxes on the same visible red person: one ID 1 box and two unassigned boxes (one partial-body box). F192 has one ID 19 box on the emerged red person. This is duplicate detection output, not three assigned IDs. The spatial proxy remains ambiguous; the unique non-null ID is visually identified separately.",
+        "qualitative_result": "duplicate_boxes_and_id_changed_at_anchors",
+        "visually_identified_before_track_id": 1,
+        "visually_identified_after_track_id": 19,
+        "overlapping_unassigned_duplicate_boxes_before": 2
+      },
+      "final_qualitative_result": "duplicate_boxes_and_id_changed_at_anchors"
+    },
+    {
+      "check_id": "rtdetrv2_s:red-offscreen",
+      "condition": "rtdetrv2_s",
+      "condition_label": "RT-DETRv2-S + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "reentry",
+      "episode_id": "red-offscreen",
+      "subject": "S05 red suit and light handbag",
+      "run_id": "rtdetrv2_s-reentry",
+      "repeat": 1,
+      "tracks_sha256": "5fd331d1dbe702c0cd371dfe39ac0dfd0511247116d41f53f38490eb5b256c3d",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 120,
+        "source_anchor_xyxy": [
+          110,
+          550,
+          270,
+          710
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.66276550292969,
+              557.1641845703125,
+              260.9540710449219,
+              702.8656005859375
+            ],
+            "confidence": 0.924901008605957,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.792771,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.66276550292969,
+              557.1641845703125,
+              260.9540710449219,
+              702.8656005859375
+            ],
+            "confidence": 0.924901008605957,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.792771,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 5
+      },
+      "after": {
+        "frame": 240,
+        "source_anchor_xyxy": [
+          195,
+          490,
+          350,
+          635
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              205.83560180664062,
+              493.6518249511719,
+              345.13330078125,
+              631.2432250976562
+            ],
+            "confidence": 0.9464560151100159,
+            "track_id": 51,
+            "iou_with_source_anchor": 0.852777,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              205.83560180664062,
+              493.6518249511719,
+              345.13330078125,
+              631.2432250976562
+            ],
+            "confidence": 0.9464560151100159,
+            "track_id": 51,
+            "iou_with_source_anchor": 0.852777,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 51
+      },
+      "spatial_proxy_result": "id_changed_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-offscreen.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked."
+      },
+      "final_qualitative_result": "id_changed_at_anchors"
+    },
+    {
+      "check_id": "rtdetrv2_s:red-passing",
+      "condition": "rtdetrv2_s",
+      "condition_label": "RT-DETRv2-S + ByteTrack",
+      "comparison_kind": "detector_pipeline",
+      "clip": "reentry",
+      "episode_id": "red-passing",
+      "subject": "S05 red suit passes mustard-shirt subject",
+      "run_id": "rtdetrv2_s-reentry",
+      "repeat": 1,
+      "tracks_sha256": "5fd331d1dbe702c0cd371dfe39ac0dfd0511247116d41f53f38490eb5b256c3d",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 48,
+        "source_anchor_xyxy": [
+          575,
+          100,
+          680,
+          290
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              583.324462890625,
+              106.90113830566406,
+              664.715576171875,
+              286.0677490234375
+            ],
+            "confidence": 0.9273989200592041,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.730956,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 2,
+            "xyxy": [
+              566.2571411132812,
+              263.3729553222656,
+              649.0283203125,
+              413.98028564453125
+            ],
+            "confidence": 0.9327321648597717,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.064745,
+            "center_inside_source_anchor": false,
+            "qualifies": false
+          },
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              583.324462890625,
+              106.90113830566406,
+              664.715576171875,
+              286.0677490234375
+            ],
+            "confidence": 0.9273989200592041,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.730956,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 5
+      },
+      "after": {
+        "frame": 72,
+        "source_anchor_xyxy": [
+          453,
+          225,
+          542,
+          390
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.1369323730469,
+              226.0539093017578,
+              542.2507934570312,
+              388.0414733886719
+            ],
+            "confidence": 0.9268443584442139,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.922526,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.1369323730469,
+              226.0539093017578,
+              542.2507934570312,
+              388.0414733886719
+            ],
+            "confidence": 0.9268443584442139,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.922526,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 5
+      },
+      "spatial_proxy_result": "same_id_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-passing.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked. The lower gray box belongs to the passing mustard-shirt person and does not qualify as the red-person anchor; it is not a duplicate red-person assignment."
+      },
+      "final_qualitative_result": "same_id_at_anchors"
+    },
+    {
+      "check_id": "cache-bytetrack:O01",
+      "condition": "cache-bytetrack",
+      "condition_label": "YOLO26n cache + ByteTrack",
+      "comparison_kind": "tracker_replay",
+      "clip": "occlusion",
+      "episode_id": "O01",
+      "subject": "Red jacket / blue trousers subject: left corridor before static wall, right corridor after wall",
+      "run_id": "cache-bytetrack-occlusion",
+      "repeat": 1,
+      "tracks_sha256": "315ad12a2033929f9011c2a2e22d863b883e997199a9d088692752832704a597",
+      "source_review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+      "before": {
+        "frame": 18,
+        "source_anchor_xyxy": [
+          119,
+          89,
+          165,
+          180
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.85153198242188,
+              90.57537841796875,
+              163.56503295898438,
+              178.27435302734375
+            ],
+            "confidence": 0.5784965753555298,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.915822,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.85153198242188,
+              90.57537841796875,
+              163.56503295898438,
+              178.27435302734375
+            ],
+            "confidence": 0.5784965753555298,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.915822,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 1
+      },
+      "after": {
+        "frame": 192,
+        "source_anchor_xyxy": [
+          1091,
+          122,
+          1152,
+          224
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.271728515625,
+              123.41012573242188,
+              1152.208251953125,
+              222.34127807617188
+            ],
+            "confidence": 0.7338579297065735,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.93071,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.271728515625,
+              123.41012573242188,
+              1152.208251953125,
+              222.34127807617188
+            ],
+            "confidence": 0.7338579297065735,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.93071,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 5
+      },
+      "spatial_proxy_result": "id_changed_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-O01.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked."
+      },
+      "final_qualitative_result": "id_changed_at_anchors"
+    },
+    {
+      "check_id": "cache-bytetrack:red-offscreen",
+      "condition": "cache-bytetrack",
+      "condition_label": "YOLO26n cache + ByteTrack",
+      "comparison_kind": "tracker_replay",
+      "clip": "reentry",
+      "episode_id": "red-offscreen",
+      "subject": "S05 red suit and light handbag",
+      "run_id": "cache-bytetrack-reentry",
+      "repeat": 1,
+      "tracks_sha256": "9fa9606f8b081bf03e14fab13d2da4c317d92303dd344b5fec96929c8f536568",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 120,
+        "source_anchor_xyxy": [
+          110,
+          550,
+          270,
+          710
+        ],
+        "status": "detected_but_unassigned",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.40547943115234,
+              556.3519287109375,
+              260.3488464355469,
+              703.5955810546875
+            ],
+            "confidence": 0.2554469406604767,
+            "track_id": null,
+            "iou_with_source_anchor": 0.799161,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.40547943115234,
+              556.3519287109375,
+              260.3488464355469,
+              703.5955810546875
+            ],
+            "confidence": 0.2554469406604767,
+            "track_id": null,
+            "iou_with_source_anchor": 0.799161,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": null
+      },
+      "after": {
+        "frame": 240,
+        "source_anchor_xyxy": [
+          195,
+          490,
+          350,
+          635
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              207.13006591796875,
+              494.27569580078125,
+              345.78436279296875,
+              630.1893920898438
+            ],
+            "confidence": 0.43628132343292236,
+            "track_id": 18,
+            "iou_with_source_anchor": 0.838488,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              207.13006591796875,
+              494.27569580078125,
+              345.78436279296875,
+              630.1893920898438
+            ],
+            "confidence": 0.43628132343292236,
+            "track_id": 18,
+            "iou_with_source_anchor": 0.838488,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 18
+      },
+      "spatial_proxy_result": "unassigned_at_anchor",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-offscreen.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "The red person is visibly boxed in F120, but that box has no track ID. This is unassigned detection, not a missing source person. F240 has the displayed tracked box on the returning red person."
+      },
+      "final_qualitative_result": "unassigned_at_anchor"
+    },
+    {
+      "check_id": "cache-bytetrack:red-passing",
+      "condition": "cache-bytetrack",
+      "condition_label": "YOLO26n cache + ByteTrack",
+      "comparison_kind": "tracker_replay",
+      "clip": "reentry",
+      "episode_id": "red-passing",
+      "subject": "S05 red suit passes mustard-shirt subject",
+      "run_id": "cache-bytetrack-reentry",
+      "repeat": 1,
+      "tracks_sha256": "9fa9606f8b081bf03e14fab13d2da4c317d92303dd344b5fec96929c8f536568",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 48,
+        "source_anchor_xyxy": [
+          575,
+          100,
+          680,
+          290
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              582.3643188476562,
+              106.8720703125,
+              664.6390991210938,
+              269.0491943359375
+            ],
+            "confidence": 0.8119294047355652,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.668826,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 2,
+            "xyxy": [
+              565.586181640625,
+              257.607666015625,
+              649.544921875,
+              414.29296875
+            ],
+            "confidence": 0.8351414799690247,
+            "track_id": 4,
+            "iou_with_source_anchor": 0.078679,
+            "center_inside_source_anchor": false,
+            "qualifies": false
+          },
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              582.3643188476562,
+              106.8720703125,
+              664.6390991210938,
+              269.0491943359375
+            ],
+            "confidence": 0.8119294047355652,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.668826,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "after": {
+        "frame": 72,
+        "source_anchor_xyxy": [
+          453,
+          225,
+          542,
+          390
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.34893798828125,
+              225.42449951171875,
+              542.3424682617188,
+              387.93499755859375
+            ],
+            "confidence": 0.8223955631256104,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.922223,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.34893798828125,
+              225.42449951171875,
+              542.3424682617188,
+              387.93499755859375
+            ],
+            "confidence": 0.8223955631256104,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.922223,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "spatial_proxy_result": "same_id_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-passing.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked. The lower gray box belongs to the passing mustard-shirt person and does not qualify as the red-person anchor; it is not a duplicate red-person assignment."
+      },
+      "final_qualitative_result": "same_id_at_anchors"
+    },
+    {
+      "check_id": "cache-botsort:O01",
+      "condition": "cache-botsort",
+      "condition_label": "YOLO26n cache + BoT-SORT",
+      "comparison_kind": "tracker_replay",
+      "clip": "occlusion",
+      "episode_id": "O01",
+      "subject": "Red jacket / blue trousers subject: left corridor before static wall, right corridor after wall",
+      "run_id": "cache-botsort-occlusion",
+      "repeat": 1,
+      "tracks_sha256": "62dde0685f5f3d0fc1dd08c5f5c051130410158f7b5e1ff7266e2f12ee59f367",
+      "source_review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+      "before": {
+        "frame": 18,
+        "source_anchor_xyxy": [
+          119,
+          89,
+          165,
+          180
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.85153198242188,
+              90.57537841796875,
+              163.56503295898438,
+              178.27435302734375
+            ],
+            "confidence": 0.5784965753555298,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.915822,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.85153198242188,
+              90.57537841796875,
+              163.56503295898438,
+              178.27435302734375
+            ],
+            "confidence": 0.5784965753555298,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.915822,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 1
+      },
+      "after": {
+        "frame": 192,
+        "source_anchor_xyxy": [
+          1091,
+          122,
+          1152,
+          224
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.271728515625,
+              123.41012573242188,
+              1152.208251953125,
+              222.34127807617188
+            ],
+            "confidence": 0.7338579297065735,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.93071,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.271728515625,
+              123.41012573242188,
+              1152.208251953125,
+              222.34127807617188
+            ],
+            "confidence": 0.7338579297065735,
+            "track_id": 5,
+            "iou_with_source_anchor": 0.93071,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 5
+      },
+      "spatial_proxy_result": "id_changed_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-O01.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked."
+      },
+      "final_qualitative_result": "id_changed_at_anchors"
+    },
+    {
+      "check_id": "cache-botsort:red-offscreen",
+      "condition": "cache-botsort",
+      "condition_label": "YOLO26n cache + BoT-SORT",
+      "comparison_kind": "tracker_replay",
+      "clip": "reentry",
+      "episode_id": "red-offscreen",
+      "subject": "S05 red suit and light handbag",
+      "run_id": "cache-botsort-reentry",
+      "repeat": 1,
+      "tracks_sha256": "c5e19768c7e340cf160a997e675a9c4413a8e11ae0f1c8881728a6be420d9f92",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 120,
+        "source_anchor_xyxy": [
+          110,
+          550,
+          270,
+          710
+        ],
+        "status": "detected_but_unassigned",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.40547943115234,
+              556.3519287109375,
+              260.3488464355469,
+              703.5955810546875
+            ],
+            "confidence": 0.2554469406604767,
+            "track_id": null,
+            "iou_with_source_anchor": 0.799161,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.40547943115234,
+              556.3519287109375,
+              260.3488464355469,
+              703.5955810546875
+            ],
+            "confidence": 0.2554469406604767,
+            "track_id": null,
+            "iou_with_source_anchor": 0.799161,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": null
+      },
+      "after": {
+        "frame": 240,
+        "source_anchor_xyxy": [
+          195,
+          490,
+          350,
+          635
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              207.13006591796875,
+              494.27569580078125,
+              345.78436279296875,
+              630.1893920898438
+            ],
+            "confidence": 0.43628132343292236,
+            "track_id": 13,
+            "iou_with_source_anchor": 0.838488,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              207.13006591796875,
+              494.27569580078125,
+              345.78436279296875,
+              630.1893920898438
+            ],
+            "confidence": 0.43628132343292236,
+            "track_id": 13,
+            "iou_with_source_anchor": 0.838488,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 13
+      },
+      "spatial_proxy_result": "unassigned_at_anchor",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-offscreen.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "The red person is visibly boxed in F120, but that box has no track ID. This is unassigned detection, not a missing source person. F240 has the displayed tracked box on the returning red person."
+      },
+      "final_qualitative_result": "unassigned_at_anchor"
+    },
+    {
+      "check_id": "cache-botsort:red-passing",
+      "condition": "cache-botsort",
+      "condition_label": "YOLO26n cache + BoT-SORT",
+      "comparison_kind": "tracker_replay",
+      "clip": "reentry",
+      "episode_id": "red-passing",
+      "subject": "S05 red suit passes mustard-shirt subject",
+      "run_id": "cache-botsort-reentry",
+      "repeat": 1,
+      "tracks_sha256": "c5e19768c7e340cf160a997e675a9c4413a8e11ae0f1c8881728a6be420d9f92",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 48,
+        "source_anchor_xyxy": [
+          575,
+          100,
+          680,
+          290
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              582.3643188476562,
+              106.8720703125,
+              664.6390991210938,
+              269.0491943359375
+            ],
+            "confidence": 0.8119294047355652,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.668826,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 2,
+            "xyxy": [
+              565.586181640625,
+              257.607666015625,
+              649.544921875,
+              414.29296875
+            ],
+            "confidence": 0.8351414799690247,
+            "track_id": 4,
+            "iou_with_source_anchor": 0.078679,
+            "center_inside_source_anchor": false,
+            "qualifies": false
+          },
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              582.3643188476562,
+              106.8720703125,
+              664.6390991210938,
+              269.0491943359375
+            ],
+            "confidence": 0.8119294047355652,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.668826,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "after": {
+        "frame": 72,
+        "source_anchor_xyxy": [
+          453,
+          225,
+          542,
+          390
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.34893798828125,
+              225.42449951171875,
+              542.3424682617188,
+              387.93499755859375
+            ],
+            "confidence": 0.8223955631256104,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.922223,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.34893798828125,
+              225.42449951171875,
+              542.3424682617188,
+              387.93499755859375
+            ],
+            "confidence": 0.8223955631256104,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.922223,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "spatial_proxy_result": "same_id_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-passing.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked. The lower gray box belongs to the passing mustard-shirt person and does not qualify as the red-person anchor; it is not a duplicate red-person assignment."
+      },
+      "final_qualitative_result": "same_id_at_anchors"
+    },
+    {
+      "check_id": "cache-tracktrack:O01",
+      "condition": "cache-tracktrack",
+      "condition_label": "YOLO26n cache + TrackTrack",
+      "comparison_kind": "tracker_replay",
+      "clip": "occlusion",
+      "episode_id": "O01",
+      "subject": "Red jacket / blue trousers subject: left corridor before static wall, right corridor after wall",
+      "run_id": "cache-tracktrack-occlusion",
+      "repeat": 1,
+      "tracks_sha256": "596ca3d159d2242c21a773a02f5a71c97d56df0817e04a57a1afabd3a7376d87",
+      "source_review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+      "before": {
+        "frame": 18,
+        "source_anchor_xyxy": [
+          119,
+          89,
+          165,
+          180
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.85153198242188,
+              90.57537841796875,
+              163.56503295898438,
+              178.27435302734375
+            ],
+            "confidence": 0.5784965753555298,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.915822,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              119.85153198242188,
+              90.57537841796875,
+              163.56503295898438,
+              178.27435302734375
+            ],
+            "confidence": 0.5784965753555298,
+            "track_id": 1,
+            "iou_with_source_anchor": 0.915822,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 1
+      },
+      "after": {
+        "frame": 192,
+        "source_anchor_xyxy": [
+          1091,
+          122,
+          1152,
+          224
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.271728515625,
+              123.41012573242188,
+              1152.208251953125,
+              222.34127807617188
+            ],
+            "confidence": 0.7338579297065735,
+            "track_id": 2,
+            "iou_with_source_anchor": 0.93071,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              1093.271728515625,
+              123.41012573242188,
+              1152.208251953125,
+              222.34127807617188
+            ],
+            "confidence": 0.7338579297065735,
+            "track_id": 2,
+            "iou_with_source_anchor": 0.93071,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 2
+      },
+      "spatial_proxy_result": "id_changed_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-O01.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked."
+      },
+      "final_qualitative_result": "id_changed_at_anchors"
+    },
+    {
+      "check_id": "cache-tracktrack:red-offscreen",
+      "condition": "cache-tracktrack",
+      "condition_label": "YOLO26n cache + TrackTrack",
+      "comparison_kind": "tracker_replay",
+      "clip": "reentry",
+      "episode_id": "red-offscreen",
+      "subject": "S05 red suit and light handbag",
+      "run_id": "cache-tracktrack-reentry",
+      "repeat": 1,
+      "tracks_sha256": "47309e23ed0814eee7c2f80ac61869065b31c83fa84b5969bd75644a788fbcfe",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 120,
+        "source_anchor_xyxy": [
+          110,
+          550,
+          270,
+          710
+        ],
+        "status": "detected_but_unassigned",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.40547943115234,
+              556.3519287109375,
+              260.3488464355469,
+              703.5955810546875
+            ],
+            "confidence": 0.2554469406604767,
+            "track_id": null,
+            "iou_with_source_anchor": 0.799161,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 0,
+            "xyxy": [
+              121.40547943115234,
+              556.3519287109375,
+              260.3488464355469,
+              703.5955810546875
+            ],
+            "confidence": 0.2554469406604767,
+            "track_id": null,
+            "iou_with_source_anchor": 0.799161,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": null
+      },
+      "after": {
+        "frame": 240,
+        "source_anchor_xyxy": [
+          195,
+          490,
+          350,
+          635
+        ],
+        "status": "detected_but_unassigned",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              207.13006591796875,
+              494.27569580078125,
+              345.78436279296875,
+              630.1893920898438
+            ],
+            "confidence": 0.43628132343292236,
+            "track_id": null,
+            "iou_with_source_anchor": 0.838488,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              207.13006591796875,
+              494.27569580078125,
+              345.78436279296875,
+              630.1893920898438
+            ],
+            "confidence": 0.43628132343292236,
+            "track_id": null,
+            "iou_with_source_anchor": 0.838488,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": null
+      },
+      "spatial_proxy_result": "unassigned_at_anchor",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-offscreen.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "The red person is visibly boxed in F120, but that box has no track ID. This is unassigned detection, not a missing source person. F240 is also boxed without an ID."
+      },
+      "final_qualitative_result": "unassigned_at_anchor"
+    },
+    {
+      "check_id": "cache-tracktrack:red-passing",
+      "condition": "cache-tracktrack",
+      "condition_label": "YOLO26n cache + TrackTrack",
+      "comparison_kind": "tracker_replay",
+      "clip": "reentry",
+      "episode_id": "red-passing",
+      "subject": "S05 red suit passes mustard-shirt subject",
+      "run_id": "cache-tracktrack-reentry",
+      "repeat": 1,
+      "tracks_sha256": "47309e23ed0814eee7c2f80ac61869065b31c83fa84b5969bd75644a788fbcfe",
+      "source_review_sha256": "93031de9bfee79dcd92e55f89e2f1b5750efd3113de043a5b6787833af85d4f6",
+      "source_same_person_assessment": "likely",
+      "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+      "before": {
+        "frame": 48,
+        "source_anchor_xyxy": [
+          575,
+          100,
+          680,
+          290
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              582.3643188476562,
+              106.8720703125,
+              664.6390991210938,
+              269.0491943359375
+            ],
+            "confidence": 0.8119294047355652,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.668826,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 2,
+            "xyxy": [
+              565.586181640625,
+              257.607666015625,
+              649.544921875,
+              414.29296875
+            ],
+            "confidence": 0.8351414799690247,
+            "track_id": 4,
+            "iou_with_source_anchor": 0.078679,
+            "center_inside_source_anchor": false,
+            "qualifies": false
+          },
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              582.3643188476562,
+              106.8720703125,
+              664.6390991210938,
+              269.0491943359375
+            ],
+            "confidence": 0.8119294047355652,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.668826,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "after": {
+        "frame": 72,
+        "source_anchor_xyxy": [
+          453,
+          225,
+          542,
+          390
+        ],
+        "status": "unique_spatial_candidate",
+        "qualified_candidates": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.34893798828125,
+              225.42449951171875,
+              542.3424682617188,
+              387.93499755859375
+            ],
+            "confidence": 0.8223955631256104,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.922223,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "all_overlapping_detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              458.34893798828125,
+              225.42449951171875,
+              542.3424682617188,
+              387.93499755859375
+            ],
+            "confidence": 0.8223955631256104,
+            "track_id": 7,
+            "iou_with_source_anchor": 0.922223,
+            "center_inside_source_anchor": true,
+            "qualifies": true
+          }
+        ],
+        "selected_track_id": 7
+      },
+      "spatial_proxy_result": "same_id_at_anchors",
+      "visual_review": {
+        "status": "visually_checked",
+        "reviewer": "Codex AI image review",
+        "source_person_in_candidate_box": true,
+        "evidence": "web/assets/stress-identity-review.jpg",
+        "review_panel": "panel-red-passing.jpg",
+        "before_target_visible_in_source": true,
+        "after_target_visible_in_source": true,
+        "note": "Both source-selected people are visibly inside the qualified model boxes. The displayed IDs agree with the JSONL. Only these two anchors were visually checked. The lower gray box belongs to the passing mustard-shirt person and does not qualify as the red-person anchor; it is not a duplicate red-person assignment."
+      },
+      "final_qualitative_result": "same_id_at_anchors"
+    }
+  ],
+  "limitations": [
+    "Source same-person association is likely, not proven through full occlusion/offscreen absence.",
+    "Manual anchor boxes are approximate regions. Spatial overlap is a proxy and not verified detection/identity ground truth.",
+    "Same IDs at two anchors do not prove uninterrupted correct identity between them.",
+    "Changed IDs after full absence can be expected when absence exceeds the configured 24-frame lost buffer; this is not a claim of tracker malfunction.",
+    "No HOTA, IDF1, MOTA or detection recall; no model-wide identity-accuracy ranking from three episodes.",
+    "All tracker comparisons have ReID off, GMC none; association thresholds retain their native differences.",
+    "Crossing clip excluded: no locked source identity anchor boxes."
+  ],
+  "visual_reviewed_at_utc": "2026-09-21T06:07:01.593881+00:00",
+  "completed_at_utc": "2026-09-21T06:09:10.148100+00:00",
+  "evidence_image": "web/assets/stress-identity-review.jpg",
+  "result_counts": {
+    "id_changed_at_anchors": 7,
+    "unassigned_at_anchor": 4,
+    "same_id_at_anchors": 7,
+    "missing_assignment_at_anchor": 2,
+    "ambiguous_multiple_candidates": 1
+  },
+  "qualitative_result_counts": {
+    "id_changed_at_anchors": 7,
+    "unassigned_at_anchor": 4,
+    "same_id_at_anchors": 7,
+    "missing_assignment_at_anchor": 2,
+    "duplicate_boxes_and_id_changed_at_anchors": 1
+  },
+  "supplementary_counting_failure": {
+    "clip": "crossing",
+    "source_manual_id": "S01",
+    "source_subject": "Leading gray-shirt person",
+    "source_frame_window": [
+      134,
+      138
+    ],
+    "source_seconds_window": [
+      5.583333333333333,
+      5.75
+    ],
+    "source_review_sha256": "1eb343d46f0bab943b211cbd957a9ac9e0c492768b18d7a2f2bd37f8ee76ca5d",
+    "repeat_scope": "All three summaries checked; detailed box/ID evidence is rep01.",
+    "results": {
+      "bytetrack": [
+        {
+          "repeat": 1,
+          "IN": 5,
+          "OUT": 0,
+          "distinct_track_ids": 12,
+          "strict_event_matches": 5
+        },
+        {
+          "repeat": 2,
+          "IN": 5,
+          "OUT": 0,
+          "distinct_track_ids": 12,
+          "strict_event_matches": 5
+        },
+        {
+          "repeat": 3,
+          "IN": 5,
+          "OUT": 0,
+          "distinct_track_ids": 12,
+          "strict_event_matches": 5
+        }
+      ],
+      "botsort": [
+        {
+          "repeat": 1,
+          "IN": 5,
+          "OUT": 0,
+          "distinct_track_ids": 10,
+          "strict_event_matches": 5
+        },
+        {
+          "repeat": 2,
+          "IN": 5,
+          "OUT": 0,
+          "distinct_track_ids": 10,
+          "strict_event_matches": 5
+        },
+        {
+          "repeat": 3,
+          "IN": 5,
+          "OUT": 0,
+          "distinct_track_ids": 10,
+          "strict_event_matches": 5
+        }
+      ],
+      "tracktrack": [
+        {
+          "repeat": 1,
+          "IN": 4,
+          "OUT": 0,
+          "distinct_track_ids": 5,
+          "strict_event_matches": 4
+        },
+        {
+          "repeat": 2,
+          "IN": 4,
+          "OUT": 0,
+          "distinct_track_ids": 5,
+          "strict_event_matches": 4
+        },
+        {
+          "repeat": 3,
+          "IN": 4,
+          "OUT": 0,
+          "distinct_track_ids": 5,
+          "strict_event_matches": 4
+        }
+      ]
+    },
+    "same_ordered_boxes_and_scores_all_361_frames": true,
+    "raw_detection_correspondences": [
+      {
+        "frame": 113,
+        "timestamp": 4.708333333333333,
+        "detections": [
+          {
+            "raw_detection_index": 1,
+            "xyxy": [
+              610.21923828125,
+              282.6610107421875,
+              641.393310546875,
+              387.2872314453125
+            ],
+            "confidence": 0.6613547801971436,
+            "footpoint_px": [
+              625.8062744140625,
+              387.2872314453125
+            ],
+            "ids": {
+              "bytetrack": 4,
+              "botsort": 4,
+              "tracktrack": null
+            }
+          }
+        ],
+        "events": {
+          "bytetrack": [],
+          "botsort": [],
+          "tracktrack": []
+        }
+      },
+      {
+        "frame": 125,
+        "timestamp": 5.208333333333333,
+        "detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              610.8595581054688,
+              284.39556884765625,
+              641.9917602539062,
+              397.27923583984375
+            ],
+            "confidence": 0.6055075526237488,
+            "footpoint_px": [
+              626.4256591796875,
+              397.27923583984375
+            ],
+            "ids": {
+              "bytetrack": 4,
+              "botsort": 4,
+              "tracktrack": null
+            }
+          }
+        ],
+        "events": {
+          "bytetrack": [],
+          "botsort": [],
+          "tracktrack": []
+        }
+      },
+      {
+        "frame": 134,
+        "timestamp": 5.583333333333333,
+        "detections": [
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              607.649169921875,
+              284.7642822265625,
+              640.7493896484375,
+              403.9444580078125
+            ],
+            "confidence": 0.5942863821983337,
+            "footpoint_px": [
+              624.1992797851562,
+              403.9444580078125
+            ],
+            "ids": {
+              "bytetrack": 4,
+              "botsort": 4,
+              "tracktrack": null
+            }
+          }
+        ],
+        "events": {
+          "bytetrack": [],
+          "botsort": [],
+          "tracktrack": []
+        }
+      },
+      {
+        "frame": 135,
+        "timestamp": 5.625,
+        "detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              606.6663818359375,
+              285.0087890625,
+              640.6641845703125,
+              406.016357421875
+            ],
+            "confidence": 0.6042721271514893,
+            "footpoint_px": [
+              623.665283203125,
+              406.016357421875
+            ],
+            "ids": {
+              "bytetrack": 4,
+              "botsort": 4,
+              "tracktrack": null
+            }
+          }
+        ],
+        "events": {
+          "bytetrack": [
+            {
+              "track_id": 4,
+              "direction": "IN",
+              "frame": 135,
+              "timestamp": 5.625
+            }
+          ],
+          "botsort": [
+            {
+              "track_id": 4,
+              "direction": "IN",
+              "frame": 135,
+              "timestamp": 5.625
+            }
+          ],
+          "tracktrack": []
+        }
+      },
+      {
+        "frame": 136,
+        "timestamp": 5.666666666666667,
+        "detections": [
+          {
+            "raw_detection_index": 3,
+            "xyxy": [
+              605.9830322265625,
+              285.131103515625,
+              640.5125732421875,
+              410.54443359375
+            ],
+            "confidence": 0.5908995270729065,
+            "footpoint_px": [
+              623.247802734375,
+              410.54443359375
+            ],
+            "ids": {
+              "bytetrack": 4,
+              "botsort": 4,
+              "tracktrack": null
+            }
+          }
+        ],
+        "events": {
+          "bytetrack": [],
+          "botsort": [],
+          "tracktrack": []
+        }
+      },
+      {
+        "frame": 138,
+        "timestamp": 5.75,
+        "detections": [
+          {
+            "raw_detection_index": 4,
+            "xyxy": [
+              604.19287109375,
+              286.1002197265625,
+              639.74609375,
+              416.1693115234375
+            ],
+            "confidence": 0.5700459480285645,
+            "footpoint_px": [
+              621.969482421875,
+              416.1693115234375
+            ],
+            "ids": {
+              "bytetrack": 4,
+              "botsort": 4,
+              "tracktrack": null
+            }
+          }
+        ],
+        "events": {
+          "bytetrack": [],
+          "botsort": [],
+          "tracktrack": []
+        }
+      }
+    ],
+    "supporting_candidate_rule": "For F0..138, IoU >= .30 with the source-visually-associated ByteTrack ID4 box and bottom-y difference <=8 px; this is a post-hoc spatial trace proxy, not full identity ground truth.",
+    "supporting_candidates": 252,
+    "maximum_supporting_detection_confidence": 0.6749202609062195,
+    "supporting_tracktrack_ids": [
+      null
+    ],
+    "tracktrack_new_track_threshold": 0.7,
+    "implementation_threshold_operator": "scores > new_track_thresh",
+    "direct_mechanism": "The target foot-bearing detections never obtain a TrackTrack ID around the crossing. Only non-null IDs are passed to the shared counter; therefore it has no target trajectory to count. This is not a max-gap reset of an established target counter track.",
+    "threshold_explanation": "All supporting target detections before and through the source event have score < .7, so the pinned TrackTrack new-track rule rejects them. Scores above its .6 high threshold alone do not establish a new ID. No threshold ablation was run.",
+    "box_quality_caveat": "At F135 the ByteTrack-ID4 box spans the leading gray person and the blue person behind. A separate tighter gray-person box is also present, without ID. Bottom-coordinate agreement is not proof of correct full-person detection or identity.",
+    "visual_status": "Visually checked source and all three tracker rows at F113/F125/F135; the shared box includes gray foreground and blue background people, and its bottom follows the gray person.",
+    "evidence_file": "web/assets/stress-identity-review.jpg",
+    "code_references": [
+      {
+        "file": "ultralytics/trackers/track_tracker.py",
+        "function": "_track_aware_nms",
+        "line": 114,
+        "observation": "allow = scores > new_track_thresh"
+      },
+      {
+        "file": "ultralytics/trackers/track_tracker.py",
+        "line": 556,
+        "observation": "New-track activation gated by _track_aware_nms output"
+      },
+      {
+        "file": "run.py",
+        "line": 131,
+        "observation": "Only non-null IDs are inserted into counter points"
+      }
+    ],
+    "conclusion": "Distinct IDs 12 -> 5 does not establish improvement: this TrackTrack configuration also loses one source-confirmed counting event.",
+    "evidence_location": "Lower panel: missed source event S01"
+  }
+}

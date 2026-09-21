@@ -1,0 +1,359 @@
+{
+  "mode": "rtdetrv2_s-bytetrack",
+  "status": "completed",
+  "comparison_kind": "detector-pipeline",
+  "clip": "crossing",
+  "repeat": 1,
+  "processed_frames": 361,
+  "source_fps": 24.0,
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "source_sha256": "f552426cf16878279406706de720ee16e10f142c3101c0c0d0c220a0063cf310",
+  "recording_start_seconds": 0,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "none"
+  },
+  "privacy": "transparent_overlay",
+  "occupancy_ground_truth_available": false,
+  "total_in": 5,
+  "total_out": 0,
+  "occupancy": 5,
+  "raw_occupancy": 5,
+  "underflow": false,
+  "active_tracks": 5,
+  "confirmed_tracks": 19,
+  "confirmed_track_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    14,
+    27,
+    32,
+    33,
+    34,
+    36,
+    39,
+    40,
+    52,
+    53,
+    55
+  ],
+  "detector_count": 4097,
+  "detection_counts": {
+    "min": 4,
+    "median": 11.0,
+    "max": 28
+  },
+  "processing_seconds": 9.444435699551832,
+  "processing_fps": 38.22,
+  "wall_seconds": 9.457853400032036,
+  "model_initialization_seconds": 1.9311463999911211,
+  "tracker_initialization_seconds": 0.051019800011999905,
+  "warmup_seconds": 0.48437269998248667,
+  "warmup_calls": 5,
+  "stage_elapsed": {
+    "source_read": {
+      "calls": 361,
+      "total_seconds": 0.650908,
+      "p50_ms": 1.764,
+      "p95_ms": 2.04
+    },
+    "detector": {
+      "calls": 361,
+      "total_seconds": 8.340651,
+      "p50_ms": 21.822,
+      "p95_ms": 29.566
+    },
+    "tracker": {
+      "calls": 361,
+      "total_seconds": 0.375673,
+      "p50_ms": 0.965,
+      "p95_ms": 1.683
+    },
+    "counter": {
+      "calls": 361,
+      "total_seconds": 0.024146,
+      "p50_ms": 0.059,
+      "p95_ms": 0.122
+    },
+    "telemetry": {
+      "calls": 361,
+      "total_seconds": 0.035932,
+      "p50_ms": 0.09,
+      "p95_ms": 0.192
+    },
+    "processing": {
+      "calls": 361,
+      "total_seconds": 9.444436,
+      "p50_ms": 24.953,
+      "p95_ms": 33.214
+    }
+  },
+  "gpu_memory": {
+    "device_used_peak_mib": 8493.5,
+    "device_utilization_mean_percent": 25.3,
+    "sample_count": 89,
+    "scope": "Whole-device 100ms samples, including display and other processes; not isolated model memory.",
+    "torch_peak_allocated_mib": 162.7,
+    "torch_peak_reserved_mib": 228.0
+  },
+  "engine_metadata": {
+    "model": "RT-DETRv2-S",
+    "backbone": "ResNet18-vd",
+    "adapter": "rtdetr_adapter.DetectorAdapter",
+    "code_repo": "https://github.com/lyuwenyu/RT-DETR",
+    "code_revision": "29320b6fd828f8e0987a71426cf2d961b09dfed7",
+    "checkpoint": "rtdetrv2_r18vd_120e_coco_rerun_48.1.pth",
+    "checkpoint_url": "https://github.com/lyuwenyu/storage/releases/download/v0.2/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth",
+    "checkpoint_sha256": "2ace52184b620204004509b72752ac7bfe64aadaf7fc1d076b18df8ab5a5c77e",
+    "checkpoint_state": "ema.module",
+    "config": "rtdetrv2_pytorch/configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml",
+    "config_sha256": "3fc6fda05f01ac16a90cf4116bd3793682fa780979ac37b09f459a66bd21cc54",
+    "config_include_sha256": {
+      "configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml": "3fc6fda05f01ac16a90cf4116bd3793682fa780979ac37b09f459a66bd21cc54",
+      "configs/dataset/coco_detection.yml": "a6ba1af88e0daf35d79f4b8bf4debaf731bce0b56e9140d4e9e0504bcce84c39",
+      "configs/runtime.yml": "ccb87661ddf0e4367a2fc2411e86abd7f7ae92c3db34bfa7149fc0d7048abfa7",
+      "configs/rtdetrv2/include/dataloader.yml": "8ca4b4cfbca2f02da7777cdbee2178a574c107a3cecc2300ed08d1f173d125d4",
+      "configs/rtdetrv2/include/optimizer.yml": "b77084cf9db277f02b136d99ed558eec5935d842c5536d1f32d3e9d69116a3c6",
+      "configs/rtdetrv2/include/rtdetrv2_r50vd.yml": "b05835d2e2382a5a1b26327119425652b6c56a7c7a367c5b460a65ed0b534129"
+    },
+    "config_override": "PResNet.pretrained=False before strict complete checkpoint load; no model architecture change",
+    "adapter_sha256": "b8af6fa536fe58eee9376201a60454e5d67d325cae17d0f3ed1bbc6fd063bb59",
+    "license": "Apache-2.0",
+    "device": "cuda:0",
+    "input_size": [
+      640,
+      640
+    ],
+    "batch_size": 1,
+    "precision": "FP32",
+    "confidence": 0.1,
+    "preprocessing": "Official PIL RGB bilinear Resize 640x640 (warp), ToTensor float32 /255; no ImageNet normalization",
+    "preprocessing_source": "rtdetrv2_pytorch/references/deploy/rtdetrv2_torch.py",
+    "person_class": 0,
+    "person_coco_category_id": 1,
+    "label_mapping": "Postprocessor deploy returns contiguous COCO labels before category remapping; label 0 is person",
+    "box_format": "Original-image xyxy pixels; official normalized cxcywh-to-xyxy multiplied by [width,height,width,height]",
+    "postprocessing": "Official focal top-300; class 0; confidence>=0.1; frame bounds clipping; no additional NMS",
+    "strict_checkpoint_load": true,
+    "deploy_conversion": true,
+    "compile": false,
+    "autocast": false,
+    "tracking": "None; common runner owns tracking",
+    "torch_version": "2.11.0+cu128",
+    "torchvision_version": "0.26.0+cu128",
+    "scope": "Official pretrained checkpoint comparison; not a reproduction of paper COCO AP or TensorRT T4 FPS"
+  },
+  "tracker_metadata": {
+    "kind": "bytetrack",
+    "fps": 24.0,
+    "requested_device": "0",
+    "tracker_compute": "CPU NumPy association; no ReID network",
+    "ultralytics_version": "8.4.150",
+    "numpy_version": "2.5.2",
+    "native_config": {
+      "tracker_type": "bytetrack",
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 30,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "config": {
+      "tracker_type": "bytetrack",
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 24,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "config_overrides": {
+      "track_buffer": 24
+    },
+    "max_lost_frames": 24,
+    "track_buffer_seconds": 1.0,
+    "buffer_policy": "Common rounded one-second track buffer for all three trackers",
+    "reid_enabled": false,
+    "camera_motion_compensation": "none",
+    "raw_detections_preserved": true,
+    "raw_detection_index_validation": "strict",
+    "loose_nms_recovery": false,
+    "adapter_sha256": "f044f34acbc0c571658c0f86cee64412d6ccd35f1040eb35d1e7465f38a02663",
+    "tracker_yaml_sha256": "395701d947a749179dee3e327b1181b730c4ca98e7cac5a2ab05280aae573b8b",
+    "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c",
+    "comparison_scope": "Pinned Ultralytics implementations on identical postprocessed boxes; native association thresholds; not full paper reproductions",
+    "threshold_note": "ByteTrack/BoT-SORT high=.25 low=.1 new=.25 match=.8; TrackTrack high=.6 low=.25 new=.7 match=.7",
+    "distinct_track_ids_are_people_count": false,
+    "frames_processed_since_reset": 361
+  },
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "opencv": "4.14.0"
+  },
+  "python_version": "3.12.14",
+  "protocol_sha256": "f3bce54c923e3baa1c3848f78d7b6261e549ef1274993e0d97e793dd7e8114e8",
+  "source_review_sha256": "1eb343d46f0bab943b211cbd957a9ac9e0c492768b18d7a2f2bd37f8ee76ca5d",
+  "runner_sha256": "d121e0f8e8344565640efa5c2a74b28dc1eb69726a346aa651af1290c009ea05",
+  "event_agreement": {
+    "strict": {
+      "matched": 5,
+      "reference_events": 5,
+      "predicted_events": 5,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0,
+      "pairs": [
+        {
+          "reference": "S01",
+          "track_id": 4,
+          "timestamp": 5.625,
+          "direction": "IN",
+          "window_seconds": [
+            5.583333333333333,
+            5.75
+          ]
+        },
+        {
+          "reference": "S04",
+          "track_id": 1,
+          "timestamp": 9.166666666666666,
+          "direction": "IN",
+          "window_seconds": [
+            9.083333333333334,
+            9.25
+          ]
+        },
+        {
+          "reference": "S02",
+          "track_id": 3,
+          "timestamp": 9.833333333333334,
+          "direction": "IN",
+          "window_seconds": [
+            9.75,
+            9.916666666666666
+          ]
+        },
+        {
+          "reference": "S03",
+          "track_id": 6,
+          "timestamp": 9.791666666666666,
+          "direction": "IN",
+          "window_seconds": [
+            9.75,
+            9.916666666666666
+          ]
+        },
+        {
+          "reference": "S05",
+          "track_id": 2,
+          "timestamp": 14.375,
+          "direction": "IN",
+          "window_seconds": [
+            14.333333333333334,
+            14.5
+          ]
+        }
+      ],
+      "scope": "Clip/direction/time-only one-to-one agreement with source-only AI review. Not identity-verified accuracy; ambiguous source events excluded from references, retained in source review."
+    },
+    "plus_0_5s": {
+      "matched": 5,
+      "reference_events": 5,
+      "predicted_events": 5,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0.5,
+      "pairs": [
+        {
+          "reference": "S01",
+          "track_id": 4,
+          "timestamp": 5.625,
+          "direction": "IN",
+          "window_seconds": [
+            5.583333333333333,
+            5.75
+          ]
+        },
+        {
+          "reference": "S04",
+          "track_id": 1,
+          "timestamp": 9.166666666666666,
+          "direction": "IN",
+          "window_seconds": [
+            9.083333333333334,
+            9.25
+          ]
+        },
+        {
+          "reference": "S02",
+          "track_id": 3,
+          "timestamp": 9.833333333333334,
+          "direction": "IN",
+          "window_seconds": [
+            9.75,
+            9.916666666666666
+          ]
+        },
+        {
+          "reference": "S03",
+          "track_id": 6,
+          "timestamp": 9.791666666666666,
+          "direction": "IN",
+          "window_seconds": [
+            9.75,
+            9.916666666666666
+          ]
+        },
+        {
+          "reference": "S05",
+          "track_id": 2,
+          "timestamp": 14.375,
+          "direction": "IN",
+          "window_seconds": [
+            14.333333333333334,
+            14.5
+          ]
+        }
+      ],
+      "scope": "Clip/direction/time-only one-to-one agreement with source-only AI review. Not identity-verified accuracy; ambiguous source events excluded from references, retained in source review."
+    }
+  },
+  "measurement_notes": [
+    "Source decoding + detector + tracker + counter + JSONL logging; model load, 5 warm-up calls, rendering and encoding excluded.",
+    "Detector and tracker timed with CUDA synchronization. Batch 1, fixed 640x640, FP32 and TF32 disabled. Native YOLO letterbox versus RT-DETRv2 warp preprocessing differs; model capacity is not matched.",
+    "YOLO26n uses one-to-many head with external NMS in this common Ultralytics adapter; this is not the default end-to-end NMS-free configuration.",
+    "Our GPU jobs run sequentially. Desktop display and other processes are not isolated; NVML whole-device samples and per-process torch allocator peaks are distinct.",
+    "Tracker-only runs replay identical ordered YOLO26n rep01 boxes and scores. ReID OFF, GMC none, 24-frame lost buffer. Native association thresholds differ; no tuning on these clips.",
+    "Three repeats quantify runtime variation; they are not independent source samples. AI source-only annotations are not human-consensus or full identity ground truth.",
+    "Absolute occupancy is unknown. Track ID totals are not unique people; no HOTA/IDF1/recall claimed."
+  ],
+  "reproducibility": {
+    "source_sha256": "f552426cf16878279406706de720ee16e10f142c3101c0c0d0c220a0063cf310",
+    "source_path": "web/assets/stress-crossing-source.mp4"
+  }
+}

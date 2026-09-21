@@ -1,0 +1,2617 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-21",
+  "study_label": "보강",
+  "protocol_label": "FP32 · 640×640 · 3회",
+  "detector_note": "공통 ByteTrack · 고정 입력 · 모델별 전처리",
+  "tracker_note": "YOLO26n 동일 캐시 · ReID OFF · GMC OFF",
+  "scope_note": "AI 원본 검수 15건 · 시간·방향 대응 · 신원 정답 없음",
+  "review_label": "원본 검수 · 15건",
+  "warmup_calls": 5,
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 24GB",
+    "python": "3.12.14",
+    "torch": "2.11.0+cu128"
+  },
+  "scope": {
+    "source_clips": 3,
+    "unique_source_frames": 1083,
+    "repeats": 3,
+    "total_runs": 63
+  },
+  "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21",
+  "report_url": "https://github.com/hyunaeee/visioneye-lab/blob/main/docs/ROBUSTNESS_RESULTS.md",
+  "scope_limits": [
+    "합성 영상 3개 · 현장 일반화 미검증",
+    "원근 영상: 교차 생성 실패 · 가림 영상: 통과 0건",
+    "YOLO26n: one-to-many + NMS · NMS-free 설정과 구분",
+    "RT-DETRv2: warp · YOLO: letterbox · 모델 규모 차이",
+    "ReID OFF · 24프레임 버퍼 · 추적기별 기본 연관 임계값",
+    "추적 ID ≠ 고유 인원 · 투명 표시는 개인정보 보호 마스크 아님"
+  ],
+  "clips": {
+    "crossing": {
+      "label": "원근",
+      "source_asset": "stress-crossing-source.mp4",
+      "source_poster": "stress-crossing-source.jpg",
+      "source_size_px": [
+        1280,
+        720
+      ],
+      "source_kind": "ai_generated",
+      "challenge_note": "5명 단방향 · 교차 요구 미충족 · 초반 부분 가림"
+    },
+    "occlusion": {
+      "label": "가림",
+      "source_asset": "stress-occlusion-source.mp4",
+      "source_poster": "stress-occlusion-source.jpg",
+      "source_size_px": [
+        1280,
+        720
+      ],
+      "source_kind": "ai_generated",
+      "challenge_note": "벽 뒤 완전 가림 · 출입선 통과 0건"
+    },
+    "reentry": {
+      "label": "재등장",
+      "source_asset": "stress-reentry-source.mp4",
+      "source_poster": "stress-reentry-source.jpg",
+      "source_size_px": [
+        1280,
+        720
+      ],
+      "source_kind": "ai_generated",
+      "challenge_note": "화면 밖 이탈·재등장 · 동일인 외양 추정"
+    }
+  },
+  "runs": [
+    {
+      "id": "stress-yolo26n-crossing",
+      "group": "pipeline",
+      "model": "YOLO26n",
+      "clip": "crossing",
+      "clip_label": "원근",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 0,
+      "unique_track_ids": 12,
+      "pipeline_fps": 89.91,
+      "pipeline_fps_range": [
+        86.27,
+        90.54
+      ],
+      "tracker_p50_ms": 0.569,
+      "tracker_p95_ms": 0.765,
+      "tracker_p50_ms_range": [
+        0.562,
+        0.574
+      ],
+      "tracker_p95_ms_range": [
+        0.749,
+        0.797
+      ],
+      "peak_vram_mib": 65.3,
+      "review": {
+        "annotations": 5,
+        "strict": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolo26n-crossing",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolo26n-crossing",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 90.54,
+          "tracker_p50_ms": 0.562,
+          "tracker_p95_ms": 0.765,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 86.27,
+          "tracker_p50_ms": 0.574,
+          "tracker_p95_ms": 0.797,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 89.91,
+          "tracker_p50_ms": 0.569,
+          "tracker_p95_ms": 0.749,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "5명 단방향 · 교차 요구 미충족 · 초반 부분 가림"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-yolo26n-occlusion",
+      "group": "pipeline",
+      "model": "YOLO26n",
+      "clip": "occlusion",
+      "clip_label": "가림",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 0,
+      "total_out": 0,
+      "unique_track_ids": 12,
+      "pipeline_fps": 93.63,
+      "pipeline_fps_range": [
+        92.73,
+        94.84
+      ],
+      "tracker_p50_ms": 0.394,
+      "tracker_p95_ms": 0.678,
+      "tracker_p50_ms_range": [
+        0.392,
+        0.398
+      ],
+      "tracker_p95_ms_range": [
+        0.671,
+        0.681
+      ],
+      "peak_vram_mib": 65.3,
+      "review": {
+        "annotations": 0,
+        "strict": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolo26n-occlusion",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolo26n-occlusion",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 93.63,
+          "tracker_p50_ms": 0.398,
+          "tracker_p95_ms": 0.678,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 94.84,
+          "tracker_p50_ms": 0.394,
+          "tracker_p95_ms": 0.681,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 92.73,
+          "tracker_p50_ms": 0.392,
+          "tracker_p95_ms": 0.671,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "벽 뒤 완전 가림 · 출입선 통과 0건"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-yolo26n-reentry",
+      "group": "pipeline",
+      "model": "YOLO26n",
+      "clip": "reentry",
+      "clip_label": "재등장",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 5,
+      "unique_track_ids": 15,
+      "pipeline_fps": 91.03,
+      "pipeline_fps_range": [
+        88.71,
+        92.0
+      ],
+      "tracker_p50_ms": 0.533,
+      "tracker_p95_ms": 0.71,
+      "tracker_p50_ms_range": [
+        0.527,
+        0.539
+      ],
+      "tracker_p95_ms_range": [
+        0.692,
+        0.802
+      ],
+      "peak_vram_mib": 65.3,
+      "review": {
+        "annotations": 10,
+        "strict": {
+          "matched": 8,
+          "fp": 2,
+          "fn": 2
+        },
+        "expanded_0_5s": {
+          "matched": 10,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolo26n-reentry",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolo26n-reentry",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 91.03,
+          "tracker_p50_ms": 0.533,
+          "tracker_p95_ms": 0.692,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 88.71,
+          "tracker_p50_ms": 0.539,
+          "tracker_p95_ms": 0.802,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 92.0,
+          "tracker_p50_ms": 0.527,
+          "tracker_p95_ms": 0.71,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "화면 밖 이탈·재등장 · 동일인 외양 추정"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-yolov8n-crossing",
+      "group": "pipeline",
+      "model": "YOLOv8n",
+      "clip": "crossing",
+      "clip_label": "원근",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 0,
+      "unique_track_ids": 10,
+      "pipeline_fps": 105.11,
+      "pipeline_fps_range": [
+        104.85,
+        109.41
+      ],
+      "tracker_p50_ms": 0.565,
+      "tracker_p95_ms": 0.836,
+      "tracker_p50_ms_range": [
+        0.559,
+        0.569
+      ],
+      "tracker_p95_ms_range": [
+        0.749,
+        0.863
+      ],
+      "peak_vram_mib": 33.1,
+      "review": {
+        "annotations": 5,
+        "strict": {
+          "matched": 4,
+          "fp": 1,
+          "fn": 1
+        },
+        "expanded_0_5s": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolov8n-crossing",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolov8n-crossing",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 105.11,
+          "tracker_p50_ms": 0.565,
+          "tracker_p95_ms": 0.836,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 4,
+              "fp": 1,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 109.41,
+          "tracker_p50_ms": 0.559,
+          "tracker_p95_ms": 0.749,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 4,
+              "fp": 1,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 104.85,
+          "tracker_p50_ms": 0.569,
+          "tracker_p95_ms": 0.863,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 4,
+              "fp": 1,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "5명 단방향 · 교차 요구 미충족 · 초반 부분 가림"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-yolov8n-occlusion",
+      "group": "pipeline",
+      "model": "YOLOv8n",
+      "clip": "occlusion",
+      "clip_label": "가림",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 0,
+      "total_out": 0,
+      "unique_track_ids": 12,
+      "pipeline_fps": 116.71,
+      "pipeline_fps_range": [
+        116.42,
+        120.73
+      ],
+      "tracker_p50_ms": 0.353,
+      "tracker_p95_ms": 0.639,
+      "tracker_p50_ms_range": [
+        0.347,
+        0.356
+      ],
+      "tracker_p95_ms_range": [
+        0.632,
+        0.672
+      ],
+      "peak_vram_mib": 33.1,
+      "review": {
+        "annotations": 0,
+        "strict": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolov8n-occlusion",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolov8n-occlusion",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 120.73,
+          "tracker_p50_ms": 0.353,
+          "tracker_p95_ms": 0.672,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 116.71,
+          "tracker_p50_ms": 0.356,
+          "tracker_p95_ms": 0.639,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 116.42,
+          "tracker_p50_ms": 0.347,
+          "tracker_p95_ms": 0.632,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "벽 뒤 완전 가림 · 출입선 통과 0건"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-yolov8n-reentry",
+      "group": "pipeline",
+      "model": "YOLOv8n",
+      "clip": "reentry",
+      "clip_label": "재등장",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 5,
+      "unique_track_ids": 16,
+      "pipeline_fps": 113.61,
+      "pipeline_fps_range": [
+        112.7,
+        117.24
+      ],
+      "tracker_p50_ms": 0.508,
+      "tracker_p95_ms": 0.701,
+      "tracker_p50_ms_range": [
+        0.508,
+        0.514
+      ],
+      "tracker_p95_ms_range": [
+        0.693,
+        0.754
+      ],
+      "peak_vram_mib": 33.1,
+      "review": {
+        "annotations": 10,
+        "strict": {
+          "matched": 9,
+          "fp": 1,
+          "fn": 1
+        },
+        "expanded_0_5s": {
+          "matched": 10,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolov8n-reentry",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolov8n-reentry",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 117.24,
+          "tracker_p50_ms": 0.508,
+          "tracker_p95_ms": 0.754,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 16,
+          "review": {
+            "strict": {
+              "matched": 9,
+              "fp": 1,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 113.61,
+          "tracker_p50_ms": 0.508,
+          "tracker_p95_ms": 0.701,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 16,
+          "review": {
+            "strict": {
+              "matched": 9,
+              "fp": 1,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 112.7,
+          "tracker_p50_ms": 0.514,
+          "tracker_p95_ms": 0.693,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 16,
+          "review": {
+            "strict": {
+              "matched": 9,
+              "fp": 1,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "화면 밖 이탈·재등장 · 동일인 외양 추정"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-yolo11n-crossing",
+      "group": "pipeline",
+      "model": "YOLO11n",
+      "clip": "crossing",
+      "clip_label": "원근",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 0,
+      "unique_track_ids": 10,
+      "pipeline_fps": 94.14,
+      "pipeline_fps_range": [
+        93.39,
+        94.74
+      ],
+      "tracker_p50_ms": 0.567,
+      "tracker_p95_ms": 0.75,
+      "tracker_p50_ms_range": [
+        0.564,
+        0.577
+      ],
+      "tracker_p95_ms_range": [
+        0.703,
+        0.77
+      ],
+      "peak_vram_mib": 66.0,
+      "review": {
+        "annotations": 5,
+        "strict": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolo11n-crossing",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolo11n-crossing",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 93.39,
+          "tracker_p50_ms": 0.564,
+          "tracker_p95_ms": 0.77,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 94.14,
+          "tracker_p50_ms": 0.577,
+          "tracker_p95_ms": 0.75,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 94.74,
+          "tracker_p50_ms": 0.567,
+          "tracker_p95_ms": 0.703,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "5명 단방향 · 교차 요구 미충족 · 초반 부분 가림"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-yolo11n-occlusion",
+      "group": "pipeline",
+      "model": "YOLO11n",
+      "clip": "occlusion",
+      "clip_label": "가림",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 0,
+      "total_out": 0,
+      "unique_track_ids": 10,
+      "pipeline_fps": 99.65,
+      "pipeline_fps_range": [
+        96.28,
+        101.62
+      ],
+      "tracker_p50_ms": 0.186,
+      "tracker_p95_ms": 0.703,
+      "tracker_p50_ms_range": [
+        0.181,
+        0.195
+      ],
+      "tracker_p95_ms_range": [
+        0.685,
+        0.704
+      ],
+      "peak_vram_mib": 66.0,
+      "review": {
+        "annotations": 0,
+        "strict": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolo11n-occlusion",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolo11n-occlusion",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 99.65,
+          "tracker_p50_ms": 0.186,
+          "tracker_p95_ms": 0.685,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 96.28,
+          "tracker_p50_ms": 0.195,
+          "tracker_p95_ms": 0.703,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 101.62,
+          "tracker_p50_ms": 0.181,
+          "tracker_p95_ms": 0.704,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "벽 뒤 완전 가림 · 출입선 통과 0건"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-yolo11n-reentry",
+      "group": "pipeline",
+      "model": "YOLO11n",
+      "clip": "reentry",
+      "clip_label": "재등장",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 5,
+      "unique_track_ids": 23,
+      "pipeline_fps": 100.22,
+      "pipeline_fps_range": [
+        94.94,
+        100.63
+      ],
+      "tracker_p50_ms": 0.537,
+      "tracker_p95_ms": 0.779,
+      "tracker_p50_ms_range": [
+        0.532,
+        0.546
+      ],
+      "tracker_p95_ms_range": [
+        0.758,
+        0.786
+      ],
+      "peak_vram_mib": 66.0,
+      "review": {
+        "annotations": 10,
+        "strict": {
+          "matched": 8,
+          "fp": 2,
+          "fn": 2
+        },
+        "expanded_0_5s": {
+          "matched": 10,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-yolo11n-reentry",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/yolo11n-reentry",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 100.22,
+          "tracker_p50_ms": 0.537,
+          "tracker_p95_ms": 0.779,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 23,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 94.94,
+          "tracker_p50_ms": 0.546,
+          "tracker_p95_ms": 0.786,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 23,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 100.63,
+          "tracker_p50_ms": 0.532,
+          "tracker_p95_ms": 0.758,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 23,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "화면 밖 이탈·재등장 · 동일인 외양 추정"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-rtdetrv2-s-crossing",
+      "group": "pipeline",
+      "model": "RT-DETRv2-S",
+      "clip": "crossing",
+      "clip_label": "원근",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 0,
+      "unique_track_ids": 19,
+      "pipeline_fps": 39.08,
+      "pipeline_fps_range": [
+        38.22,
+        40.03
+      ],
+      "tracker_p50_ms": 0.952,
+      "tracker_p95_ms": 1.638,
+      "tracker_p50_ms_range": [
+        0.94,
+        0.965
+      ],
+      "tracker_p95_ms_range": [
+        1.623,
+        1.683
+      ],
+      "peak_vram_mib": 162.7,
+      "review": {
+        "annotations": 5,
+        "strict": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-rtdetrv2-s-crossing",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/rtdetrv2_s-crossing",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 38.22,
+          "tracker_p50_ms": 0.965,
+          "tracker_p95_ms": 1.683,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 19,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 39.08,
+          "tracker_p50_ms": 0.952,
+          "tracker_p95_ms": 1.623,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 19,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 40.03,
+          "tracker_p50_ms": 0.94,
+          "tracker_p95_ms": 1.638,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 19,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "5명 단방향 · 교차 요구 미충족 · 초반 부분 가림"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-rtdetrv2-s-occlusion",
+      "group": "pipeline",
+      "model": "RT-DETRv2-S",
+      "clip": "occlusion",
+      "clip_label": "가림",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 0,
+      "total_out": 0,
+      "unique_track_ids": 20,
+      "pipeline_fps": 38.73,
+      "pipeline_fps_range": [
+        38.21,
+        41.3
+      ],
+      "tracker_p50_ms": 0.727,
+      "tracker_p95_ms": 1.647,
+      "tracker_p50_ms_range": [
+        0.684,
+        0.727
+      ],
+      "tracker_p95_ms_range": [
+        1.612,
+        1.706
+      ],
+      "peak_vram_mib": 162.7,
+      "review": {
+        "annotations": 0,
+        "strict": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-rtdetrv2-s-occlusion",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/rtdetrv2_s-occlusion",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 38.21,
+          "tracker_p50_ms": 0.684,
+          "tracker_p95_ms": 1.612,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 20,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 41.3,
+          "tracker_p50_ms": 0.727,
+          "tracker_p95_ms": 1.647,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 20,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 38.73,
+          "tracker_p50_ms": 0.727,
+          "tracker_p95_ms": 1.706,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 20,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "벽 뒤 완전 가림 · 출입선 통과 0건"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-rtdetrv2-s-reentry",
+      "group": "pipeline",
+      "model": "RT-DETRv2-S",
+      "clip": "reentry",
+      "clip_label": "재등장",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 5,
+      "unique_track_ids": 26,
+      "pipeline_fps": 39.17,
+      "pipeline_fps_range": [
+        38.98,
+        39.74
+      ],
+      "tracker_p50_ms": 0.788,
+      "tracker_p95_ms": 1.581,
+      "tracker_p50_ms_range": [
+        0.782,
+        0.797
+      ],
+      "tracker_p95_ms_range": [
+        1.531,
+        1.629
+      ],
+      "peak_vram_mib": 162.7,
+      "review": {
+        "annotations": 10,
+        "strict": {
+          "matched": 8,
+          "fp": 2,
+          "fn": 2
+        },
+        "expanded_0_5s": {
+          "matched": 10,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-rtdetrv2-s-reentry",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/rtdetrv2_s-reentry",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": 39.17,
+          "tracker_p50_ms": 0.782,
+          "tracker_p95_ms": 1.581,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 26,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": 39.74,
+          "tracker_p50_ms": 0.788,
+          "tracker_p95_ms": 1.531,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 26,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": 38.98,
+          "tracker_p50_ms": 0.797,
+          "tracker_p95_ms": 1.629,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 26,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "화면 밖 이탈·재등장 · 동일인 외양 추정"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-bytetrack-crossing",
+      "group": "cached_tracker",
+      "model": "ByteTrack",
+      "clip": "crossing",
+      "clip_label": "원근",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 0,
+      "unique_track_ids": 12,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.528,
+      "tracker_p95_ms": 0.699,
+      "tracker_p50_ms_range": [
+        0.515,
+        0.541
+      ],
+      "tracker_p95_ms_range": [
+        0.677,
+        0.892
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 5,
+        "strict": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-cache-bytetrack-crossing",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-bytetrack-crossing",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.541,
+          "tracker_p95_ms": 0.892,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.528,
+          "tracker_p95_ms": 0.699,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.515,
+          "tracker_p95_ms": 0.677,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "5명 단방향 · 교차 요구 미충족 · 초반 부분 가림"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-bytetrack-occlusion",
+      "group": "cached_tracker",
+      "model": "ByteTrack",
+      "clip": "occlusion",
+      "clip_label": "가림",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 0,
+      "total_out": 0,
+      "unique_track_ids": 12,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.334,
+      "tracker_p95_ms": 0.601,
+      "tracker_p50_ms_range": [
+        0.325,
+        0.349
+      ],
+      "tracker_p95_ms_range": [
+        0.586,
+        0.614
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 0,
+        "strict": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-cache-bytetrack-occlusion",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-bytetrack-occlusion",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.334,
+          "tracker_p95_ms": 0.601,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.349,
+          "tracker_p95_ms": 0.586,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.325,
+          "tracker_p95_ms": 0.614,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 12,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "벽 뒤 완전 가림 · 출입선 통과 0건"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-bytetrack-reentry",
+      "group": "cached_tracker",
+      "model": "ByteTrack",
+      "clip": "reentry",
+      "clip_label": "재등장",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 5,
+      "unique_track_ids": 15,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.47,
+      "tracker_p95_ms": 0.68,
+      "tracker_p50_ms_range": [
+        0.467,
+        0.486
+      ],
+      "tracker_p95_ms_range": [
+        0.671,
+        0.725
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 10,
+        "strict": {
+          "matched": 8,
+          "fp": 2,
+          "fn": 2
+        },
+        "expanded_0_5s": {
+          "matched": 10,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-cache-bytetrack-reentry",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-bytetrack-reentry",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.467,
+          "tracker_p95_ms": 0.725,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.486,
+          "tracker_p95_ms": 0.68,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.47,
+          "tracker_p95_ms": 0.671,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "화면 밖 이탈·재등장 · 동일인 외양 추정"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-botsort-crossing",
+      "group": "cached_tracker",
+      "model": "BoT-SORT",
+      "clip": "crossing",
+      "clip_label": "원근",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 0,
+      "unique_track_ids": 10,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.511,
+      "tracker_p95_ms": 0.688,
+      "tracker_p50_ms_range": [
+        0.51,
+        0.512
+      ],
+      "tracker_p95_ms_range": [
+        0.67,
+        0.707
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 5,
+        "strict": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 5,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-cache-botsort-crossing",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-botsort-crossing",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.511,
+          "tracker_p95_ms": 0.707,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.51,
+          "tracker_p95_ms": 0.67,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.512,
+          "tracker_p95_ms": 0.688,
+          "total_in": 5,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 5,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "5명 단방향 · 교차 요구 미충족 · 초반 부분 가림"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-botsort-occlusion",
+      "group": "cached_tracker",
+      "model": "BoT-SORT",
+      "clip": "occlusion",
+      "clip_label": "가림",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 0,
+      "total_out": 0,
+      "unique_track_ids": 10,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.334,
+      "tracker_p95_ms": 0.603,
+      "tracker_p50_ms_range": [
+        0.324,
+        0.344
+      ],
+      "tracker_p95_ms_range": [
+        0.603,
+        0.614
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 0,
+        "strict": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-cache-botsort-occlusion",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-botsort-occlusion",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.334,
+          "tracker_p95_ms": 0.614,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.344,
+          "tracker_p95_ms": 0.603,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.324,
+          "tracker_p95_ms": 0.603,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 10,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "벽 뒤 완전 가림 · 출입선 통과 0건"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-botsort-reentry",
+      "group": "cached_tracker",
+      "model": "BoT-SORT",
+      "clip": "reentry",
+      "clip_label": "재등장",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 5,
+      "unique_track_ids": 15,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.443,
+      "tracker_p95_ms": 0.632,
+      "tracker_p50_ms_range": [
+        0.44,
+        0.462
+      ],
+      "tracker_p95_ms_range": [
+        0.622,
+        0.648
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 10,
+        "strict": {
+          "matched": 8,
+          "fp": 2,
+          "fn": 2
+        },
+        "expanded_0_5s": {
+          "matched": 10,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-cache-botsort-reentry",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-botsort-reentry",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.443,
+          "tracker_p95_ms": 0.648,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.462,
+          "tracker_p95_ms": 0.632,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.44,
+          "tracker_p95_ms": 0.622,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 15,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "화면 밖 이탈·재등장 · 동일인 외양 추정"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-tracktrack-crossing",
+      "group": "cached_tracker",
+      "model": "TrackTrack",
+      "clip": "crossing",
+      "clip_label": "원근",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 4,
+      "total_out": 0,
+      "unique_track_ids": 5,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.599,
+      "tracker_p95_ms": 0.788,
+      "tracker_p50_ms_range": [
+        0.598,
+        0.618
+      ],
+      "tracker_p95_ms_range": [
+        0.777,
+        0.794
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 5,
+        "strict": {
+          "matched": 4,
+          "fp": 0,
+          "fn": 1
+        },
+        "expanded_0_5s": {
+          "matched": 4,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "asset_prefix": "bench-stress-cache-tracktrack-crossing",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-tracktrack-crossing",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.599,
+          "tracker_p95_ms": 0.777,
+          "total_in": 4,
+          "total_out": 0,
+          "unique_track_ids": 5,
+          "review": {
+            "strict": {
+              "matched": 4,
+              "fp": 0,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 4,
+              "fp": 0,
+              "fn": 1
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.598,
+          "tracker_p95_ms": 0.794,
+          "total_in": 4,
+          "total_out": 0,
+          "unique_track_ids": 5,
+          "review": {
+            "strict": {
+              "matched": 4,
+              "fp": 0,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 4,
+              "fp": 0,
+              "fn": 1
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.618,
+          "tracker_p95_ms": 0.788,
+          "total_in": 4,
+          "total_out": 0,
+          "unique_track_ids": 5,
+          "review": {
+            "strict": {
+              "matched": 4,
+              "fp": 0,
+              "fn": 1
+            },
+            "expanded_0_5s": {
+              "matched": 4,
+              "fp": 0,
+              "fn": 1
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "5명 단방향 · 교차 요구 미충족 · 초반 부분 가림"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-tracktrack-occlusion",
+      "group": "cached_tracker",
+      "model": "TrackTrack",
+      "clip": "occlusion",
+      "clip_label": "가림",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 0,
+      "total_out": 0,
+      "unique_track_ids": 8,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.395,
+      "tracker_p95_ms": 0.726,
+      "tracker_p50_ms_range": [
+        0.379,
+        0.401
+      ],
+      "tracker_p95_ms_range": [
+        0.715,
+        0.767
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 0,
+        "strict": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "expanded_0_5s": {
+          "matched": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-cache-tracktrack-occlusion",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-tracktrack-occlusion",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.401,
+          "tracker_p95_ms": 0.715,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 8,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.379,
+          "tracker_p95_ms": 0.767,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 8,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.395,
+          "tracker_p95_ms": 0.726,
+          "total_in": 0,
+          "total_out": 0,
+          "unique_track_ids": 8,
+          "review": {
+            "strict": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            },
+            "expanded_0_5s": {
+              "matched": 0,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "벽 뒤 완전 가림 · 출입선 통과 0건"
+      ],
+      "counts_stable": true
+    },
+    {
+      "id": "stress-cache-tracktrack-reentry",
+      "group": "cached_tracker",
+      "model": "TrackTrack",
+      "clip": "reentry",
+      "clip_label": "재등장",
+      "precision": "FP32",
+      "input_size": [
+        640,
+        640
+      ],
+      "reid": null,
+      "status": "completed",
+      "frames": 361,
+      "repeats": 3,
+      "total_in": 5,
+      "total_out": 5,
+      "unique_track_ids": 14,
+      "pipeline_fps": null,
+      "pipeline_fps_range": null,
+      "tracker_p50_ms": 0.582,
+      "tracker_p95_ms": 0.911,
+      "tracker_p50_ms_range": [
+        0.576,
+        0.593
+      ],
+      "tracker_p95_ms_range": [
+        0.906,
+        0.949
+      ],
+      "peak_vram_mib": 0.0,
+      "review": {
+        "annotations": 10,
+        "strict": {
+          "matched": 8,
+          "fp": 2,
+          "fn": 2
+        },
+        "expanded_0_5s": {
+          "matched": 10,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "asset_prefix": "bench-stress-cache-tracktrack-reentry",
+      "assets_ready": true,
+      "raw_url": "https://github.com/hyunaeee/visioneye-lab/tree/main/experiments/results/2026-09-21/cache-tracktrack-reentry",
+      "samples": [
+        {
+          "repeat": 1,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.593,
+          "tracker_p95_ms": 0.906,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 14,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 2,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.582,
+          "tracker_p95_ms": 0.949,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 14,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        },
+        {
+          "repeat": 3,
+          "pipeline_fps": null,
+          "tracker_p50_ms": 0.576,
+          "tracker_p95_ms": 0.911,
+          "total_in": 5,
+          "total_out": 5,
+          "unique_track_ids": 14,
+          "review": {
+            "strict": {
+              "matched": 8,
+              "fp": 2,
+              "fn": 2
+            },
+            "expanded_0_5s": {
+              "matched": 10,
+              "fp": 0,
+              "fn": 0
+            }
+          }
+        }
+      ],
+      "notes": [
+        "카운트·ID·검수: 1회차 · 반복별 값: 펼침",
+        "지연: 3회 중앙값·범위 · 영상: 1회차",
+        "화면 밖 이탈·재등장 · 동일인 외양 추정"
+      ],
+      "counts_stable": true
+    }
+  ],
+  "spot_checks": {
+    "asset": "stress-identity-review.jpg",
+    "alt": "가림·재등장 전후의 검출과 ID, TrackTrack 통과 누락 구간",
+    "caption": "원본 고정 앵커 · 7조건 · 21쌍 · AI 시각 검토",
+    "notes": [
+      "벽 가림·화면 복귀: 동일 ID 유지 미확인 · 변경/누락/미배정",
+      "짧은 교행: 두 앵커 ID 동일 · 7조건",
+      "원근 F135: ByteTrack·BoT-SORT IN / TrackTrack ID 미배정",
+      "TrackTrack: 후보 최대 점수 0.675 < 새 ID 기준 0.7",
+      "혼합·중복 박스 존재 · 계수 일치 ≠ 단일인물 검출 성공"
+    ],
+    "limit": "선택 구간 관찰 · 전 프레임 신원 정답 없음 · ReID OFF · 전체 IDF1/HOTA 미측정"
+  }
+}

@@ -1,0 +1,2 @@
+# Preserve the source bytes referenced by SOURCE_PROVENANCE.json on Windows.
+*.py text eol=lf

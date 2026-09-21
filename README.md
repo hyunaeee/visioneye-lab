@@ -2,7 +2,15 @@
 
 [뷰어](https://visioneye-lab.vercel.app) · [포트폴리오](https://aengdo.vercel.app/work/visioneye/) · [다음 실험](docs/NEXT_EXPERIMENTS.md)
 
-## 추가 비교 · 실행 완료
+## 보강 영상 · 2026-09-21
+
+새 영상 3개·1,083프레임에서 YOLO26n / YOLOv8n / YOLO11n / RT-DETRv2-S와 ByteTrack / BoT-SORT / TrackTrack을 총 63회 실행했습니다. 검출기는 모두 원근 5/0, 가림 0/0, 재등장 5/5를 기록했습니다. 동일 박스의 TrackTrack은 원근 통과 1건을 놓쳤습니다. 교차 생성 실패와 장시간 가림·재등장 ID의 한계도 함께 기록했습니다.
+
+[새 영상](https://visioneye-lab.vercel.app) · [보강 결과](docs/ROBUSTNESS_RESULTS.md) · [원자료](experiments/results/2026-09-21/) · [재현](scripts/experiments/2026-09-21/README.md)
+
+웹 **모델 비교 → 보강 / 기존**에서 두 실험을 구분합니다. 초기 화면은 새 재등장 영상의 원본·분석 대조입니다.
+
+## 기존 비교 · 2026-09-15
 
 YOLO26n / RF-DETR Small / DEIMv2-S와 ByteTrack / TrackTrack / TrackTrack+ReID를 같은 영상 2개·602프레임에서 조건별 3회 비교했습니다. 모두 다인 영상 4 IN / 8 OUT, 2인 영상 1 IN / 1 OUT을 유지했습니다. TrackTrack의 다인 추적 ID는 22→18개였으며, ReID ON/OFF는 프레임별 ID까지 같았습니다. ID 개수는 고유 인원·정확도가 아닙니다.
 

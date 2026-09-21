@@ -79,6 +79,8 @@ video.addEventListener('seeking',()=>syncReference());
 video.addEventListener('pause',()=>reference.pause());
 video.addEventListener('ended',pauseBoth);
 ['seeked','play','pause','loadedmetadata','ended'].forEach(e=>video.addEventListener(e,update));
+// A paused source can keep displaying its poster after a seek. Show decoded frames.
+for(const media of [video,reference])media.addEventListener('loadeddata',()=>media.removeAttribute('poster'));
 video.addEventListener('error',()=>{$('#video-error').hidden=false;pauseBoth();});
 reference.addEventListener('error',()=>{if(hasReference()){$('#source-error').hidden=false;pauseBoth();}});
 function checkAlignment(){
@@ -114,7 +116,7 @@ function refreshSession(){
   $('#source-meta').textContent=current.width?current.width+' × '+current.height+' · '+current.fps+' FPS':'INPUT';
   $('#video-meta').textContent=current.analysisLabel||(current.overlay?'YOLO26 · BYTETRACK':current.demo?'SYNTHETIC':'ANALYSIS');
   $('#overlay-label').textContent=current.overlayLabel||(current.overlay?'채움 12% · 시각화용':'분석 파일');
-  $('#viewer-notice').textContent=current.benchmark?'AI 생성 원본 · '+current.analysisLabel+' · 저장된 결과 재생 · 시각화용 · 익명화 없음'+(current.benchmarkGroup==='cached_tracker'?' · 동일 YOLO 검출 캐시 · 추적 시간은 모델 비교에서 확인':' · 렌더·영상 저장은 새 파이프라인 FPS 측정 제외'):current.overlay?'Higgsfield 생성 영상 · 실제 YOLO26 추론 · 반투명 시각화 · 익명화 없음':current.demo?'합성 좌표 · 집계 검증 · YOLO 추론 제외':'사용자 파일 · 추가 검출·마스킹 없음';
+  $('#viewer-notice').textContent=current.benchmark?(current.sourceKind==='controlled'?'통제 합성 원본':'AI 생성 원본')+' · '+current.analysisLabel+' · 결과 재생 · 시각화용 · 익명화 없음'+(current.benchmarkGroup==='cached_tracker'?' · 동일 검출 캐시 · 추적 시간 별도':' · 렌더·영상 저장: FPS 측정 제외'):current.overlay?'Higgsfield 생성 영상 · 실제 YOLO26 추론 · 반투명 시각화 · 익명화 없음':current.demo?'합성 좌표 · 집계 검증 · YOLO 추론 제외':'사용자 파일 · 추가 검출·마스킹 없음';
   $('#chart-caption').textContent=net?'순증감 = IN − OUT · 초기 실내 인원 미확정':'재실 = 초기 인원 + IN − OUT · 기록 시작 '+current.origin.toFixed(3)+'초';
   $('#source-link').hidden=!current.referenceURL;$('#source-link').href=current.referenceURL||'#';
   $('#run-data-link').hidden=!current.builtin;if(current.summaryURL)$('#run-data-link').href=current.summaryURL;
@@ -138,7 +140,7 @@ async function loadBuiltin(key){
     const fetchText=async name=>{const response=await fetch('assets/'+name);if(!response.ok)throw new Error('실험 데이터 로딩 오류');return response.text();};
     const [csv,json]=await Promise.all([fetchText(choice.csv),fetchText(choice.json)]);
     const next=VisionData.parse(csv,json);if(revision!==loadGeneration)return false;
-    Object.assign(next,{...choice,key,demo:key==='demo',generated:key!=='demo',builtin:true,summaryURL:'assets/'+choice.json});
+    Object.assign(next,{...choice,key,demo:key==='demo',generated:key!=='demo'&&choice.sourceKind!=='controlled',builtin:true,summaryURL:'assets/'+choice.json});
     const old=objectURLs;objectURLs=[];
     installMedia(next,'assets/'+choice.video,choice.source?'assets/'+choice.source:null,choice.poster?'assets/'+choice.poster:null,choice.sourcePoster?'assets/'+choice.sourcePoster:null);
     old.forEach(url=>URL.revokeObjectURL(url));$('#run-select').value=key;return true;
@@ -185,8 +187,25 @@ if(document.modelContext?.registerTool){
   window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
 }
 // Comparison schema v1: one row per model/clip. Missing measurements stay empty.
-const modelComparison={runs:[],blocked:[],revision:0};
+const modelComparison={study:'robustness',datasets:{},data:null,runs:[],blocked:[],revision:0};
+const comparisonStudies={baseline:{file:'comparison-results.json',label:'기존 · 09.15'},robustness:{file:'robustness-results.json',label:'보강 · 09.21'}};
+const baselineComparison={
+  clips:{crowd:{label:'다인',source_asset:'crowd-source.mp4',source_poster:'crowd-source-poster.jpg',source_size_px:[1280,720]},'two-person':{label:'2인',source_asset:'higgsfield-source.mp4',source_poster:'higgsfield-source-poster.jpg',source_size_px:[1280,720]}},
+  protocol_label:'기존 · 모델별 기본 입력 · 3회',
+  detector_note:'YOLO26n FP16 · 640 / RF-DETR FP32 · 512 / DEIMv2 FP32 · 640. 공통 ByteTrack · 정밀도·크기 차이 포함.',
+  tracker_note:'동일 YOLO26n 검출 캐시 · ByteTrack / TrackTrack / ReID. ReID 224 · GPU.',
+  scope_note:'AI 생성 원본 2개 · 원본 AI 시각 검수 14건 · 시간·방향 일대일 대응 · 인물 ID 일치 미검증',
+  review_label:'AI 시각 검수',warmup_calls:5,
+  report_url:'https://github.com/hyunaeee/visioneye-lab/blob/main/docs/COMPARISON_RESULTS.md',
+  throughput_note:'반복 중앙값 · 최솟값–최댓값. 기존 앱 24.08 FPS는 렌더·저장·첫 워밍업 포함으로 측정 범위 상이. 촬영→표시 지연 미측정.',
+  spot_checks:{asset:'bench-spot-checks.jpg',alt:'F0 부분 인물과 F291 코트 인물의 원본, YOLO26n, RF-DETR, DEIMv2 검출 비교',caption:'F0 · 부분 인물 / F291 · 중복 박스 · AI 시각 검토',notes:['F0 · 화면 밖 부분 인물 주변 박스: YOLO 0 / RF-DETR 2 / DEIMv2 3 · 박스 수 ≠ 인원수','F291 · 코트 인물에 검출기 3종 모두 겹친 박스 2개','ID · ByteTrack 16→35 / TrackTrack 12 유지 · F291–293 ID 미확정','ReID · 602프레임의 TrackTrack ON/OFF ID 동일 · 처리 비용 증가'],limit:'선택 장면 관찰 · 전체 검출·인물 ID 정확도 미측정'}
+};
+const comparisonDefaultLimits=['구간: 원본 검수 시간창 · ±0.5s: 별도 허용 시간 분석','미대응 예측 / 검수: 대응되지 않은 이벤트 · 현장 정확도 아님','추적 ID ≠ 고유 인원 · 초기 재실 미확정 · 전체 IDF1·HOTA·검출 재현율 미측정'];
 const comparisonStatus={completed:'완료',pending:'준비',failed:'실패',blocked:'보류'};
+function comparisonKey(row){return 'benchmark-'+(row._study==='robustness'?'robustness-':'')+row.id;}
+function comparisonAsset(name,extensions){return typeof name==='string'&&/^[a-z0-9][a-z0-9._-]*$/i.test(name)&&extensions.some(ext=>name.toLowerCase().endsWith('.'+ext))?name:null;}
+function comparisonClip(row,data=modelComparison.data){const meta=data?.clips?.[row.clip];return meta&&typeof meta==='object'?meta:{label:typeof meta==='string'?meta:row.clip};}
+function comparisonClipLabel(row,data=modelComparison.data){return row.clip_label||comparisonClip(row,data).label||row.clip;}
 function comparisonNumber(value,digits=0){return typeof value==='number'&&Number.isFinite(value)?value.toLocaleString('en-US',{minimumFractionDigits:digits,maximumFractionDigits:digits}):'—';}
 function comparisonText(tag,text,className){const node=document.createElement(tag);node.textContent=text;if(className)node.className=className;return node;}
 function comparisonLink(url,label){
@@ -209,7 +228,7 @@ function comparisonReview(row,key){
 function comparisonInput(value){return Array.isArray(value)?value.map(v=>comparisonNumber(v)).join('×'):comparisonNumber(value);}
 function comparisonRecords(row){
   const cell=document.createElement('td');cell.className='comparison-records';
-  const key='benchmark-'+row.id;
+  const key=comparisonKey(row);
   if(row.status==='completed'&&row.assets_ready===true&&choices[key]){
     const open=comparisonText('button','보기','button comparison-open');open.type='button';
     open.addEventListener('click',async()=>{open.disabled=true;open.textContent='로딩';try{if(await loadBuiltin(key))goPanel('viewer');}finally{open.disabled=false;open.textContent='보기';}});cell.append(open);
@@ -223,6 +242,7 @@ function comparisonRecords(row){
       const line=comparisonText('p',comparisonNumber(sample.repeat??index+1)+'회 · '+value,'comparison-sample');
       if(typeof sample.total_in==='number'&&typeof sample.total_out==='number')line.append(comparisonText('small','IN '+comparisonNumber(sample.total_in)+' / OUT '+comparisonNumber(sample.total_out)));
       if(typeof sample.unique_track_ids==='number')line.append(comparisonText('small','ID '+comparisonNumber(sample.unique_track_ids)));
+      if(sample.review?.strict){const reviewed=sample.review.strict;line.append(comparisonText('small','구간 '+comparisonNumber(reviewed.matched)+' / '+comparisonNumber(row.review?.annotations)+' · 미대응 '+comparisonNumber(reviewed.fp)+' / '+comparisonNumber(reviewed.fn)));}
       const raw=comparisonLink(sample.raw_url,'원자료 ↗');if(raw)line.append(raw);details.append(line);
     }
     if(!samples.length&&repeats>0)details.append(comparisonText('p','개별 실행 수치는 원자료에서 확인합니다.','comparison-muted'));
@@ -239,8 +259,9 @@ function renderComparisonTable(group,target){
   for(const row of rows){
     const tr=document.createElement('tr'),ready=row.status==='completed';
     const name=document.createElement('th');name.scope='row';name.append(comparisonText('strong',String(row.model)));
-    name.append(comparisonText('small',comparisonStatus[row.status]||'미측정','comparison-row-status '+(ready?'is-complete':'')));tr.append(name);
-    tr.append(comparisonText('td',row.clip==='crowd'?'다인':'2인'));
+    name.append(comparisonText('small',(comparisonStatus[row.status]||'미측정')+(ready&&row.counts_stable===false?' · 반복 변동':''),'comparison-row-status '+(ready&&row.counts_stable!==false?'is-complete':'')));tr.append(name);
+    const clipCell=comparisonText('td',comparisonClipLabel(row));
+    const challenge=row.challenge_note||comparisonClip(row).challenge_note;if(challenge)clipCell.title=String(challenge);tr.append(clipCell);
     const config=document.createElement('td');
     if(group==='pipeline')config.textContent=(row.precision||'—')+' · '+comparisonInput(row.input_size);
     else if(row.reid){config.append(comparisonText('span','ON · '+comparisonInput(row.reid.input_size)));config.append(comparisonText('small',String(row.reid.device||'—')));if(row.reid.model)config.title=String(row.reid.model);}
@@ -255,53 +276,117 @@ function renderComparisonTable(group,target){
   }
   if(!rows.length){const tr=document.createElement('tr'),cell=comparisonText('td',modelComparison.runs.length?'이 영상의 기록 없음':'측정 기록 준비 중','comparison-empty');cell.colSpan=10;tr.append(cell);tbody.append(tr);}
 }
-function registerComparisonRuns(){
-  let group=$('#benchmark-options');
-  for(const row of modelComparison.runs){
+function registerComparisonRuns(data,study){
+  const groupId=study==='baseline'?'benchmark-options':'robustness-options';
+  let group=$('#'+groupId);const validKeys=new Set();
+  for(const row of data.runs){
     if(row.status!=='completed'||row.assets_ready!==true||!/^bench-[a-z0-9-]+$/.test(row.asset_prefix||'')||!['pipeline','cached_tracker'].includes(row.group))continue;
-    const prefix=row.asset_prefix,key='benchmark-'+row.id,clip=row.clip==='crowd'?'다인':'2인';
-    const source=row.clip==='crowd'?'crowd':'higgsfield';
-    choices[key]={video:prefix+'.mp4',poster:prefix+'-poster.jpg',source:source+'-source.mp4',sourcePoster:source+'-source-poster.jpg',csv:prefix+'-events.csv',json:prefix+'-summary.json',name:clip+' · '+row.model,overlay:true,width:1280,height:720,benchmark:true,benchmarkGroup:row.group,occupancyKnown:false,analysisLabel:row.group==='cached_tracker'?'YOLO 캐시 · '+row.model:row.model+' · ByteTrack',overlayLabel:row.overlay_label||'반투명 · 시각화용'};
-    if(!group){group=document.createElement('optgroup');group.id='benchmark-options';group.label='모델 비교';$('#run-select').append(group);}
+    const meta=comparisonClip(row,data),source=comparisonAsset(row.source_asset||meta.source_asset,['mp4']);
+    if(!source)continue;
+    const sourcePoster=comparisonAsset(row.source_poster||meta.source_poster,['jpg','jpeg','png','webp']);
+    const prefix=row.asset_prefix,key=comparisonKey(row),clip=comparisonClipLabel(row,data),size=row.source_size_px||meta.source_size_px;
+    const dimensions=Array.isArray(size)&&size.length===2&&size.every(v=>Number.isFinite(v)&&v>0)?size:[];
+    const sourceKind=row.source_kind||meta.source_kind||'ai_generated';
+    const analysisLabel=row.analysis_label||(row.group==='cached_tracker'?(row.cache_label||'YOLO 캐시')+' · '+row.model:row.model+' · '+(row.tracker_label||'ByteTrack'));
+    choices[key]={video:prefix+'.mp4',poster:prefix+'-poster.jpg',source,sourcePoster,csv:prefix+'-events.csv',json:prefix+'-summary.json',name:clip+' · '+row.model,overlay:true,width:dimensions[0],height:dimensions[1],benchmark:true,benchmarkGroup:row.group,study,sourceKind,occupancyKnown:false,analysisLabel,overlayLabel:row.overlay_label||'반투명 · 시각화용'};
+    if(!group){group=document.createElement('optgroup');group.id=groupId;$('#run-select').append(group);}
+    group.label=(data.study_label||comparisonStudies[study].label)+' · 모델 비교';
     let option=[...group.children].find(option=>option.value===key);
-    if(!option){option=document.createElement('option');option.value=key;group.append(option);}option.textContent=clip+' · '+row.model;
+    if(!option){option=document.createElement('option');option.value=key;group.append(option);}option.textContent=clip+' · '+row.model;validKeys.add(key);
+  }
+  if(group)for(const option of [...group.children])if(!validKeys.has(option.value)){delete choices[option.value];option.remove();}
+}
+function comparisonSetLink(selector,url,label){
+  const node=$(selector),link=comparisonLink(url,label);node.hidden=!link;
+  if(link){node.href=link.href;node.target='_blank';node.rel='noopener noreferrer';}else node.removeAttribute('href');
+}
+function renderComparisonContext(){
+  const data=modelComparison.data||{},runs=modelComparison.runs,available=Boolean(modelComparison.data);
+  const complete=runs.filter(row=>row.status==='completed'),total=runs.filter(row=>row.status!=='blocked').length;
+  $('#comparison-status').textContent=total?complete.length+' / '+total+' 완료':'준비';
+  const context=[data.updated_at,data.environment?.gpu,data.environment?.python?'Python '+data.environment.python:null].filter(value=>typeof value==='string'&&value.trim());
+  $('#comparison-environment').textContent=context.join(' · ')||comparisonStudies[modelComparison.study].label;
+  $('#comparison-protocol').textContent=data.protocol_label||'동일 원본 · 실험별 조건';
+  $('#comparison-detector-note').textContent=data.detector_note||'동일 원본 · 공통 추적 · 모델별 입력';
+  $('#comparison-tracker-note').textContent=data.tracker_note||'동일 검출 캐시 · 추적 설정 비교';
+  $('#comparison-pipeline-included').textContent=data.pipeline_included||'읽기 · 검출 · 추적 · 집계 · 로그';
+  $('#comparison-pipeline-excluded').textContent=data.pipeline_excluded||'모델 초기화 · '+(Number.isFinite(data.warmup_calls)?data.warmup_calls+'회 ':'')+'워밍업 · 렌더 · 영상 저장';
+  $('#comparison-throughput-note').textContent=data.throughput_note||'반복 중앙값 · 최솟값–최댓값 · 촬영→표시 지연 미측정';
+  $('#comparison-timing-note').textContent=data.scope?.timing_limit||'사용 중인 PC · 순차 실행 · 반복 변동 공개 · 전용 격리 벤치마크 아님';
+  $('#comparison-review-label').textContent=data.review_label||'원본 검수';
+  $('#comparison-scope-note').textContent=data.scope_note||data.scope?.accuracy_limit||'시간·방향 대응 · 인물 ID 평가 별도';
+  const limits=$('#comparison-scope-limits');limits.replaceChildren();
+  for(const note of Array.isArray(data.scope_limits)?data.scope_limits:comparisonDefaultLimits)limits.append(comparisonText('li',String(note)));
+  const uniqueClips=[...new Set(runs.filter(row=>row.status!=='blocked').map(row=>row.clip))];
+  const frameCounts=uniqueClips.map(clip=>runs.find(row=>row.clip===clip&&typeof row.frames==='number')?.frames);
+  const frames=typeof data.scope?.unique_source_frames==='number'?data.scope.unique_source_frames:frameCounts.length&&frameCounts.every(Number.isFinite)?frameCounts.reduce((a,b)=>a+b,0):null;
+  $('#comparison-source-count').textContent=available?comparisonNumber(data.scope?.source_clips??uniqueClips.length):'—';
+  $('#comparison-frame-count').textContent=comparisonNumber(frames);
+  $('#comparison-detector-count').textContent=available?comparisonNumber(new Set(complete.filter(row=>row.group==='pipeline').map(row=>row.model)).size):'—';
+  $('#comparison-tracker-count').textContent=available?comparisonNumber(new Set(complete.filter(row=>row.group==='cached_tracker').map(row=>row.model)).size):'—';
+  const jsonLink=$('#comparison-json-link');jsonLink.href='assets/'+comparisonStudies[modelComparison.study].file;jsonLink.hidden=!available;
+  comparisonSetLink('#comparison-raw-link',data.raw_url,'원자료');comparisonSetLink('#comparison-report-link',data.report_url,'보고서');
+  const spot=$('#comparison-spot'),content=$('#comparison-spot-content'),evidence=data.spot_checks;
+  content.replaceChildren();spot.hidden=!evidence;spot.open=false;
+  if(evidence){
+    const asset=comparisonAsset(evidence.asset,['jpg','jpeg','png','webp']);
+    if(asset){const figure=document.createElement('figure'),link=document.createElement('a'),img=document.createElement('img');link.href='assets/'+asset;link.target='_blank';link.rel='noreferrer';img.src='assets/'+asset;img.alt=String(evidence.alt||'국소 검토');img.loading='lazy';link.append(img);figure.append(link);if(evidence.caption)figure.append(comparisonText('figcaption',String(evidence.caption)));content.append(figure);}
+    if(Array.isArray(evidence.notes)){const list=document.createElement('ul');list.className='bullet-list';for(const note of evidence.notes)list.append(comparisonText('li',String(note)));content.append(list);}
+    if(evidence.limit)content.append(comparisonText('p',String(evidence.limit),'subtle'));
   }
 }
+function applyComparisonStudy(){
+  modelComparison.data=modelComparison.datasets[modelComparison.study]||null;
+  modelComparison.runs=modelComparison.data?.runs||[];
+  modelComparison.blocked=modelComparison.data?.blocked||[];
+  const select=$('#comparison-clip'),previous=select.value;select.replaceChildren();
+  const all=comparisonText('option','전체');all.value='all';select.append(all);
+  const clips=new Set([...Object.keys(modelComparison.data?.clips||{}),...modelComparison.runs.filter(row=>row.status!=='blocked').map(row=>row.clip)]);
+  for(const id of clips){const row=modelComparison.runs.find(row=>row.clip===id)||{clip:id},option=comparisonText('option',comparisonClipLabel(row));option.value=id;select.append(option);}
+  select.value=clips.has(previous)?previous:'all';renderComparisonContext();renderComparison();
+}
 function renderComparison(){
-  registerComparisonRuns();renderComparisonTable('pipeline','#pipeline-results');renderComparisonTable('cached_tracker','#tracker-results');
+  renderComparisonTable('pipeline','#pipeline-results');renderComparisonTable('cached_tracker','#tracker-results');
   const box=$('#comparison-blocked');box.replaceChildren();box.hidden=!modelComparison.blocked.length;
   for(const item of modelComparison.blocked){const p=document.createElement('p');p.append(comparisonText('strong',String(item.model||'모델')+' · 보류'));p.append(comparisonText('span',String(item.reason||'실행되지 않았습니다.')));box.append(p);}
 }
-async function loadComparison(){
-  const revision=++modelComparison.revision;$('#comparison-reload').disabled=true;$('#comparison-load-state').textContent='비교 기록을 불러오는 중입니다.';
+function validateComparison(data,study){
+  if(data?.schema_version!==1||!Array.isArray(data.runs))throw new Error('형식');
+  const ids=new Set();
+  for(const row of data.runs){
+    if(!row||typeof row.id!=='string'||!/^[a-z0-9_-]+$/i.test(row.id)||ids.has(row.id)||typeof row.model!=='string'||!comparisonStatus[row.status]||(row.status!=='blocked'&&(!['pipeline','cached_tracker'].includes(row.group)||typeof row.clip!=='string'||!/^[a-z0-9_-]+$/i.test(row.clip))))throw new Error('형식');
+    ids.add(row.id);
+  }
+  const defaults=study==='baseline'?baselineComparison:{};
+  return {...defaults,...data,clips:{...(defaults.clips||{}),...(data.clips&&typeof data.clips==='object'&&!Array.isArray(data.clips)?data.clips:{})},runs:data.runs.map(row=>({...row,_study:study})),blocked:[...(Array.isArray(data.blocked)?data.blocked:[]),...data.runs.filter(row=>row.status==='blocked')]};
+}
+async function loadComparison(prefetchAll=false){
+  const revision=++modelComparison.revision,study=modelComparison.study;
+  $('#comparison-reload').disabled=true;$('#comparison-load-state').textContent='기록 로딩';
   try{
-    const response=await fetch('assets/comparison-results.json',{cache:'no-store'});
-    if(!response.ok)throw new Error(response.status===404?'준비':'오류');
-    const data=await response.json();if(revision!==modelComparison.revision)return;
-    if(data?.schema_version!==1||!Array.isArray(data.runs))throw new Error('형식');
-    const ids=new Set();
-    for(const row of data.runs){
-      if(!row||typeof row.id!=='string'||!/^[a-z0-9_-]+$/i.test(row.id)||ids.has(row.id)||typeof row.model!=='string'||!comparisonStatus[row.status]||(row.status!=='blocked'&&(!['pipeline','cached_tracker'].includes(row.group)||!['crowd','two-person'].includes(row.clip))))throw new Error('형식');
-      ids.add(row.id);
-    }
-    modelComparison.runs=data.runs;
-    modelComparison.blocked=[...(Array.isArray(data.blocked)?data.blocked:[]),...data.runs.filter(row=>row.status==='blocked')];
-    const total=data.runs.filter(row=>row.status!=='blocked').length,done=data.runs.filter(row=>row.status==='completed').length;
-    $('#comparison-status').textContent=total?done+' / '+total+' 완료':'준비';
-    $('#comparison-load-state').textContent=done?'반복 중앙값 · 범위 · 미측정은 —':'완료된 측정 기록이 없습니다.';
-    const context=[data.updated_at,data.environment?.gpu,data.environment?.python?'Python '+data.environment.python:null].filter(value=>typeof value==='string'&&value.trim());
-    $('#comparison-environment').textContent=context.length?context.join(' · '):'같은 원본 · 서로 다른 측정 범위';
-    $('#comparison-json-link').hidden=false;
-    const raw=comparisonLink(data.raw_url,'원자료 ↗');$('#comparison-raw-link').hidden=!raw;if(raw){$('#comparison-raw-link').href=raw.href;$('#comparison-raw-link').target='_blank';$('#comparison-raw-link').rel='noopener noreferrer';}
-    renderComparison();
+    const studies=prefetchAll?Object.keys(comparisonStudies):[study];
+    const results=await Promise.allSettled(studies.map(async key=>{
+      const response=await fetch('assets/'+comparisonStudies[key].file,{cache:'no-store'});
+      if(!response.ok)throw new Error(response.status===404?'준비':'오류');
+      const data=validateComparison(await response.json(),key);modelComparison.datasets[key]=data;registerComparisonRuns(data,key);return data;
+    }));
+    if(revision!==modelComparison.revision)return;
+    const selected=results[studies.indexOf(study)];if(selected.status==='rejected')throw selected.reason;
+    applyComparisonStudy();
+    $('#comparison-load-state').textContent=modelComparison.runs.some(row=>row.status==='completed')?'시간 중앙값 · 범위 · 미측정 —':'완료 기록 없음';
   }catch(error){
     if(revision!==modelComparison.revision)return;
-    const previous=modelComparison.runs.length>0;
-    $('#comparison-status').textContent=previous?'이전 기록':'준비';
-    $('#comparison-load-state').textContent=previous?'새 기록을 불러오지 못했습니다. 현재 표는 이전 기록입니다.':error.message==='준비'?'비교 기록 준비 중 · 기존 영상은 계속 확인할 수 있습니다.':'비교 기록을 읽지 못했습니다. 새로고침으로 다시 확인하세요.';
+    applyComparisonStudy();const previous=modelComparison.runs.length>0;
+    $('#comparison-status').textContent=previous?'저장 기록':'준비';
+    $('#comparison-load-state').textContent=previous?'갱신 실패 · 저장 기록':error.message==='준비'?'기록 준비 · 기존 실험 선택 가능':'기록 오류 · 새로고침';
   }finally{if(revision===modelComparison.revision)$('#comparison-reload').disabled=false;}
 }
+$('#comparison-study').addEventListener('change',()=>{modelComparison.study=$('#comparison-study').value;applyComparisonStudy();loadComparison();});
 $('#comparison-clip').addEventListener('change',renderComparison);
-$('#comparison-reload').addEventListener('click',loadComparison);
-loadBuiltin('crowd');
-loadComparison();
+$('#comparison-reload').addEventListener('click',()=>loadComparison());
+applyComparisonStudy();loadComparison(true).then(async()=>{
+  const params=new URLSearchParams(location.search),requested=params.get('run');
+  const latest='benchmark-robustness-stress-yolo26n-reentry';
+  await loadBuiltin(requested&&choices[requested]?requested:choices[latest]?latest:'crowd');
+  if(params.get('panel')==='models')goPanel('models');
+});

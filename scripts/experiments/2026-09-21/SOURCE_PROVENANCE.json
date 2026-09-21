@@ -1,0 +1,44 @@
+{
+  "recorded_at_utc": "2026-09-21T05:53:56.875235+00:00",
+  "scope": "Byte-exact snapshot of original measured source plus portable path adaptation; no model inference performed while packaging.",
+  "files": [
+    {
+      "file": "run.py",
+      "executed_file": "executed/run.py",
+      "executed_sha256": "d121e0f8e8344565640efa5c2a74b28dc1eb69726a346aa651af1290c009ea05",
+      "portable_sha256": "1872200c8ed1e77681ff3f6fdef6687fb6cd6e8899fc1b5f5dc71c4183a5ddf8",
+      "original_workspace_snapshot_matches": true
+    },
+    {
+      "file": "baseline_adapter.py",
+      "executed_file": "executed/baseline_adapter.py",
+      "executed_sha256": "f044f34acbc0c571658c0f86cee64412d6ccd35f1040eb35d1e7465f38a02663",
+      "portable_sha256": "af4586f8a4ad5a2193879eaa2385566313dfc57962ceb44be05461e3f6abfd56",
+      "original_workspace_snapshot_matches": true
+    },
+    {
+      "file": "rtdetr_adapter.py",
+      "executed_file": "executed/rtdetr_adapter.py",
+      "executed_sha256": "b8af6fa536fe58eee9376201a60454e5d67d325cae17d0f3ed1bbc6fd063bb59",
+      "portable_sha256": "b0bbe1e68f8ac24e58c8a886049f0a405af817c9979fab2a2333440e50bc3e1d",
+      "original_workspace_snapshot_matches": true
+    }
+  ],
+  "portable_changes": {
+    "run.py": [
+      "ROOT and PUB now resolve public repository root",
+      "--protocol CLI with default experiments/results/2026-09-21/protocol.json",
+      "Protocol read and protocol_sha256 use selected path"
+    ],
+    "baseline_adapter.py": [
+      "ROOT resolves public repository root",
+      "All YOLO checkpoints resolve under .runtime/models"
+    ],
+    "rtdetr_adapter.py": [
+      "External code and checkpoint resolve under .runtime/rtdetr",
+      "Usage docstring updated"
+    ]
+  },
+  "measurement_logic_changed": false,
+  "original_location_context": "work/robustness-2026-09-21 relative to original task workspace; archival executed/ files do not run in place."
+}

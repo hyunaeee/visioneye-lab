@@ -1,0 +1,240 @@
+{
+  "review_type": "source-only visual event and challenge annotation",
+  "reviewer": "Codex independent AI visual review; not human consensus",
+  "review_locked_at_utc": "2026-09-21T05:48:37.024128+00:00",
+  "clip_id": "crossing",
+  "source": "stress-crossing-source.mp4",
+  "source_sha256": "f552426cf16878279406706de720ee16e10f142c3101c0c0d0c220a0063cf310",
+  "source_width": 1280,
+  "source_height": 720,
+  "source_frames": 361,
+  "source_fps": 24.0,
+  "source_duration_seconds": 15.041666666666666,
+  "model_outputs_seen": false,
+  "generation_prompt_used_as_ground_truth": false,
+  "fixed_parameters": {
+    "line_normalized": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "line_px": [
+      [
+        128,
+        396
+      ],
+      [
+        1152,
+        396
+      ]
+    ],
+    "in_side": 1,
+    "in_direction": "towards larger image y / downward",
+    "hysteresis_px": 8,
+    "upper_band_y": 388,
+    "lower_band_y": 404
+  },
+  "initial_room_occupancy": "unknown",
+  "absolute_occupancy_ground_truth_available": false,
+  "annotation_method": {
+    "coarse_review": "61 original-only frames at 6-frame / 0.25-second steps from frame 0 through 360; seven overview sheets visually inspected.",
+    "detail_review": "Original foot crops at 2-frame intervals around all five candidate crossings, plus nine original appearance/path crops. Cyan edge ticks indicate fixed y=388/396/404 only; there are no model overlays.",
+    "foot_proxy": "Lowest visible shoe or foot, excluding cast shadow; an approximation to bottom-of-person-box proxy.",
+    "event_definition": "Transition from y<388 to y>404 (IN), or inverse (OUT), intersecting finite x=128..1152 gate.",
+    "time_window_semantics": "Conservative opposite-band confirmation interval, chosen before seeing inference output; not the geometric y=396 crossing instant.",
+    "identity": "Source labels S01..S05 are appearance/path descriptions, unrelated to tracker IDs.",
+    "spatial_annotation": "No exhaustive frame-level boxes, masks, keypoints, or pixel-accurate identities."
+  },
+  "subjects": [
+    {
+      "manual_id": "S01",
+      "description": "선두 중앙: 밝은 회색 반팔, 짙은 남색 바지; 카메라 방향으로 직진 후 화면 아래로 퇴장"
+    },
+    {
+      "manual_id": "S02",
+      "description": "후속 중앙 왼쪽: 파란색 상의/재킷, 어두운 바지, 갈색 긴 머리"
+    },
+    {
+      "manual_id": "S03",
+      "description": "후속 중앙: 베이지 재킷, 청바지, 어깨 끈; S02 오른쪽에서 나란히 하향 이동"
+    },
+    {
+      "manual_id": "S04",
+      "description": "후속 오른쪽: 어두운 재킷, 밝은 회청색 상의, 어두운 바지"
+    },
+    {
+      "manual_id": "S05",
+      "description": "가장 뒤 왼쪽: 빨간색 상의, 청바지; 손을 앞에 모으고 하향 이동"
+    }
+  ],
+  "manual_events": [
+    {
+      "manual_id": "S01",
+      "subject": "선두 중앙: 밝은 회색 반팔, 짙은 남색 바지; 카메라 방향으로 직진 후 화면 아래로 퇴장",
+      "direction": "IN",
+      "frame_window": [
+        134,
+        138
+      ],
+      "window_seconds": [
+        5.583333333333333,
+        5.75
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/detail-S01.jpg",
+      "note": "보이는 신발 최하단이 아래쪽 y=404 밴드 밖에 도달하는 보수적 구간. 정확한 단일 프레임 또는 검출 상자 정답이 아님."
+    },
+    {
+      "manual_id": "S04",
+      "subject": "후속 오른쪽: 어두운 재킷, 밝은 회청색 상의, 어두운 바지",
+      "direction": "IN",
+      "frame_window": [
+        218,
+        222
+      ],
+      "window_seconds": [
+        9.083333333333334,
+        9.25
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/detail-S04.jpg",
+      "note": "보이는 신발 최하단이 아래쪽 y=404 밴드 밖에 도달하는 보수적 구간. 정확한 단일 프레임 또는 검출 상자 정답이 아님."
+    },
+    {
+      "manual_id": "S02",
+      "subject": "후속 중앙 왼쪽: 파란색 상의/재킷, 어두운 바지, 갈색 긴 머리",
+      "direction": "IN",
+      "frame_window": [
+        234,
+        238
+      ],
+      "window_seconds": [
+        9.75,
+        9.916666666666666
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/detail-S02-S03.jpg",
+      "note": "보이는 신발 최하단이 아래쪽 y=404 밴드 밖에 도달하는 보수적 구간. 정확한 단일 프레임 또는 검출 상자 정답이 아님."
+    },
+    {
+      "manual_id": "S03",
+      "subject": "후속 중앙: 베이지 재킷, 청바지, 어깨 끈; S02 오른쪽에서 나란히 하향 이동",
+      "direction": "IN",
+      "frame_window": [
+        234,
+        238
+      ],
+      "window_seconds": [
+        9.75,
+        9.916666666666666
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/detail-S02-S03.jpg",
+      "note": "보이는 신발 최하단이 아래쪽 y=404 밴드 밖에 도달하는 보수적 구간. 정확한 단일 프레임 또는 검출 상자 정답이 아님."
+    },
+    {
+      "manual_id": "S05",
+      "subject": "가장 뒤 왼쪽: 빨간색 상의, 청바지; 손을 앞에 모으고 하향 이동",
+      "direction": "IN",
+      "frame_window": [
+        344,
+        348
+      ],
+      "window_seconds": [
+        14.333333333333334,
+        14.5
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/detail-S05.jpg",
+      "note": "보이는 신발 최하단이 아래쪽 y=404 밴드 밖에 도달하는 보수적 구간. 정확한 단일 프레임 또는 검출 상자 정답이 아님."
+    }
+  ],
+  "ambiguous_events": [],
+  "manual_totals": {
+    "IN": 5,
+    "OUT": 0,
+    "confirmed_events": 5,
+    "unknown_events": 0
+  },
+  "source_identity_episodes": [
+    {
+      "episode_id": "C01",
+      "subject": "S02",
+      "episode_type": "partial_person_overlap",
+      "before_frame": 0,
+      "visibility_interval_frames": [
+        0,
+        120
+      ],
+      "after_frame": 156,
+      "same_person_assessment": "likely",
+      "source_reasoning": "파란 상의 인물의 머리와 상체는 계속 보이며, 초반 하체 일부가 선두 S01 뒤에 겹친다. F0/24/60/96/120 확대 샘플에서 부분 겹침을 관찰했고 F156에는 발이 분리되어 보인다. 완전한 소실은 관찰되지 않는다. 부분 겹침 해소의 정확한 프레임은 주석하지 않았다.",
+      "transition_uncertainty_frames": [
+        120,
+        156
+      ],
+      "full_disappearance": false,
+      "evidence": "contact-images/identity-paths.jpg"
+    },
+    {
+      "episode_id": "C02",
+      "subject": "S01",
+      "episode_type": "continuous_approach_and_exit",
+      "before_frame": 0,
+      "visibility_interval_frames": [
+        0,
+        270
+      ],
+      "after_frame": 282,
+      "same_person_assessment": "likely",
+      "source_reasoning": "밝은 회색 반팔 인물이 처음부터 선두에서 연속적으로 커지며 하향 이동한다. F270에서 아래쪽에 일부 보이고 F282 전체 원본에서 화면 아래 퇴장 후 보이지 않는다. 이후 되돌아오지 않는다. 재등장 사례가 아니라 연속 접근/퇴장 대조 구간이다.",
+      "full_disappearance": true,
+      "return_observed": false,
+      "evidence": "contact-images/overview-5.jpg"
+    },
+    {
+      "episode_id": "C03",
+      "subject": "S05",
+      "episode_type": "small_to_larger_continuous_visibility",
+      "before_frame": 0,
+      "visibility_interval_frames": [
+        0,
+        360
+      ],
+      "after_frame": 360,
+      "same_person_assessment": "likely",
+      "source_reasoning": "빨간색 상의 인물은 뒤쪽 왼편의 작은 모습에서 점차 커지며 마지막까지 보인다. 의상과 경로가 이어지며 다른 사람 뒤로 완전히 숨거나 화면 밖으로 나가지 않는다.",
+      "full_disappearance": false,
+      "evidence": "contact-images/identity-paths.jpg"
+    }
+  ],
+  "challenge_present": {
+    "crossing": "absent",
+    "occlusion": "partial",
+    "reentry": "absent"
+  },
+  "challenge_notes": {
+    "crossing": "다섯 인물이 모두 카메라 방향으로 진행한다. 서로의 진행 경로를 교차하여 위치를 바꾸는 동작은 관찰되지 않는다. 출입선 통과와 사람 간 경로 교차를 구분한다.",
+    "occlusion": "파란 상의 S02의 하체 일부가 앞사람 뒤에 겹치는 초반 부분 가림만 관찰된다. 정적 장애물이나 완전한 인물 소실은 없다.",
+    "reentry": "선두 S01의 화면 아래 퇴장은 있지만 돌아오지 않는다. 재등장 검증 사례는 없다."
+  },
+  "generation_acceptance": {
+    "requested_challenge": "crossing",
+    "status": "not_met",
+    "usable_as": "one-direction approach / scale change / mild partial overlap baseline",
+    "note": "생성 요청 명칭을 실제 난이도 달성으로 간주하지 않는다. 교차 스트레스 성공 사례로 표시하면 안 된다."
+  },
+  "limitations": [
+    "AI visual source review, not independent human consensus or benchmark ground truth.",
+    "Five IN events and no OUT events: this clip cannot establish bidirectional robustness.",
+    "The overview was sampled at 0.25-second intervals; event windows were inspected more densely, but not every frame was exhaustively annotated.",
+    "No HOTA, IDF1, MOTA, detection recall, or mask IoU can be established from these annotations.",
+    "C01 has only partial overlap with continuously visible upper body; C02/C03 are ordinary-visibility controls, not re-identification ground truth.",
+    "Reflections in side windows are not counted as additional physical people."
+  ]
+}

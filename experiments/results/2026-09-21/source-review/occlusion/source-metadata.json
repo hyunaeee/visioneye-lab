@@ -1,0 +1,12 @@
+{
+  "sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+  "frames": 361,
+  "fps": 24.0,
+  "width": 1280,
+  "height": 720,
+  "duration_seconds": 15.041666666666666,
+  "first_frame_readable": true,
+  "last_frame_readable": true,
+  "source": "web/assets/stress-occlusion-source.mp4",
+  "model_outputs_read": false
+}

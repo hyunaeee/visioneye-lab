@@ -1,0 +1,273 @@
+{
+  "review_type": "source-only visual event and challenge annotation",
+  "reviewer": "Codex primary AI visual reviewer; not human consensus",
+  "review_locked_at_utc": "2026-09-21T05:51:18.887868+00:00",
+  "clip_id": "reentry",
+  "source": "web/assets/stress-reentry-source.mp4",
+  "source_sha256": "0909a3e8eae651b6d082b1c596050aa82c12ba63d3ec2ad4bc00b69d44251b1c",
+  "source_width": 1280,
+  "source_height": 720,
+  "source_frames": 361,
+  "source_fps": 24,
+  "model_outputs_seen": false,
+  "generation_prompt_used_as_ground_truth": false,
+  "fixed_parameters": {
+    "line_normalized": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "line_px": [
+      [
+        128,
+        396
+      ],
+      [
+        1152,
+        396
+      ]
+    ],
+    "in_side": 1,
+    "hysteresis_px": 8
+  },
+  "manual_events": [
+    {
+      "manual_id": "S01a",
+      "subject": "Blue shirt / tan trousers, initially moving upward",
+      "direction": "OUT",
+      "frame_window": [
+        0,
+        4
+      ],
+      "window_seconds": [
+        0.0,
+        0.16666666666666666
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/early.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S02a",
+      "subject": "Green top, initially moving upward",
+      "direction": "OUT",
+      "frame_window": [
+        8,
+        12
+      ],
+      "window_seconds": [
+        0.3333333333333333,
+        0.5
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/early.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S03a",
+      "subject": "White shirt / pale trousers, moving downward",
+      "direction": "IN",
+      "frame_window": [
+        24,
+        30
+      ],
+      "window_seconds": [
+        1.0,
+        1.25
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/white-down.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S04a",
+      "subject": "Mustard shirt / blue trousers, moving upward",
+      "direction": "OUT",
+      "frame_window": [
+        52,
+        58
+      ],
+      "window_seconds": [
+        2.1666666666666665,
+        2.4166666666666665
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/mustard-up.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S05a",
+      "subject": "Red suit / light handbag, moving downward",
+      "direction": "IN",
+      "frame_window": [
+        74,
+        78
+      ],
+      "window_seconds": [
+        3.0833333333333335,
+        3.25
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/red-down-confirm.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S05b",
+      "subject": "Red suit / light handbag, returning upward",
+      "direction": "OUT",
+      "frame_window": [
+        280,
+        284
+      ],
+      "window_seconds": [
+        11.666666666666666,
+        11.833333333333334
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/return-detail.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S04b",
+      "subject": "Mustard shirt / blue trousers, later moving downward",
+      "direction": "IN",
+      "frame_window": [
+        296,
+        300
+      ],
+      "window_seconds": [
+        12.333333333333334,
+        12.5
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/return-detail.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S03b",
+      "subject": "White shirt / pale trousers, later moving upward",
+      "direction": "OUT",
+      "frame_window": [
+        322,
+        326
+      ],
+      "window_seconds": [
+        13.416666666666666,
+        13.583333333333334
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/return-detail.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S02b",
+      "subject": "Green top, later moving downward",
+      "direction": "IN",
+      "frame_window": [
+        346,
+        350
+      ],
+      "window_seconds": [
+        14.416666666666666,
+        14.583333333333334
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/last.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    },
+    {
+      "manual_id": "S01b",
+      "subject": "Blue shirt / tan trousers, later moving downward",
+      "direction": "IN",
+      "frame_window": [
+        346,
+        350
+      ],
+      "window_seconds": [
+        14.416666666666666,
+        14.583333333333334
+      ],
+      "status": "confirmed",
+      "detail_evidence": "contact-images/last.jpg",
+      "note": "Conservative source-shoe crossing window; no detector output consulted."
+    }
+  ],
+  "ambiguous_events": [],
+  "manual_totals": {
+    "IN": 5,
+    "OUT": 5,
+    "confirmed_events": 10,
+    "unknown_events": 0
+  },
+  "source_identity_episodes": [
+    {
+      "episode_id": "red-offscreen",
+      "subject": "S05 red suit and light handbag",
+      "before_frame": 120,
+      "before_box_px": [
+        110,
+        550,
+        270,
+        710
+      ],
+      "visibility_interval_frames": [
+        142,
+        206
+      ],
+      "after_frame": 240,
+      "after_box_px": [
+        195,
+        490,
+        350,
+        635
+      ],
+      "same_person_assessment": "likely",
+      "reason": "Distinctive red suit and light bag leave lower-left boundary, absent at F142..206, red sliver returns by F210. Offscreen identity is an appearance/path inference, not proven identity.",
+      "detail_evidence": "contact-images/identity-evidence.jpg"
+    },
+    {
+      "episode_id": "red-passing",
+      "subject": "S05 red suit passes mustard-shirt subject",
+      "before_frame": 48,
+      "before_box_px": [
+        575,
+        100,
+        680,
+        290
+      ],
+      "visibility_interval_frames": [
+        52,
+        64
+      ],
+      "after_frame": 72,
+      "after_box_px": [
+        453,
+        225,
+        542,
+        390
+      ],
+      "same_person_assessment": "likely",
+      "reason": "Continuous red-clothing path past oppositely moving mustard shirt; minor body overlap, no complete disappearance.",
+      "detail_evidence": "contact-images/identity-evidence.jpg"
+    }
+  ],
+  "challenge_present": {
+    "crossing": "partial",
+    "occlusion": "partial",
+    "reentry": "confirmed"
+  },
+  "limitations": [
+    "Synthetic generated footage; not an outdoor/crowded real-world benchmark.",
+    "No full-frame boxes or identity ground truth; source episode boxes are approximate anchor regions only.",
+    "Returning crowd has conspicuously coordinated reverse-like paths; not independent real pedestrian behavior.",
+    "Offscreen identity cannot be proven; visually similar returning subjects are inferred.",
+    "Initial gray person at right edge is outside finite gate endpoint; black-clad peripheral subjects do not complete a visible gate crossing.",
+    "Lowest visible shoe and detector box-bottom need not coincide.",
+    "All 61 quarter-second overview frames and 1–2-frame event details reviewed before inference."
+  ]
+}

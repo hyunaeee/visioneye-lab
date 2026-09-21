@@ -1,0 +1,232 @@
+{
+  "mode": "yolo26n-bytetrack",
+  "status": "completed",
+  "comparison_kind": "detector-pipeline",
+  "clip": "occlusion",
+  "repeat": 2,
+  "processed_frames": 361,
+  "source_fps": 24.0,
+  "input_size_px": [
+    1280,
+    720
+  ],
+  "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+  "recording_start_seconds": 0,
+  "config": {
+    "line": [
+      [
+        0.1,
+        0.55
+      ],
+      [
+        0.9,
+        0.55
+      ]
+    ],
+    "in_side": 1,
+    "floor_quad": null,
+    "initial_occupancy": 0,
+    "hysteresis_px": 8.0,
+    "max_gap_frames": 15,
+    "privacy": "none"
+  },
+  "privacy": "transparent_overlay",
+  "occupancy_ground_truth_available": false,
+  "total_in": 0,
+  "total_out": 0,
+  "occupancy": 0,
+  "raw_occupancy": 0,
+  "underflow": false,
+  "active_tracks": 11,
+  "confirmed_tracks": 12,
+  "confirmed_track_ids": [
+    1,
+    5,
+    7,
+    8,
+    20,
+    21,
+    27,
+    29,
+    31,
+    34,
+    42,
+    44
+  ],
+  "detector_count": 871,
+  "detection_counts": {
+    "min": 0,
+    "median": 2.0,
+    "max": 8
+  },
+  "processing_seconds": 3.806571099848952,
+  "processing_fps": 94.84,
+  "wall_seconds": 3.8156114000012167,
+  "model_initialization_seconds": null,
+  "tracker_initialization_seconds": 0.0016195999924093485,
+  "warmup_seconds": 0.04110090003814548,
+  "warmup_calls": 5,
+  "stage_elapsed": {
+    "source_read": {
+      "calls": 361,
+      "total_seconds": 0.527315,
+      "p50_ms": 1.357,
+      "p95_ms": 1.812
+    },
+    "detector": {
+      "calls": 361,
+      "total_seconds": 3.11803,
+      "p50_ms": 8.156,
+      "p95_ms": 12.894
+    },
+    "tracker": {
+      "calls": 361,
+      "total_seconds": 0.130192,
+      "p50_ms": 0.394,
+      "p95_ms": 0.681
+    },
+    "counter": {
+      "calls": 361,
+      "total_seconds": 0.007245,
+      "p50_ms": 0.02,
+      "p95_ms": 0.037
+    },
+    "telemetry": {
+      "calls": 361,
+      "total_seconds": 0.01284,
+      "p50_ms": 0.03,
+      "p95_ms": 0.082
+    },
+    "processing": {
+      "calls": 361,
+      "total_seconds": 3.806571,
+      "p50_ms": 10.161,
+      "p95_ms": 14.875
+    }
+  },
+  "gpu_memory": {
+    "device_used_peak_mib": 8274.0,
+    "device_utilization_mean_percent": 26.1,
+    "sample_count": 36,
+    "scope": "Whole-device 100ms samples, including display and other processes; not isolated model memory.",
+    "torch_peak_allocated_mib": 65.3,
+    "torch_peak_reserved_mib": 88.0
+  },
+  "engine_metadata": {
+    "model": "YOLO26n",
+    "model_key": "yolo26n",
+    "precision": "FP32",
+    "imgsz": 640,
+    "tensor_input_size_px": [
+      640,
+      640
+    ],
+    "rect": false,
+    "batch": 1,
+    "confidence": 0.1,
+    "person_class": 0,
+    "max_det": 300,
+    "iou": 0.7,
+    "nms_option": null,
+    "end_to_end": false,
+    "postprocess": "native one-to-many head and class-aware external NMS, IoU 0.7",
+    "preprocess": "Ultralytics BGR to RGB, letterbox to 640x640, float32/255",
+    "weights_file": "yolo26n.pt",
+    "weights_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+    "parameters_loaded": 2572280,
+    "device": "cuda:0",
+    "ultralytics_version": "8.4.150",
+    "adapter_sha256": "f044f34acbc0c571658c0f86cee64412d6ccd35f1040eb35d1e7465f38a02663",
+    "capacity_note": "Nano variants are not parameter-count or FLOP matched across model generations.",
+    "runtime_parameter_dtype": "float32",
+    "runtime_parameters_fused": 2408932
+  },
+  "tracker_metadata": {
+    "kind": "bytetrack",
+    "fps": 24.0,
+    "requested_device": "0",
+    "tracker_compute": "CPU NumPy association; no ReID network",
+    "ultralytics_version": "8.4.150",
+    "numpy_version": "2.5.2",
+    "native_config": {
+      "tracker_type": "bytetrack",
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 30,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "config": {
+      "tracker_type": "bytetrack",
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 24,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    },
+    "config_overrides": {
+      "track_buffer": 24
+    },
+    "max_lost_frames": 24,
+    "track_buffer_seconds": 1.0,
+    "buffer_policy": "Common rounded one-second track buffer for all three trackers",
+    "reid_enabled": false,
+    "camera_motion_compensation": "none",
+    "raw_detections_preserved": true,
+    "raw_detection_index_validation": "strict",
+    "loose_nms_recovery": false,
+    "adapter_sha256": "f044f34acbc0c571658c0f86cee64412d6ccd35f1040eb35d1e7465f38a02663",
+    "tracker_yaml_sha256": "395701d947a749179dee3e327b1181b730c4ca98e7cac5a2ab05280aae573b8b",
+    "tracker_implementation_sha256": "8a0128e453b05f19693247b6b2bdedfe33a89e9321f3c47671eb09289627932c",
+    "comparison_scope": "Pinned Ultralytics implementations on identical postprocessed boxes; native association thresholds; not full paper reproductions",
+    "threshold_note": "ByteTrack/BoT-SORT high=.25 low=.1 new=.25 match=.8; TrackTrack high=.6 low=.25 new=.7 match=.7",
+    "distinct_track_ids_are_people_count": false,
+    "frames_processed_since_reset": 361
+  },
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.2",
+    "opencv": "4.14.0"
+  },
+  "python_version": "3.12.14",
+  "protocol_sha256": "f3bce54c923e3baa1c3848f78d7b6261e549ef1274993e0d97e793dd7e8114e8",
+  "source_review_sha256": "e603981f3b87a03f0bf804768090719ea7cda08b088a4c645bcadd4229fe38bb",
+  "runner_sha256": "d121e0f8e8344565640efa5c2a74b28dc1eb69726a346aa651af1290c009ea05",
+  "event_agreement": {
+    "strict": {
+      "matched": 0,
+      "reference_events": 0,
+      "predicted_events": 0,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0,
+      "pairs": [],
+      "scope": "Clip/direction/time-only one-to-one agreement with source-only AI review. Not identity-verified accuracy; ambiguous source events excluded from references, retained in source review."
+    },
+    "plus_0_5s": {
+      "matched": 0,
+      "reference_events": 0,
+      "predicted_events": 0,
+      "unmatched_predictions": 0,
+      "unmatched_references": 0,
+      "tolerance_seconds": 0.5,
+      "pairs": [],
+      "scope": "Clip/direction/time-only one-to-one agreement with source-only AI review. Not identity-verified accuracy; ambiguous source events excluded from references, retained in source review."
+    }
+  },
+  "measurement_notes": [
+    "Source decoding + detector + tracker + counter + JSONL logging; model load, 5 warm-up calls, rendering and encoding excluded.",
+    "Detector and tracker timed with CUDA synchronization. Batch 1, fixed 640x640, FP32 and TF32 disabled. Native YOLO letterbox versus RT-DETRv2 warp preprocessing differs; model capacity is not matched.",
+    "YOLO26n uses one-to-many head with external NMS in this common Ultralytics adapter; this is not the default end-to-end NMS-free configuration.",
+    "Our GPU jobs run sequentially. Desktop display and other processes are not isolated; NVML whole-device samples and per-process torch allocator peaks are distinct.",
+    "Tracker-only runs replay identical ordered YOLO26n rep01 boxes and scores. ReID OFF, GMC none, 24-frame lost buffer. Native association thresholds differ; no tuning on these clips.",
+    "Three repeats quantify runtime variation; they are not independent source samples. AI source-only annotations are not human-consensus or full identity ground truth.",
+    "Absolute occupancy is unknown. Track ID totals are not unique people; no HOTA/IDF1/recall claimed."
+  ],
+  "reproducibility": {
+    "source_sha256": "040c4f0c7d5400f6ca80496b800a968e042ff701acbb0c7e38f9c7e9ead8df5f",
+    "source_path": "web/assets/stress-occlusion-source.mp4"
+  }
+}

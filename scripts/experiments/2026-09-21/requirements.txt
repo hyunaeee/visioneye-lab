@@ -1,0 +1,20 @@
+# Python 3.12.14 was measured. Install torch/torchvision cu128 first via prepare.py.
+# Main inference dependencies plus the official RT-DETR import requirements.
+# This is a minimal reproduction pin set, not a byte-identical full OS lock.
+ultralytics==8.4.150
+numpy==2.5.2
+opencv-python==4.14.0.94
+lap==0.5.13
+Pillow==12.3.0
+PyYAML==6.0.3
+nvidia-ml-py==13.610.43
+absl-py==2.5.0
+faster-coco-eval==1.8.0
+grpcio==1.84.0
+Markdown==3.10.3
+protobuf==7.36.2
+pycocotools==2.0.11
+scipy==1.18.1
+tensorboard==2.21.0
+tensorboard-data-server==0.7.2
+Werkzeug==3.1.8

@@ -1,0 +1,2 @@
+# Evidence hashes refer to exact measured bytes, including existing line endings.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
